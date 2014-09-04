@@ -414,10 +414,10 @@ CREATE TABLE actocolectivo (
 
 CREATE TABLE actosjr (
     fecha date NOT NULL,
-    fechaexpulsion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id_acto integer NOT NULL
+    id_acto integer NOT NULL,
+    desplazamiento_id integer
 );
 
 
@@ -1390,6 +1390,18 @@ CREATE TABLE derecho_respuesta (
 
 
 --
+-- Name: desplazamiento_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE desplazamiento_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
 -- Name: desplazamiento; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1425,20 +1437,9 @@ CREATE TABLE desplazamiento (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     paisdecl integer,
+    id integer DEFAULT nextval('desplazamiento_seq'::regclass) NOT NULL,
     CONSTRAINT desplazamiento_declaro_check CHECK ((((declaro = 'S'::bpchar) OR (declaro = 'N'::bpchar)) OR (declaro = 'R'::bpchar)))
 );
-
-
---
--- Name: desplazamiento_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE desplazamiento_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 --
@@ -3383,11 +3384,27 @@ ALTER TABLE ONLY derecho_respuesta
 
 
 --
+-- Name: desplazamiento_id_caso_fechaexpulsion_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY desplazamiento
+    ADD CONSTRAINT desplazamiento_id_caso_fechaexpulsion_key UNIQUE (id_caso, fechaexpulsion);
+
+
+--
+-- Name: desplazamiento_id_key; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY desplazamiento
+    ADD CONSTRAINT desplazamiento_id_key UNIQUE (id);
+
+
+--
 -- Name: desplazamiento_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY desplazamiento
-    ADD CONSTRAINT desplazamiento_pkey PRIMARY KEY (id_caso, fechaexpulsion);
+    ADD CONSTRAINT desplazamiento_pkey PRIMARY KEY (id);
 
 
 --
@@ -3997,6 +4014,14 @@ ALTER TABLE ONLY actocolectivo
 
 ALTER TABLE ONLY actocolectivo
     ADD CONSTRAINT actocolectivo_id_presponsable_fkey FOREIGN KEY (id_presponsable) REFERENCES presponsable(id);
+
+
+--
+-- Name: actosjr_desplazamiento_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actosjr
+    ADD CONSTRAINT actosjr_desplazamiento_id_fkey FOREIGN KEY (desplazamiento_id) REFERENCES desplazamiento(id);
 
 
 --
@@ -5340,4 +5365,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140901106000');
 INSERT INTO schema_migrations (version) VALUES ('20140902101425');
 
 INSERT INTO schema_migrations (version) VALUES ('20140904033941');
+
+INSERT INTO schema_migrations (version) VALUES ('20140904211823');
+
+INSERT INTO schema_migrations (version) VALUES ('20140904213327');
 
