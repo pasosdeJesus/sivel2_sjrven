@@ -568,8 +568,6 @@ CREATE TABLE aslegal (
 CREATE TABLE aslegal_respuesta (
     id_respuesta integer NOT NULL,
     id_aslegal integer DEFAULT 0 NOT NULL,
-    detalleal character varying(5000),
-    montoal integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -609,8 +607,6 @@ CREATE TABLE aspsicosocial (
 CREATE TABLE aspsicosocial_respuesta (
     id_respuesta integer NOT NULL,
     id_aspsicosocial integer DEFAULT 0 NOT NULL,
-    detalleap character varying(5000),
-    montoap integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -650,8 +646,6 @@ CREATE TABLE ayudaestado (
 CREATE TABLE ayudaestado_respuesta (
     id_respuesta integer NOT NULL,
     id_ayudaestado integer DEFAULT 0 NOT NULL,
-    cantidad character varying(50),
-    institucion character varying(100),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -691,10 +685,8 @@ CREATE TABLE ayudasjr (
 CREATE TABLE ayudasjr_respuesta (
     id_respuesta integer NOT NULL,
     id_ayudasjr integer DEFAULT 0 NOT NULL,
-    detallear character varying(5000),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    montoar integer
+    updated_at timestamp without time zone
 );
 
 
@@ -1382,8 +1374,6 @@ CREATE TABLE derecho (
 CREATE TABLE derecho_respuesta (
     id_respuesta integer NOT NULL,
     id_derecho integer DEFAULT 9 NOT NULL,
-    informacion boolean,
-    acciones character varying(5000),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -1476,8 +1466,6 @@ CREATE TABLE emprendimiento (
 CREATE TABLE emprendimiento_respuesta (
     id_respuesta integer NOT NULL,
     id_emprendimiento integer DEFAULT 0 NOT NULL,
-    detalleem character varying(5000),
-    montoem integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -2035,7 +2023,6 @@ CREATE TABLE motivosjr (
 CREATE TABLE motivosjr_respuesta (
     id_respuesta integer NOT NULL,
     id_motivosjr integer DEFAULT 0 NOT NULL,
-    detalle character varying(5000),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -2295,7 +2282,6 @@ CREATE TABLE progestado (
 CREATE TABLE progestado_respuesta (
     id_respuesta integer NOT NULL,
     id_progestado integer DEFAULT 0 NOT NULL,
-    difobs character varying(5000),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -2578,7 +2564,21 @@ CREATE TABLE respuesta (
     verifcper character varying(5000),
     efectividad character varying(5000),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    detallear character varying(5000),
+    montoar integer,
+    cantidadayes character varying(50),
+    institucionayes character varying(500),
+    informacionder boolean,
+    accionesder character varying(5000),
+    detallemotivo character varying(5000),
+    difobsprog character varying(5000),
+    detalleal character varying(5000),
+    montoal integer,
+    detalleap character varying(5000),
+    montoap integer,
+    detalleem character varying(5000),
+    montoem integer
 );
 
 
@@ -5369,4 +5369,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140904033941');
 INSERT INTO schema_migrations (version) VALUES ('20140904211823');
 
 INSERT INTO schema_migrations (version) VALUES ('20140904213327');
+
+INSERT INTO schema_migrations (version) VALUES ('20140905121420');
 

@@ -35,11 +35,11 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-#gem 'sivel2_gen', github: 'pasosdeJesus/sivel2_gen'
-gem 'sivel2_gen', path: '../sivel2_gen'
+gem 'sivel2_gen', github: 'pasosdeJesus/sivel2_gen'
+#gem 'sivel2_gen', path: '../sivel2_gen'
 
-#gem 'sivel2_sjr', github: 'pasosdeJesus/sivel2_sjr'
-gem 'sivel2_sjr', path: '../sivel2_sjr'
+gem 'sivel2_sjr', github: 'pasosdeJesus/sivel2_sjr'
+#gem 'sivel2_sjr', path: '../sivel2_sjr'
 
 gem 'pg'
 
@@ -61,6 +61,7 @@ gem "tzinfo"
 gem "tzinfo-data"
 
 gem "unicorn", group: [:production]
+gem "rails_12factor", group: [:production]
 
 gem "rails-i18n"
 gem "simple_form"
