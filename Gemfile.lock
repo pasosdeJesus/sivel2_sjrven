@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/vtamara/cocoon.git
-  revision: d0630b3ea2974fed935d9d879f66501da64602a9
+  revision: 836a331276ea1452d63325a6662483b9f1cb28be
   specs:
     cocoon (1.2.5)
 
@@ -13,14 +13,14 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: e58e0f55a678bd2d5d29b2cd0290f9f6e2e17978
+  revision: d0c8d8f655a1a894a5273d403609e141ef08356f
   specs:
     sivel2_sjr (2.0.a1)
       rails (~> 4.1.5)
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_gen.git
-  revision: eb125190534fa1f49ea04f3dda89a7fa6225f0e5
+  revision: cc4af0b3d896971e0cb203e74c7499445cdd975b
   specs:
     sivel2_gen (2.0.a1)
       capybara
@@ -166,6 +166,7 @@ GEM
     minitest (5.4.1)
     multi_json (1.10.1)
     multi_test (0.1.1)
+    newrelic_rpm (3.9.3.241)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -316,6 +317,7 @@ DEPENDENCIES
   jquery-ui-bootstrap-rails!
   jquery-ui-rails
   launchy
+  newrelic_rpm
   paperclip (~> 4.1)
   pg
   rails (= 4.1.5)

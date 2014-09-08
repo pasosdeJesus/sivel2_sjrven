@@ -2090,7 +2090,7 @@ CREATE TABLE organizacion (
 -- Name: pais_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE pais_seq
+CREATE SEQUENCE pais_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -2103,7 +2103,7 @@ CREATE SEQUENCE pais_seq
 --
 
 CREATE TABLE pais (
-    id integer DEFAULT nextval('pais_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval('pais_id_seq'::regclass) NOT NULL,
     nombre character varying(200) NOT NULL,
     nombreiso character varying(200) NOT NULL,
     latitud double precision,
