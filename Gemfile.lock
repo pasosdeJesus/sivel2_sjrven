@@ -13,14 +13,14 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 0931604ccb48435e0f723934cb161c7f1f3fdc58
+  revision: 8d6293c78758b7bc7ccba5379c969de308c0f864
   specs:
     sivel2_sjr (2.0.a1)
       rails (~> 4.1.5)
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 857dee66c08b4406ae62fcc3a67515f06577cc78
+  revision: 40da11453f241bb066a9b40ef43f23a132271574
   specs:
     sivel2_gen (2.0.a1)
       capybara
@@ -166,7 +166,7 @@ GEM
     minitest (5.4.1)
     multi_json (1.10.1)
     multi_test (0.1.1)
-    newrelic_rpm (3.9.3.241)
+    newrelic_rpm (3.9.4.245)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -222,7 +222,7 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       rspec-mocks (>= 2.99, < 4.0)
-    rspec-core (3.1.1)
+    rspec-core (3.1.2)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.0)
       diff-lcs (>= 1.2.0, < 2.0)
