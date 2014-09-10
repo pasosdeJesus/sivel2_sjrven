@@ -13,14 +13,14 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: ee2efd3d8c5b672fc67b3777f3b39ce7ae60f620
+  revision: 770aa8038f6be3e9e3238ff0ba00e5652d8874fe
   specs:
     sivel2_sjr (2.0.a1)
       rails (~> 4.1.5)
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 95ced7b6e54f886bcf447bfb80f6ddaada4e7e71
+  revision: 4ba34024f026d44d0eeb4ea97e78914c3a9e0bf7
   specs:
     sivel2_gen (2.0.a1)
       capybara

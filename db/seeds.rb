@@ -7,7 +7,7 @@ connection = ActiveRecord::Base.connection();
 connection.execute(IO.read(Gem.loaded_specs['sivel2_gen'].full_gem_path +
                            "/db/datos-basicas.sql"));
 connection.execute(IO.read(Gem.loaded_specs['sivel2_sjr'].full_gem_path +
-                           "/db/datos-basicas.sql"));
+                           "/db/datos-basicasn.sql"));
 
 connection.execute("INSERT INTO usuario 
 	(nusuario, email, encrypted_password, password, 
