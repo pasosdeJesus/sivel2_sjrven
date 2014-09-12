@@ -323,17 +323,16 @@ describe "Llenar caso con javascript", :js => true do
       click_on "Añadir Causa/Antecedente"
       page.save_screenshot('s-a1.png')
       if (!find_field('Categoria').visible?)
-        click_on "Añadir Desplazamiento"
+        click_on "Añadir Causa/Antecedente"
       end
       page.save_screenshot('s-a2.png')
-      expect(find('#antecedentes')).to have_field( 'Presunto Responsable')
+      expect(find('#antecedentes')).to have_field( 'Categoria')
       within ("#antecedentes") do 
         find_field('Presunto Responsable').click
         select('AUC', from: 'Presunto Responsable') 
         select('A23 HERIDO', from: 'Categoria') 
         find_field('Víctima').click
         select('Nombres Solicitanate Apellidos Solicitante', from: 'Víctima') 
-        fill_in "Fecha", with: '2014-08-03'
       end
       page.save_screenshot('s-a3.png')
       click_on "Causas/Antecedentes"
