@@ -1,5 +1,6 @@
-PATH
-  remote: ../sivel2_sjr
+GIT
+  remote: git://github.com/pasosdeJesus/sivel2_sjr.git
+  revision: 083fbcbc0033c05d8a7db2606253672e406da4a7
   specs:
     sivel2_sjr (2.0.a1)
       rails (~> 4.1.5)
