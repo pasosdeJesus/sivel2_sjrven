@@ -4,11 +4,18 @@
 
 connection = ActiveRecord::Base.connection();
 
-connection.execute(IO.read(Gem.loaded_specs['sivel2_gen'].full_gem_path +
-                           "/db/datos-basicas.sql"));
-connection.execute(IO.read(Gem.loaded_specs['sivel2_sjr'].full_gem_path +
-                           "/db/datos-basicasn.sql"));
+# De SIVeL generico
+l = File.readlines(Gem.loaded_specs['sivel2_gen'].full_gem_path +
+                   "/db/datos-basicas.sql")
+connection.execute(l.join("\n"))
 
+# De SIVeL SJR
+l = File.readlines(Gem.loaded_specs['sivel2_sjr'].full_gem_path +
+                   "/db/datos-basicasn.sql")
+#.select { |line|  line !~ /INTO acreditacion /} 
+connection.execute(l.join("\n"));
+
+# Usuario inicial: sjrven con clave sjrven123
 connection.execute("INSERT INTO usuario 
 	(nusuario, email, encrypted_password, password, 
   fechacreacion, created_at, updated_at, rol) 
