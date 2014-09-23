@@ -301,7 +301,7 @@ describe "Llenar caso con javascript", :js => true do
       click_on "Añadir Agente de Persecución"
       page.save_screenshot('s-pr1.png')
       if (!find_field('Presunto Responsable').visible?)
-        click_on "Añadir Desplazamiento"
+        click_on "Añadir Agente de Persecución"
       end
       expect(find('#presponsable')).to have_field( 'Presunto Responsable')
       within ("#presponsable") do 
