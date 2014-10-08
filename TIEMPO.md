@@ -1,0 +1,72 @@
+
+# EVOLUCION DEL TIEMPO DE RESPUESTA DE SIVeL - SJR Venezuela 2.0a1
+
+Tiempos en segundos.
+
+## ESPECIFICACION DE SERVIDORES
+
+SERVIDOR SJR-1:
+* AMD FX-6100 3315MHz, 6 núcleos
+* RAM: 8G
+* Disco: 2 discos de 1T
+* Plataforma: adJ 5.4p1, PostgreSQL 9.3.2, ruby 2.0.0, RoR 4.1.0rc1, unicorn-4.8.2
+* Conexión a Internet por Claro 12MB fibra óptica. 6M de subida.
+* Cortafuegos con adJ 5.5 
+
+SERVIDOR SJR-1d:
+El mismo SJR-1 pero con
+* Plataforma: adJ 5.4p1, PostgreSQL 9.3.2, ruby 2.0.0, RoR 4.1.0rc1, webricks. Modo desarrollo
+
+SERVIDOR SJR-55:
+El mismo SJR-1 pero con
+* Plataforma: adJ 5.5, PostgreSQL 9.3.5, ruby 2.1.0, RoR 4.1.6, unicorn 4.8.3
+
+
+## ESPECIFICACION DE CLIENTES
+
+CLIENTE V-1:
+* AMD E-450. 1647.97 MHz
+* RAM: 4G
+* Disco: 500G
+* Conexión a Internet por UNE Inalámbrico 2MB
+* Plataforma: adJ 5.6, chrome 32
+
+CLIENTE W-1:
+* AMD Athlon 64 X2 Dual Core 5600+. 2813Mhz
+* RAM: 1G
+* Disco: 1T
+* Conexión a servidor directa LAN 100G.
+* Plataforma: adJ 5.5, chrome 32
+
+
+## MEDICIONES
+
+### Fecha: 7.Oct.2014. Servidor: SJR-1. Cliente: V-1
+* Autenticar: 1,5
+* Lista de actividades: 0,5
+* Editar una actividad: 0,7
+* Lista de casos: 0,6
+* Editar un caso: 3,4
+* Agregar etiqueta y guardar: 2,5
+* Editar de nuevo: 2,5
+
+### Fecha: 7.Oct.2014. Servidor: SJR-1. Cliente: W-1
+* Autenticar: <0,5
+* Lista de actividades: <0,5
+* Editar una actividad: <0,5
+* Lista de casos: <0,5
+* Editar un caso: 1,77
+* Agregar etiqueta y guardar: 0,7
+* Editar de nuevo: 2
+
+### Fecha: 7.Oct.2014. Servidor: SJR-2. Cliente: V-1
+* Autenticar: 2,8
+* Lista de actividades: 2,5
+* Editar una actividad: 0,5
+* Lista de casos: 1,5
+* Editar un caso: 8,1
+* Agregar etiqueta y guardar: 2,1
+* Editar de nuevo: 8,1
+
+
+
