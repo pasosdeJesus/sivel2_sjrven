@@ -21,6 +21,11 @@ SERVIDOR SJR-55:
 El mismo SJR-1 pero con
 * Plataforma: adJ 5.5, PostgreSQL 9.3.5, ruby 2.1.0, RoR 4.1.6, unicorn 4.8.3
 
+SERVIDOR SJR-55d:
+El mismo SJR-55 pero con
+* Plataforma: adJ 5.5, PostgreSQL 9.3.5, ruby 2.1.0, RoR 4.1.6, webricks modo desarrollo
+
+
 
 ## ESPECIFICACION DE CLIENTES
 
@@ -59,7 +64,7 @@ CLIENTE W-1:
 * Agregar etiqueta y guardar: 0,7
 * Editar de nuevo: 2
 
-### Fecha: 7.Oct.2014. Servidor: SJR-2. Cliente: V-1
+### Fecha: 7.Oct.2014. Servidor: SJR-55. Cliente: V-1
 * Autenticar: 2,8
 * Lista de actividades: 2,5
 * Editar una actividad: 0,5
@@ -67,6 +72,16 @@ CLIENTE W-1:
 * Editar un caso: 8,1
 * Agregar etiqueta y guardar: 2,1
 * Editar de nuevo: 8,1
+
+### Fecha: 7.Oct.2014. Servidor: SJR-55d. Cliente: V-1
+* Autenticar: <0,5
+* Lista de actividades: 2,5
+* Editar una actividad: 2,5
+* Lista de casos:  2,5
+* Editar un caso: 10,5
+* Agregar etiqueta y guardar: 3,5
+* Editar de nuevo: 6,5
+
 
 
 
