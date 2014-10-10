@@ -10,8 +10,8 @@ SERVIDOR SJR-1:
 * RAM: 8G
 * Disco: 2 discos de 1T
 * Plataforma: adJ 5.4p1, PostgreSQL 9.3.2, ruby 2.0.0, RoR 4.1.0rc1, unicorn-4.8.2
-* Conexión a Internet por Claro 12MB fibra óptica. 6M de subida.
 * Cortafuegos con adJ 5.5 
+* Conexión a Internet en Bogotá por Claro 12MB fibra óptica. 6M de subida.
 
 SERVIDOR SJR-1d:
 El mismo SJR-1 pero con
@@ -25,6 +25,14 @@ SERVIDOR SJR-55d:
 El mismo SJR-55 pero con
 * Plataforma: adJ 5.5, PostgreSQL 9.3.5, ruby 2.1.0, RoR 4.1.6, webricks modo desarrollo
 
+SERVIDOR SJR-552b2d:
+El mismo SJR-55 pero con
+* Plataforma: adJ 5.5, PostgreSQL 9.3.5, ruby 2.1.0, RoR 4.2.0.beta2, webricks modo desarrollo
+
+SERVIDOR SJR-552b2d:
+El mismo SJR-55 pero con
+* Plataforma: adJ 5.5, PostgreSQL 9.3.5, ruby 2.1.0, RoR 4.2.0.beta2, unicorn 4.8.3
+
 
 
 ## ESPECIFICACION DE CLIENTES
@@ -33,8 +41,8 @@ CLIENTE V-1:
 * AMD E-450. 1647.97 MHz
 * RAM: 4G
 * Disco: 500G
-* Conexión a Internet por UNE Inalámbrico 2MB
 * Plataforma: adJ 5.6, chrome 32
+* Conexión a Internet por UNE Inalámbrico 2MB
 
 CLIENTE W-1:
 * AMD Athlon 64 X2 Dual Core 5600+. 2813Mhz
@@ -81,6 +89,25 @@ CLIENTE W-1:
 * Editar un caso: 10,5
 * Agregar etiqueta y guardar: 3,5
 * Editar de nuevo: 6,5
+
+
+### Fecha: 10.Oct.2014. Servidor: SJR-552b2d. Cliente: V-1
+* Autenticar: 2,5
+* Lista de actividades: 1,8
+* Editar una actividad: 2
+* Lista de casos:  2
+* Editar un caso: 4
+* Agregar etiqueta y guardar: 8
+* Editar de nuevo: 5
+
+### Fecha: 10.Oct.2014. Servidor: SJR-552b2. Cliente: V-1
+* Autenticar: 5
+* Lista de actividades: 2,5
+* Editar una actividad: 2,5
+* Lista de casos:  2,5
+* Editar un caso: 4,5
+* Agregar etiqueta y guardar: 7
+* Editar de nuevo: 4
 
 
 
