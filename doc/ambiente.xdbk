@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sect1 id="recurso-humano">
+	<title>Recurso Humano</title>
+	<para>
+		Para usar el sistema de información de manera continua se 
+		requieren personas capacitadas, distribuidas en oficinas
+	        en diversas partes y que cumplan con los siguiente roles:
+		<itemizedlist>
+			<listitem>
+				<para>
+Sistematizador(a):  
+Que recolecta, analiza, clasifica e ingresa información
+periódicamente para su oficina.  
+Es deseable que se entreviste directamente con las víctimas.  
+Aprovecha el sistema para hacer consultas y conteos.
+Puede ver los casos de su oficina, pero sólo es responsable y
+puede editar los casos que haya ingresado.
+				</para>	
+				<para>
+Analista:  
+Que realiza las mismas labores de un sistematizador, pero es 
+responsable de todos los casos de su oficina, pues puede editar
+los propios y los de otros usuarios de la oficina.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+Coordinador(a) de Oficina:
+Realiza las misma labores de un analista de su oficina y además
+es responsable de la información que su oficina comparte con otros
+proyectos (como SJR de otros paises y Banco de Datos del CINEP),  así
+mismo es responsable del personal de su oficina que tiene acceso al
+sistema de información y sus roles.
+				</para>
+			</listitem>
+			
+			<listitem>
+				<para>
+Director(a) Nacional:
+Que puede realizar las labores de coordinador de oficina de
+cualquiera de las oficinas del país y además es responsable
+de todos los casos a nivel nacional (por cuanto puede editarlos),
+de realizar ajustes a los parámetros del sistema (organizados
+en "tablas básicas"), que incluyen la distribución de oficinas
+y de personal en las mismas que tiene acceso al sistema de información.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+Administrador(a): 
+Debe ser de alta confianza pues tiene la misma responsabilidad por la 
+información que el Director(a) Nacional y además mantiene y mejora 
+la infraestructura tecnológica buscando garantizar
+servicio continuo. Es responsable de sacar copias de respaldo 
+periódicamente y de mantener sistema operativo y
+sistema de información actualizados --se requiere actualizar
+al menos cada 6 meses.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+Invitado Nacional:
+Se trata de una persona de un proyecto externo, pero que por
+convenio con el director puede ingresar al sistema para emplear la información
+en labores complementarias al del SJR.  Puede ver
+los conteos e información que no permite identificar a las
+personas atendidas por el SJR, excepto cuando haya convenios que
+incluyan un consentimiento informado para compartir información
+completa con el proyecto externo --en cuyo caso se recomienda
+un consentimiento escrito y firmado, marcar en la casilla que
+la base debe tener para confirmarlo y que el coordinador de oficina
+añada la etiqueta que le permite a un invitado nacional con esa
+etiqueta ver el caso completo.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+Desarrollador(es) de SIVeL: 
+Realiza personalizaciones avanzadas y las aporta liberándolas al 
+dominio público.    
+En su labor tiene acceso como de administrador a la información
+del sistema o sistemas alojados en el servidor donde desarrolla 
+---que puede ser diferente al
+servidor de producción si se requiere limitar su acceso a datos.
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+
+</sect1>
+
+<sect1 id="infraestructura-tecnologica">
+	<title>Infraestructura Tecnológica</title>
+	<para>
+		También se requiere mantener una infraestructra tecnológica,  que en
+		la personalización de SIVeL para el SJR corresponde a la siguiente 
+		(ver otras posibles en la documentación de SIVeL genérico 
+		en <ulink url="http://sivel.sf.net/"></ulink>):
+		<itemizedlist>
+			<listitem>
+				<para>
+[Nivel 6] Una zona desmilitarizada (DMZ), con un 
+cortafuegos en OpenBSD/adJ, una zona para el
+servidor con SIVeL personalizado para el SJR
+y otra zona para la red local. Soporta usuarios en la intranet y 
+en internet.  Esta configuración aisla más la red local del 
+servidor.
+				</para>
+				<informalfigure>
+					<screenshot><mediaobject><imageobject><imagedata
+									fileref="nivel6.eps" format="EPS" scale="40"
+									align="center"></imagedata>
+							</imageobject>
+							<imageobject><imagedata fileref="nivel6.png"
+									format="PNG" align="center"></imagedata></imageobject>
+					</mediaobject></screenshot>
+				</informalfigure>
+			</listitem>
+		</itemizedlist>
+	</para>
+</sect1>
