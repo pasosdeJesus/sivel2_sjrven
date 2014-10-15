@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<!ENTITY URL-BASE "https://s2.pasosdeJesus.org/">
+<!ENTITY URL-BASE "http://s2.pasosdeJesus.org/">
 <!ENTITY buscaexterna "">
 <!ENTITY resultadoexterna "">
 <!ENTITY OPENBSD-VER "5.5">
 <!ENTITY ADJ-VER "5.5">
+<!ENTITY contacto "solicitante principal">
 

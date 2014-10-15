@@ -38,11 +38,11 @@ CVSPROYECTO="sivel.cvs.sourceforge.net:/cvsroot/sivel/doc"
 
 # Las siguientes variables serán modificadas por conf.sh (normalmente no las debe editar)
 
-MES_ACT="Marzo de 2014"
+MES_ACT="Octubre de 2014"
 # Mes de actualización
 #
 
-FECHA_ACT="21/03/2014"
+FECHA_ACT="15/10/2014"
 # Fecha de la actualización más reciente
 #
 
