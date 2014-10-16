@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sect3 id="presuntosresponsables">
-	<title>Presuntos Responsables</title>
+	<title>Agentes de Persecución</title>
 
 
 	<informalfigure>
@@ -34,17 +34,7 @@ Frente: Un frente armado de la guerrilla.
 			</listitem>
 			<listitem>
 				<para>
-Brigada: Del ejercito.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-Batall&oacute;n: Del ejercito.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-Divisi&oacute;n
+					Brigada/Batallón/División: Del ejercito.
 				</para>
 			</listitem>
 			<listitem>
@@ -57,8 +47,8 @@ cargos, alías o n&uacute;mero de integrantes.
 				<para>
 Otras agresiones: Presenta la lista de categorías de violencia que
 no son contra víctimas para elegir las que se requieran para el caso
-(puede seleccionar varias en Firefox manteniendo presionada la tecla Control 
-mientras elige con el rat&oacute;n). 
+(puede seleccionar varias en el navegador manteniendo presionada la tecla 
+Control mientras elige con el rat&oacute;n). 
 Si  hay varios presuntos responsables en un caso, cada uno puede tener una
 clasificaci&oacute;n diferente.
 				</para>

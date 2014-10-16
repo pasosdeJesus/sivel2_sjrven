@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sect3 id="ubicacion">
-	<title>Ubicaci&oacute;n</title>
+	<title>Sitios geográficos de refugio y desplazamiento</title>
 
 	<para>
 Las diferentes ubicaciones por las que el grupo familiar ha
-pasado en desplazamientos forzados se especifican en esta pestaña, 
-se recomienda comenzar con el sitio de expulsion del desplazamiento principal
-pues la primera ubicación será la tenida en cuenta en algunos conteos.
+pasado en refugio o desplazamientos forzados se especifican en esta pestaña.
+Se agregan una a una empleando el botón 
+<literal>Añadir Sitio Geográfico</literal>.  Analogamente puede
+eliminarse un sitio geográfico con el botón <literal>Eliminar Sitio
+Geográfico</literal> que está justo debajo del sitio.
 </para>
 <para>
-Cada ubicaci&oacute;n se específica 
-de acuerdo al DIVIPOLA (Divisi&oacute;n Político
-Administrativa del país de acuerdo al DANE).
+Cada sitio geográfico se específica 
+de acuerdo a una división oficial del país que se eliga (DIVIPOLA en el caso
+de Colombia).
 Si entre las opciones que se le presentan no está el que 
-busca puede agregar el departamento, municipio o centro poblado en la 
+busca puede agregar el departamento/estado, municipio o centro poblado en la 
 tabla básica correspondiente (ver <xref linkend="tablasbasicas"></xref>).
 	</para>
 
@@ -21,7 +23,7 @@ tabla básica correspondiente (ver <xref linkend="tablasbasicas"></xref>).
 		<screenshot><mediaobject><imageobject>
 					<imagedata fileref="pfichaubicacion.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
 				<imageobject><imagedata fileref="pfichaubicacion.png" format="PNG" align="center"></imagedata></imageobject>
-				<textobject><phrase>Ubicaci&oacute;n</phrase></textobject></mediaobject>
+				<textobject><phrase>Sitio geográfico de refugio o desplazamiento</phrase></textobject></mediaobject>
 		</screenshot>
 	</informalfigure>
 
@@ -32,9 +34,9 @@ tabla básica correspondiente (ver <xref linkend="tablasbasicas"></xref>).
 			<listitem>
 				<para>
 Departamento: 
-Si el caso ocurre fuera del país elija <literal>Exterior</literal>.
-Si no conoce el departamento especifique la regi&oacute;n en la pestaña
-anterior (ver <xref linkend="basicos"/>).
+Una vez elija el país puede elegir uno de sus departamentos/estados
+(mientras esta información se haya especificado en las respectivas
+tablas básicas).
 				</para>
 			</listitem>
 			<listitem>
@@ -82,13 +84,6 @@ zona rural o urbana o en ambas.
 			</listitem>
 
 		</itemizedlist>
-	</para>
-
-	<para>
-Los botones de la parte superior permiten
-especificar más de una ubicación de forma
-análoga a otras pestañas 
-(ver <xref linkend="victimaindividual"/>).
 	</para>
 
 </sect3>

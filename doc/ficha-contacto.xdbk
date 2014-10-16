@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect3 id="contacto">
+	<title>&Contacto;</title>
+
+
+	<informalfigure>
+		<screenshot><mediaobject><imageobject>
+					<imagedata fileref="pfichacontacto.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
+				<imageobject><imagedata fileref="pfichacontacto.png" format="PNG" align="center"></imagedata></imageobject>
+				<textobject><phrase>&Contacto;</phrase></textobject></mediaobject>
+		</screenshot>
+	</informalfigure>
+
+
+	<para>
+		Se trata de los datos de la persona de un grupo familiar que
+		es el contacto con el SJR.
+
+
+	<itemizedlist>
+		<listitem>
+			<para>
+				Documento de Identidad: Especifique el tipo y el n&uacute;mero. 
+				Algunos tipos de documentos no se especifican con un número,
+				sino por ejemplo también con letras. En el momento 
+				los documentos provisionales deben constar de una letra
+				mayúscula seguida de un guion y un número, mientras
+				que los pasaportes de una letra seguida de un número.
+				El tipo de documento Otros permite letras y números
+				arbitrariamente.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+Nombres y Apellidos: Se recomienda escribirlos en may&uacute;sculas 
+y con tildes como aparecen en el documento de identificación 
+principal.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+La mayoría de cuadros de selección pueden configurarse en tablas básicas 
+(ver <xref linkend="tablasbasicas"></xref>) típicamente con el mismo nombre: 
+Profesión, Rango de Ead, Etnia, Religión/Iglesia, Orientación Sexual, Estado
+Civil, Rol en Familia, Maternidad, Discapacidad, Enfermedad, Actividad/Oficio
+actual, Nivel Escolar.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+Rango de edad: Debe ser acorde con la edad (a menos que no se haya 
+especificado edad).  Si especific&oacute; la edad, puede dejar esta casilla
+SIN INFORMACI&Oacute;N y el sistema pondrá el rango correspondiente.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+Rol en Familia: Dado que el caso se asocia a un grupo familiar, con este campo
+se específica el rol que la víctima desempeña en ese grupo familiar.
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+Actividad u oficio: Se refiere al que desempeñara la víctima en el momento
+del refugio/desplazamiento más reciente.
+			</para>
+		</listitem>
+	</itemizedlist>
+
+	</para>
+</sect3>
+

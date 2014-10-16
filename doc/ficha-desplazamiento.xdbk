@@ -4,8 +4,8 @@
 
 	<para>
 Permite especificar uno a uno datos de los diversos desplazamientos
-del grupo familiar.  Debe llenarse después de ingresar ubicaciones
-desde la pestaña Ubicación.
+del grupo familiar.  Debe llenarse después de ingresar al menos
+2 ubicaciones desde la pestaña Sitios Geográficos.
 	</para>
 	<informalfigure>
 		<screenshot><mediaobject><imageobject>
@@ -21,25 +21,17 @@ desde la pestaña Ubicación.
 			<listitem>
 				<para>
 Sitio de Expulsión/Llegada: Permitirá elegir entre las
-ubicaciones que hubiera especificado en la pestaña Ubicación.
+ubicaciones que hubiera especificado en la pestaña Sitios Geográficos.
 				</para>
 			</listitem> 
 			<listitem>
 				<para>
 Descripción:
-Del desplazamiento.  Para aprovechar algunos de los reportes existentes
-ingrese la descripción del desplazamiento principal en la pestaña Memo.
+Del desplazamiento.  
 				</para>
 			</listitem> 
 		</itemizedlist>
 
 	</para>
 
-
-	<para>
-Los botones de la parte superior permiten
-especificar más de un desplazamiento de forma
-análoga a otras pestañas 
-(ver <xref linkend="victimaindividual"/>).
-	</para>
 </sect3>

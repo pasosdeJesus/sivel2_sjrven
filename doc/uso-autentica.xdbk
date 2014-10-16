@@ -35,9 +35,12 @@
 				conocida por administradores que tengan acceso
 				a la base.  Se recomienda que tenga n&uacute;meros,
 				letras y caracteres especiales.  Es conveniente
-				cambiarla peri&oacute;dicamente, para esto ...
+				cambiarla peri&oacute;dicamente, puede hacerlo
+				desde 
+				<menuchoice><guimenu>Administración</guimenu>
+					<guimenuitem>Clave</guimenuitem></menuchoice>.
 				</para></warning>
-	Una vez autenticado verá el menú principal de SIVeL.
+	Una vez autenticado verá el menú principal.
 		<informalfigure>
 			<screenshot><mediaobject><imageobject>
 						<imagedata fileref="pmenu.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
@@ -51,9 +54,12 @@
 		Dependiendo del rol de su usuario 
 		(ver <xref linkend="recurso-humano"/>) tendrá o no
 		tendrá acceso a las opciones del men&uacute;:  	
-		Las personas con rol analista no tendrán acceso al menú 
-		<literal>Administrar</literal> --que si puede ser
-		usado por quienes tengan rol administrador.
+		Por ejemplo una persona con rol analista no tendrá 
+		acceso al menú
+		<menuchoice><guimenu>Administración</guimenu>
+					<guimenuitem>Usuarios</guimenuitem></menuchoice>.
+				--que si puede ser usado por quien tenga 
+				rol administrador o director o coordinador.
 	</para>
 </sect1>
 

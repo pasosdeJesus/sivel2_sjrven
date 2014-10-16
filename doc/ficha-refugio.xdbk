@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect3 id="refugio">
+	<title>Refugio</title>
+
+	<para>
+		Permite especificar los datos del refugio.
+		Debe llenarse después de ingresar al menos el sitio geográfico
+		de salida y el de llegada en la sección
+		Sitios Geográficos.
+	</para>
+	<informalfigure>
+		<screenshot><mediaobject><imageobject>
+					<imagedata fileref="pficharefugio.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
+				<imageobject><imagedata fileref="pficharefugio.png" format="PNG" align="center"></imagedata></imageobject>
+				<textobject><phrase>Refugio</phrase></textobject></mediaobject>
+		</screenshot>
+	</informalfigure>
+
+	<para>
+
+		<itemizedlist>
+			<listitem>
+				<para>
+Sitio de Salida/Llegada: Permitirá elegir entre las
+ubicaciones que hubiera especificado en la pestaña Sitios Geográficos.
+				</para>
+			</listitem> 
+			<listitem>
+				<para>
+					Causa del Refugio.
+					Permite elegir una entre las establecidas
+					por el Derecho Internacional del Refugio, bien en
+					la convención de 1951 o en la Declaracion de Cartagena o
+					en el Pacto de San José o por las causas adicionales
+					reconocidas por la ACNUR.
+				</para>
+			</listitem> 
+		</itemizedlist>
+
+	</para>
+
+</sect3>

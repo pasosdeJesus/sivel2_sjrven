@@ -22,9 +22,10 @@ SOURCES=$(PROYECTO).xdbk principios.xdbk \
 	ficha-presponsables.xdbk \
 	ficha-actos.xdbk ficha-respuesta.xdbk ficha-memo.xdbk \
 	ficha-anexos.xdbk \
-	ficha-segjudicial.xdbk \
+	ficha-refugio.xdbk \
 	ficha-etiquetas.xdbk \
 	ficha-otras.xdbk \
+	uso-actividades.xdbk \
 	per-seguridad.xdbk \
 	creditos.xdbk novedades.xdbk 
 # Listado de fuentes XML. Preferiblemente en el orden de inclusión
@@ -43,6 +44,8 @@ IMAGES=img/home.png \
 	img/note.png \
 	img/toc-blank.png \
 	img/warning.png \
+	img/editaactividad.png \
+	img/listaactividades.png \
 	img/nivel1.png \
 	img/nivel2.png \
 	img/nivel3.png \
@@ -50,6 +53,7 @@ IMAGES=img/home.png \
 	img/nivel5.png \
 	img/nivel6.png \
 	img/pfichabasicos.png \
+	img/pfichacontacto.png \
 	img/pfichavictimaindividual.png \
 	img/pfichavictimacolectiva.png \
 	img/pfichaubicacion.png \
@@ -65,13 +69,13 @@ IMAGES=img/home.png \
 	img/pconsultaweb.png \
 	img/pautentica.png \
 	img/pmenu.png img/peditafrecuente.png \
-	img/pnuevafrecuente.png \
+	img/pnuevabasica.png \
 	img/preporteconsolidado.png \
 	img/preporterevistanobelicas.png \
 	img/ptablasbasicas.png \
 	img/ptablasbasicas-noautorizado.png \
 	img/pusuarios.png img/pusuarionuevo.png \
-	img/ptablafrecuente.png \
+	img/ptablabasica.png \
 	img/pconteovindividuales.png \
 	img/presconteo.png img/presconteo2.png \
 	img/estructura.png img/arqseg.png \

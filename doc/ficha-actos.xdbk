@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sect3 id="actos">
-	<title>Causas/Actos</title>
+	<title>Causas/Antecedentes</title>
 
 	<para>
 		<informalfigure>
 			<screenshot><mediaobject><imageobject>
 						<imagedata fileref="pfichaactos.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
 					<imageobject><imagedata fileref="pfichaactos.png" format="PNG" align="center"></imagedata></imageobject>
-					<textobject><phrase>Actos</phrase></textobject></mediaobject>
+					<textobject><phrase>Causas/Antecedentes</phrase></textobject></mediaobject>
 			</screenshot>
 		</informalfigure>
 
-Permite especificar las agresiones que causaron el desplazamiento
-o antecedentes, indicando quien le hizo que a quien.  
+Permite especificar las agresiones que causaron el refugio/desplazamiento
+o antecedentes del mismo o en general actos de violencia político social
+sufridos por víctimas del grupo familiar, indicando quien le hizo que a quien.  
 Para añadir antecedentes debe especificar la fecha de la 
 agresión, marcar uno o más presuntos responsables, una o más 
 categorías de violencia y una o más víctimas,  después de
 esto presionar el botón Añadir.  Si se desea 
 especificar una causa de un desplazamiento, además de los
 anteriores debe especificar la fecha de expulsión del
-desplazamiento (por esto antes de esta pestaña debe
-completarse la pestaña Desplazamiento).
+desplazamiento (en tal caso esto antes de esta sección debe
+completarse la sección Desplazamiento).
 </para>
 <para>
 Las categorías de violencia son las especificadas en
@@ -28,19 +29,20 @@ Las categorías de violencia son las especificadas en
 <literal>Categoría</literal> (ver <xref linkend="tablasbasicas"/>).
 
 Puede elegir varios presuntos responsables o varias categorías 
-o varias víctimas (desde Firefox presionando la tecla Control
+o varias víctimas (desde el navegador presionando la tecla Control
 mientras con el bot&oacute;n del rat&oacute;n se marcan las 
 diversas opciones).  Y una
 vez las elija, presione el bot&oacute;n Añadir.
 	</para>
 	<para>
 Las posibles agresiones constan de la tipología el Marco 
-Conceptual de la revista Noche y Niebla aumentadas
+Conceptual de la revista Noche y Niebla, producida por el 
+Banco de Datos del CINEP, aumentadas
 con un tipo de violencia para el SJR.
 
 El Marco Conceptual de Noche y Niebla tiene 4 tipos de violencia:
-Derechos Humanos (A), Violencia Socio Política (B), Acciones Bélicas (C)
-y Derecho Internacional Humanitario.  Las  supracategorías en 
+(A) Derechos Humanos,  (B) Violencia Socio Política, (C) Acciones Bélicas 
+y (D) Derecho Internacional Humanitario.  Las  supracategorías en 
 el tipo de violencia Derechos Humanos ---para crímenes cometidos
 por agentes estatales) tiene c&oacute;digos así:
 De A10 - A19 y A101 - A150 son de PERSECUCI&Oacute;N POL&Iacute;TICA; de A22 - A29 son 

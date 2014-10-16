@@ -77,7 +77,7 @@ y en particular la distribución Aprendiendo de Jesús (ver <ulink url="http://a
 Para hacer pruebas durante la configuración puede emplear
 una consola y el navegador tipo texto <command>lynx</command>, 
 sin embargo se sugiere configurar X-Window 					(ver <ulink url="http://structio.sourceforge.net/guias/usuario_OpenBSD/sobre-la-instalacion.html#configuracion-de-xorg"></ulink>) y 
-un navegador gráfico como <command>mozilla-firefox</command>.</para>
+un navegador gráfico como <command>chromium</command>.</para>
 				</listitem>
 				<listitem>
 					<para>
@@ -443,7 +443,7 @@ cd /var/www/users/sivel
 Descargue las fuentes más recientes desde 
 <ulink url="http://sivel.sourceforge.net/1.1/"></ulink>, 
 ubiquelas en el servidor y descomprímalas.  Si las descarga con 
-Firefox desde el servidor posiblemente quedaran en el directorio 
+Chromium desde el servidor posiblemente quedaran en el directorio 
 <literal>Desktop</literal> de su cuenta personal por lo que puede 
 descomprimir y remplazar fuentes anteriores.  Usando OpenBSD adJ sería
 con:

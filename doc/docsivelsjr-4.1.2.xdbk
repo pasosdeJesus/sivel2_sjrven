@@ -13,23 +13,28 @@
 <!ENTITY uso-intro SYSTEM "uso-intro.xdbk">
 <!ENTITY uso-autentica SYSTEM "uso-autentica.xdbk">
 <!ENTITY uso-consultaweb SYSTEM "uso-consultaweb.xdbk">
+<!ENTITY uso-actividades SYSTEM "uso-actividades.xdbk">
 
 <!ENTITY ficha-intro SYSTEM "ficha-intro.xdbk">
 <!ENTITY ficha-basicos SYSTEM "ficha-basicos.xdbk">
+<!ENTITY ficha-contacto SYSTEM "ficha-contacto.xdbk">
 <!ENTITY ficha-vindividual SYSTEM "ficha-vindividual.xdbk">
 <!ENTITY ficha-vcolectiva SYSTEM "ficha-vcolectiva.xdbk">
 <!ENTITY ficha-ubicacion SYSTEM "ficha-ubicacion.xdbk">
+<!ENTITY ficha-refugio SYSTEM "ficha-refugio.xdbk">
 <!ENTITY ficha-desplazamiento SYSTEM "ficha-desplazamiento.xdbk">
 <!ENTITY ficha-presponsables SYSTEM "ficha-presponsables.xdbk">
 <!ENTITY ficha-actos SYSTEM "ficha-actos.xdbk">
 <!ENTITY ficha-respuesta SYSTEM "ficha-respuesta.xdbk">
 <!ENTITY ficha-memo SYSTEM "ficha-memo.xdbk">
 <!ENTITY ficha-anexos SYSTEM "ficha-anexos.xdbk">
-<!ENTITY ficha-segjudicial SYSTEM "ficha-segjudicial.xdbk">
 <!ENTITY ficha-etiquetas SYSTEM "ficha-etiquetas.xdbk">
 <!ENTITY ficha-otras SYSTEM "ficha-otras.xdbk">
 
 
+<!ENTITY administracion SYSTEM "administracion.xdbk">
+<!ENTITY tablasbasicas SYSTEM "tablasbasicas.xdbk">
+<!ENTITY usuarios SYSTEM "usuarios.xdbk">
 
 <!ENTITY novedades SYSTEM "novedades.xdbk">
 <!ENTITY creditos SYSTEM "creditos.xdbk">
@@ -59,7 +64,7 @@
 			</para>
 			<para>
 				En Internet puede descargar 
-				<ulink url="http://github.com/pasosdeJesus/SIVeL/">el
+				<ulink url="http://github.com/pasosdeJesus/sivel2/">el
 					código fuente de SIVeL</ulink>. <!--o
 				consultar su
 				<ulink url="&URLSITE;/tec/">documentación técnica</ulink>. 
@@ -87,18 +92,22 @@
 				<title>Ficha</title>
 				&ficha-intro;
 				&ficha-basicos;
+				&ficha-contacto;
 				&ficha-vindividual;
 				&ficha-ubicacion;
+				&ficha-refugio;
 				&ficha-desplazamiento;
 				&ficha-presponsables;
 				&ficha-actos;
 				&ficha-respuesta;
 				&ficha-anexos;
-				&ficha-segjudicial;
 				&ficha-etiquetas;
 			</sect2>
 		</sect1>
+		&uso-actividades;
 	</chapter>
+	
+	&administracion;
 	<!--chapter id="personalizacion" role="periodo" userlevel="p1">
 		<title>Personalización y Desarrollo</title>
 		<para>Para hacer más breve este manual omitimos la
