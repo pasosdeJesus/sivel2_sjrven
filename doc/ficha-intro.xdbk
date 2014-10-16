@@ -20,22 +20,22 @@ ocurri&oacute;.
 
 <para>
 Si está seguro que se trata de un caso nuevo, desde 
-el menú principal elija 
-<literal>Ficha</literal> del men&uacute; 
-<literal>Caso</literal>.
+el listado de casos presione el botón
+<literal>Nuevo</literal>.
 Comience a digitar la
-informaci&oacute;n en cada una de las pestañas del formulario
-sin indicar un n&uacute;mero de caso explícito en la pestaña
+informaci&oacute;n en cada una de las secciones del formulario
+sin indicar un n&uacute;mero de caso explícito en la sección
 de datos básicos --el sistema asignará un n&uacute;mero
 consecutivo automáticamente<footnote><para>
 La numeraci&oacute;n 
 es consecutiva --con saltos cuando se borran casos o se insertan en lote
-de otro SIVeL.   Para efectos de conteos es mejor emplear la consulta
-web (ver <xref linkend="consultaweb"/>).
+de otro SIVeL.   Para efectos de conteos es mejor emplear el listado
+de casos (ver <xref linkend="consultaweb"/>) o las funcionalidades
+de conteos.
 	</para></footnote>. 
 </para>
 <para>
-Si no desea que se actualicen los cambios de la pestaña
+En el momento el sistema guarda cuando presiona el bSi no desea que se actualicen los cambios de la pestaña
 en la que está, no presione bot&oacute;n alguno del
 formulario, sino 
 devuelvase usando el botón del navegador
