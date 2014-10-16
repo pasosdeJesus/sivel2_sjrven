@@ -24,6 +24,12 @@
 		caja de ingreso en la que puede especificar una o
 		más palabras que permitén filtrar.  
 	</para>
+	<para>
+		Se filtran los casos que contenga la(s) palabra(s) en uno de los campos
+		presentados: Código del caso, nombre del solicitante principal, fecha
+		de recepción, oficina, asesor, fecha del hecho, estatús migratorio,
+		fecha de la última atención y descripción del caso.
+	</para>
 	<informalfigure><screenshot><mediaobject>
 				<imageobject><imagedata fileref="pconsultaweb.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
 				<imageobject><imagedata fileref="pconsultaweb.png" format="PNG" align="center"></imagedata></imageobject>

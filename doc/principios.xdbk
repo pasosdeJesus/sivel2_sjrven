@@ -72,7 +72,18 @@ procurando que también sea segura, liviana,
 usable<footnote><para>Buscando un buen 
 balance entre seguridad y facilidad.  
 </para></footnote> y constituida por herramientas de
-dominio público o de licencias cercanas.  </para>
+dominio público o de licencias cercanas.  
+			</para>
+		</listitem>
+		<listitem>
+			<para>
+				Recomendamos de manera especial OpenBSD por sus niveles de seguridad
+				y adJ por su interfaz en español y porque por defecto las bases
+				de datos y respaldos de SIVeL quedan cifrados con una clave que debe 
+				darse durante el arranque.  Por lo mismo en caso de hurto la información
+				no será visible para quien hurta, y en caso de una inspección 
+				ilegitima basta apagar o desconectar el computador.
+			</para>
 		</listitem>
 	</itemizedlist>  			
 
@@ -83,5 +94,6 @@ la plataforma de operación recomendada (i.e la
 configuración por defecto de la distribución Aprendiendo de Jesús 
 <ulink url="http://aprendiendo.pasosdeJesus.org"/>).
 	</para> </warning>
+
 
 </para>

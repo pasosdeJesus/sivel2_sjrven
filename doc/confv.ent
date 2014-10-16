@@ -9,7 +9,7 @@
 <!ENTITY URLSITE "http://sivel.sf.net/1.2/">
 <!ENTITY CVSPROYECTO "sivel.cvs.sourceforge.net:/cvsroot/sivel/doc">
 <!ENTITY MES-ACT "Octubre de 2014">
-<!ENTITY FECHA-ACT "15/10/2014">
+<!ENTITY FECHA-ACT "16/10/2014">
 <!ENTITY CATALOG-DSSSL "/usr/local/share/sgml/catalog">
 <!ENTITY DOCBOOK-DSSSL "/usr/local/share/sgml/docbook/dsssl/modular/">
 <!ENTITY DOCBOOK-XML-DIR "/usr/local/share/xml/docbook/4.2">

@@ -42,7 +42,7 @@ MES_ACT="Octubre de 2014"
 # Mes de actualización
 #
 
-FECHA_ACT="15/10/2014"
+FECHA_ACT="16/10/2014"
 # Fecha de la actualización más reciente
 #
 
