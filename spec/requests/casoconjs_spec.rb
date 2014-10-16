@@ -294,25 +294,25 @@ describe "Llenar caso con javascript", :js => true do
       page.save_screenshot('s-sol2.png')
 
       #Desplazamiento
-      click_on "Agente de Persecución"
+      click_on "Agentes de Persecución"
       if (!find_link('Añadir Agente de Persecución').visible?)
-        click_on "Agente de Persecución"
+        click_on "Agentes de Persecución"
       end
       click_on "Añadir Agente de Persecución"
       page.save_screenshot('s-pr1.png')
-      if (!find_field('Presunto Responsable').visible?)
+      if (!find_field('Agente de Persecución').visible?)
         click_on "Añadir Agente de Persecución"
       end
-      expect(find('#presponsable')).to have_field( 'Presunto Responsable')
+      expect(find('#presponsable')).to have_field( 'Agente de Persecución')
       within ("#presponsable") do 
-        select('AUC', from: 'Presunto Responsable') 
+        select('AUC', from: 'Agente de Persecución') 
         fill_in "Bloque", with: 'b1'
         fill_in "Frente", with: 'f1'
         fill_in "Brigada", with: 'b1'
         fill_in "Otro", with: 'o1'
       end
       page.save_screenshot('s-pr2.png')
-      click_on "Agente de Persecución"
+      click_on "Agentes de Persecución"
       page.save_screenshot('s-pr3.png')
 
       #Acto
@@ -328,8 +328,8 @@ describe "Llenar caso con javascript", :js => true do
       page.save_screenshot('s-a2.png')
       expect(find('#antecedentes')).to have_field( 'Categoria')
       within ("#antecedentes") do 
-        find_field('Presunto Responsable').click
-        select('AUC', from: 'Presunto Responsable') 
+        find_field('Agente de Persecución').click
+        select('AUC', from: 'Agente de Persecuención') 
         select('A23 HERIDO', from: 'Categoria') 
         find_field('Víctima').click
         select('Nombres Solicitanate Apellidos Solicitante', from: 'Víctima') 

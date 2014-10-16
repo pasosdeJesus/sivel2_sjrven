@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_gen.git
-  revision: d76cede9e9b311c70a8c45e87153ccba017abe83
+  revision: 95a8843c8118731d65cce56e3558dda6ce42ac99
   specs:
     sivel2_gen (2.0.a2)
       devise
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 65f833a063a080039ae1d6ad1c3e91ca3394aed7
+  revision: 5573cb6b5f951e904e8b67dc279db0b6e82e3897
   specs:
     sivel2_sjr (2.0.a2)
       rails
@@ -167,7 +167,7 @@ GEM
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.4.1)
+    mime-types (2.4.2)
     mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)

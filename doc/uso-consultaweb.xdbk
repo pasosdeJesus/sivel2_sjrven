@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sect1 id="consultaweb">
+	<title>Listado de Casos</title>
+	<!--      <highlights role="logros">
+		<itemizedlist>
+			<listitem role="indicador" id="logro1.ind1"><para>Puede buscar
+					empleando el formulario de consulta simple.
+			</para></listitem>
+			<listitem role="indicador" id="logro1.ind2"><para>Puede buscar
+					empleando el formulario de consulta completo.
+			</para></listitem>
+		</itemizedlist>
+	</highlights> -->
+	<para>
+		Al ingresar al menú casos, podrá ver un listado de los casos disponibles,
+		notará que este listado se presenta por páginas de 25 casos, en la parte 
+		inferior encontrará una barra de navegacion que le permite pasar de una
+		página a otra.
+	</para>
+	<informalfigure><screenshot><mediaobject>
+				<imageobject><imagedata fileref="pconsultaweb.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
+				<imageobject><imagedata fileref="pconsultaweb.png" format="PNG" align="center"></imagedata></imageobject>
+	</mediaobject></screenshot></informalfigure> 
+	<para>
+		Podrá examinar breves detalles de un caso sin editarlo pulsando
+		sobre la identificación del caso (columna <literal>Id</literal>). Otra
+		manera si ya conoce la identificación del caso es empleando una
+		URL de la forma <literal>&URL-BASE;casos/3</literal>, cambiando 3 por
+		la identificación.
+	</para>
+	<para>
+		Podrá editar el caso presionando el botón <literal>Editar</literal> 
+		de la columna <literal>Acciones</literal> y podrá eliminarlo
+		(tras confirmar) con el botón <literal>Eliminar</literal> de la 
+		misma columna.  Si conoce el número de caso, también podrá editarlo 
+		empleando un URL de la forma 
+		<literal>&URL-BASE;casos/3/edita</literal>, cambiando 3 por
+		la identificación del caso.
+	</para>
+
+</sect1>

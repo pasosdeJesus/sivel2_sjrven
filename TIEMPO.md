@@ -101,13 +101,13 @@ CLIENTE W-1:
 * Editar de nuevo: 5
 
 ### Fecha: 10.Oct.2014. Servidor: SJR-552b2. Cliente: V-1
-* Autenticar: 5
-* Lista de actividades: 2,5
-* Editar una actividad: 2,5
-* Lista de casos:  2,5
+* Autenticar: 2,5
+* Lista de actividades: 0,6
+* Editar una actividad: 1,5
+* Lista de casos:  2
 * Editar un caso: 4,5
-* Agregar etiqueta y guardar: 7
-* Editar de nuevo: 4
+* Agregar etiqueta y guardar: 1,5
+* Editar de nuevo: 5
 
 
 
