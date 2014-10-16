@@ -20,7 +20,7 @@
 				Divisiones Políticas oficiales de Colombia y Venezuela. </para>
 		</listitem>
 		<listitem>
-			<para> Pruebas: Randolf Laverde.
+			<para> Pruebas: Automáticas con rspec.  De usuario por Randolf Laverde.
 			</para>
 		</listitem>
 		<listitem>

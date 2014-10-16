@@ -7,4 +7,5 @@
 <!ENTITY OPENBSD-VER "5.5">
 <!ENTITY ADJ-VER "5.5">
 <!ENTITY contacto "solicitante principal">
-
+<!ENTITY Contacto "Solicitante Principal">
+<!ENTITY hecho "hecho">
