@@ -3,205 +3,69 @@
 <appendix id="creditos">
   <title>Créditos</title> 
 
-  <para>Damos gracias primero a Dios y a &Eacute;l encomendamos y dedicamos
-      este proyecto. </para>
-  <para>En 2004 con autorización del sacerdote Javier Giraldo se emplearon 
-      como referencia inicial interfaces de usuario 
-      y datos (sin consultar fuentes ni estructuras de las bases) de las 
-	  siguientes bases de datos del 
-      <ulink url="http://www.nocheyniebla.org">Banco de Datos de 
-          DDHH, DIH y VPS</ulink> del 
-      <ulink url="http://www.cinep.org.co">CINEP</ulink>:
-	  <itemizedlist>
-		  <listitem>
-			  <para> Base empleada de 1998 a 2000.</para>
-		  </listitem>
-		  <listitem>
-			  <para> Base empleada de 2000 a 2004. </para>
-		  </listitem>
-	  </itemizedlist>
-  </para>
-  <para>
-	  Los aportes iniciales para las tablas básicas provienen de:
-	  <itemizedlist>
-		  <listitem>
-			  <para>
-	 Categorías de "Marco Conceptual", revista Noche y Niebla.
-     http://www.nocheyniebla.org
-			  </para>
-		  </listitem>
-		  <listitem>
-			  <para>
-	 Información geográfica tomada del Departamento Nacional
-	  de Planeación, DANE, Banco de Datos de Derechos Humanos y
-	  Violencia Política.
-			  </para>
-		  </listitem>
-		  <listitem>
-			  <para>
-	Otros datos empleados en el Banco de Datos de Derechos Humanos y
-    Violencia Política del CINEP, así como por integrantes de la
-    Red de Bancos de Datos.
-			  </para>
-		  </listitem>
-	  </itemizedlist>
+	<para>Damos gracias primero a Dios y a &Eacute;l encomendamos y dedicamos
+		este proyecto. </para>
+	<para>Los créditos hasta la versión 1.2 pueden consultarse en
+		<ulink url="http://sivel.sourceforge.net/1.2/creditos.html">http://sivel.sourceforge.net/1.2/creditos.html</ulink>.
 	</para>
-	<para>
-	Han ayudado con sugerencias y requerimientos:
 	<itemizedlist>
 		<listitem>
-			<para>William Rozo Alvarez (wiroal@nocheyniebla.org), 
-                Juana, Mauricio Giraldo, Juliana Villabono, 
-                Bernardo, Jerry Garavito, Freddy Rivera.
+			<para> Diseño: SIVeL 1.x con cambios por culpa de Ruby on Rails.
+				La sección sobre Refugio y sus categorias concebidos por
+				Randolf Laverde y Merlys Mosquera.
 			</para>
 		</listitem>
+		<listitem>
+			<para> Datos de tablas básicas:  SIVeL 1.x, SJR Colombia, SJR LAC, 
+				Divisiones Políticas oficiales de Colombia y Venezuela. </para>
+		</listitem>
+		<listitem>
+			<para> Pruebas: Randolf Laverde.
+			</para>
+		</listitem>
+		<listitem>
+			<para>Logos: SJR y William Rozo.</para>
+		</listitem>
+		<listitem>
+			<para>Interfaz y Usabilidad: Ruby on Rails y muchas
+				gemas incluyendo plantilla Bootstrap de Twitter,
+				Devise, CanCan, JQuery. </para>
+		</listitem>
+		<listitem>
+			<para>Hospedaje de fuentes: github</para>
+		</listitem>
+		<listitem>
+			<para>Hospedaje de sitios de producción: Heroku e infraestructura
+				segura del <ulink url="http://www.nocheyniebla.org">Banco
+					de Datos del CINEP</ulink> contratada por el SJR LAC.
+			</para>
+		</listitem>
+		<listitem>
+			<para>Documentación: Adaptada de SIVeL 1.2</para>
+		</listitem>
+		<listitem>
+			<para>Sugerencias, reportes de fallas y requerimientos:
+				Merlys Mosquera, Randolf Laverde, Edwin Camargo.
+			</para>
+		</listitem>
+		<listitem>
+			<para>Herramientas: Entre otras OpenBSD adJ, PostgreSQL, 
+				nginx, Ruby, Ruby on Rails.
+			</para>
+		</listitem>
+		<listitem>
+			<para>Desarrollo y lo demás: Vladimir Támara Patiño 
+				(vtamara@pasosdeJesus.org) del proyecto Pasos de Jesús, 
+				quien en 2013 y 2014 desarrolló fuera del tiempo retribuido por 
+				CINEP.
+			</para>
+		</listitem>
+		<listitem>
+			<para>Financiación: SJR LAC que mediante contratos en 2013 y
+				2014	liberó al dominio público lo desarrollado. Agradecemos 
+				especialmente a Merlys Mosquera.
+			</para>
+		</listitem>	
 	</itemizedlist>
-</para>	
-<para>
-	A las fuentes de la versión 1.0, le hicieron auditorías de 
-	seguridad (ver sus reportes en las fuentes de la versión 1.0):
-	<itemizedlist>
-		<listitem>
-			<para>Julio César Garcés Rios. (garcez@linuxmail.org)</para>
-		</listitem>
-		<listitem>
-			<para>Fernando Muñoz. (munozferna@gmail.com)</para>
-		</listitem>
-	</itemizedlist>
-</para>	
-<para>
-    Con respecto a módulos:
-	<itemizedlist>
-		<listitem>
-<para>
-    El módulo de seguimiento judicial y los datos relacionados fueron
-    aportados en Nov.2009 por Humanidad Vigente con autorización de 
-    Yenly Mendez.
-</para>	
-		</listitem>
-		<listitem>
-<para>
-    El módulo de Etiquetas se desarrolló inicialmente para el OPI
-    en 2006 con autorización de Santiago Camargo.
-</para>
-		</listitem>
-		<listitem>
-
-<para>
-    El módulo de Estadísticas por Rótulos se desarrolló inicialmente para 
-    Justapaz en 2007 con autorización de Jenny Neme. 
-</para>
-		</listitem>
-		<listitem>
-<para>
-    El módulo de Anexos se desarrolló inicialmente para Reiniciar en 2006
-    con autorización de Jahel Quiroga.
-</para>
-		</listitem>
-		<listitem>
-<para>
-    El módulo de Georeferenciación sobre Googlemaps lo desarrollo 
-    Luca Urech &lt;lucaurech@yahoo.de&gt; para la Corporación Compromiso
-    en 2008 con autorización de Jorge Castellanos.
-</para>
-        </listitem>
-		<listitem>
-<para>
-    El módulo de Desplazamiento se desarrolló
-    inicialmente para el Servicio Jesuita de Refugiados en
-    Jun.2013 con autorización del sacerdote John Jairo Montoya.
-</para>
-		</listitem>
-		<listitem>
-<para>
-	La sección sobre Refugio y algunos detalles de SIVeL 2.0 fueron
-	concebidos por Randolf Laverde y Merlys Mosquera.
-</para>
-		</listitem>
-
-
-	</itemizedlist>
-</para>	
-
-
-<para>
-	Han ayudado a documentar:
-	<itemizedlist>
-		<listitem>
-			<para> Diana Garzón (artemisa1786@hotmail.com), quien 
-				preparó un manual para Humanidad
-				Vigente algunas de cuyas partes se incorporaron
-				a este manual con al autorización de 
-				Humanidad Vigente.
-			</para>
-		</listitem>
-		<listitem>
-			<para>Shalom Wiebe (shalomwiebe@gmail.com), quien 
-				corrigió llamado en inglés.</para>
-		</listitem>
-		<listitem>
-			<para>Vladimir Támara Patiño 
-				(vtamara@pasosdeJesus.org).  
-			</para>
-		</listitem>
-		<listitem>
-			<para>Eduard Hoyos escribió documentación
-				inicial para restaurar un volcado SQL.  
-			</para>
-		</listitem>
-	</itemizedlist>
-</para>
-
-
-<para>
-	Han ayudado a programar:
-	<itemizedlist>
-		<listitem>
-			<para>
-	Mauricio Rivera (mauricio.rivera.p@gmail.com) desarrolló una 
-    versión previa de la Consulta Web e ideó el nombre
-    SIVeL.
-			</para>
-        </listitem>
-		<listitem>
-			<para>
-                Luca Urech &lt;lucaurech@yahoo.de&gt; desarrollo
-                módulo inicial de visualización en Google Maps.
-            </para>
-        </listitem>
-		<listitem>
-			<para>
-                Vladimir Támara Patiño (vtamara@pasosdeJesus.org), quien
-                ha desarrollado fuera del tiempo retribuido por CINEP
-                y con otras organizaciones con contrataciones que
-                liberan explicitamente al dominio público los desarrollos.
-			</para>
-		</listitem>
-	</itemizedlist>
-</para>
-	<para>
-		El cabezote del menú principal y el fondo son aportes
-		de William Rozo (wiroal@nocheyniebla.org).
-	</para>
-	<para>Han ayudado a probar y reportar problemas: William Rozo (wiroal@nocheyniebla.org), Carlos Garaviz, Marcela Medina, Rosa Liliana Ortiz, Diana Garzón y Fabian Wilches, Randolf Laverde</para>
-
-<para>
-	Partes importantes de la versión 2.0 fueron financiadas y cedidas al dominio
-	público por el SJR LAC con autorización de Merlys Mosquera.
-
-	Para la versiónLos colores y organización de la Ficha Caso son tomados de un generador 
-	de barras de progreso del paquete HTML_Progress de Pear.   
-</para>
-<para>La idea de ofrecer retribución pública a quienes encuentren
-	fallas de seguridad fue tomada de <literal>djbdns</literal> 
-	escrito por Daniel Bernstein.</para>
-<para>La nomenclatura de versiones se base en la de Mozilla Firefox.
-	</para>
-
-<para>
-	Entre otras empleamos las siguientes herramientas (ver un listado más
-	detallado en archivo Instala.txt de la distribución de fuentes):
-	OpenBSD, PostgreSQL, Apache con mod_ssl, PHP, Pear.
-</para>
 
 </appendix>

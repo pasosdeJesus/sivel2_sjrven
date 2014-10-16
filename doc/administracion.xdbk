@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter id="administracion" role="periodo" userlevel="p1">
+	<title>Administración</title>
+  <highlights role="logros">
+  <itemizedlist>
+	  <listitem role="logro" id="ltablasbasicas"><para>Añade y elimina registros
+			  a tablas básicas.
+	  </para></listitem>
+	  <listitem role="logro" id="lcopias"><para>Puede hacer volcados de
+			  la base de  datos y sacar copias de forma segura.
+	  </para></listitem>
+  </itemizedlist>
+  </highlights>
+	<para>Un usuario con el rol de Director Nacional o Administrador, podrá 
+		realizar diversas operaciones desde la interfaz de SIVeL: administrar 
+	  usuarios, modificar tablas básicas (con opciones de algunos de los 
+		campos de la ficha). El administrador desde su cuenta en el sistema 
+		operativo
+	  podrá: sacar copias de respaldo manualmente, 
+	  programar copias automáticas y recuperar copias de respaldo
+	  (en la misma base o en otra nueva). También consideramos que
+	  debe realizar otras labores con el sistema operativo y la
+	  infraestructura de red como: actualizar SIVeL y la 
+	  distribución adJ del sistema operativo cuando se publiquen nuevas 
+	  versiones (cada 6 meses); auditar seguridad del servidor y 
+	  solucionar problemas en caso de fallas.
+	  Consideramos que también es importante para el administrador  
+	  sugerir mejoras a la infraestructura tecnológica 
+	  (ver <xref linkend="infraestructura-tecnologica"/>) de su
+	  organización, capacitar y dar soporte a los usuarios y 
+	  en general consideramos que debe ayudar a garantizar que la 
+	  base esté disponible permanentemente sólo para los usuarios 
+	  autorizados de la organización.
+  </para>
+  <para>En la interfaz web un usuario que no tenga el rol de
+		Director Nacional o Administrador no podrá ingresar a modificar tablas 
+		básicas ni a manejar usuarios --excepto el Coordinador de Oficina
+		que puede manejar usuarios de su oficina. </para>
+
+  <sect1 id="admin1">
+		<title>Labores administrativas desde la interfaz web</title>
+		&tablasbasicas;
+    &usuarios;
+  </sect1>
+
+  <sect1 id="admin2">
+	  <title>Labores administrativas desde el interprete de comandos</title>
+	  <para>Como las
+operaciones que se presentan a continuación deben realizarse desde una
+terminal con un interprete de comandos, recomendamos que lea al respecto
+(ver por ejemplo <xref linkend="basico_OpenBSD"></xref>) y que conozca la 
+ubicación de las fuentes de SIVeL y
+del sitio o sitios que maneje.  Por ejemplo en adJ las fuentes 
+estarán en <filename>/var/www/htdocs/sivel2_sjrven</filename>.
+</para>
+	<sect2 id="copias-respaldo">
+		<title>Copias de respaldo</title>
+		<para>
+			<variablelist>
+				<varlistentry><term><literal>RAILS_ENV=production rake sivel2:vuelca</literal></term>
+					<listitem>
+						<para>Saca volcado de la base 
+(i.e un volcado es un archivo con instrucciones SQL para
+reconstruir la base completa), lo almacena 
+junto con los del último mes en el directorio de respaldo configurado 
+--que por defecto es <filename>/var/www/resbase/sivel2_sjrven</filename> 
+que en OpenBSD adJ está cifrado.  </para>
+<warning><para>Los volcados generados 
+		incluyen las fuentes de información.  Debe mantenerlos 
+		cifrados y con permisos que no permitan lectura
+		por parte de usuarios no autorizados.</para></warning>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+  </sect2>
+	<sect2 id="configuraciones">
+		<title>Configuraciones</title>
+	
+		<para>
+			El directorio de respaldo y la ruta donde se guardan anexos
+			se configuran en <filename>config/initializers/sivel2_gen.rb</filename>
+		</para>
+	</sect2>
+</sect1>
+
+</chapter>

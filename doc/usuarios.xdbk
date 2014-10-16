@@ -1,0 +1,37 @@
+	<sect2 id="usuarios">
+		<title>Usuarios</title>
+		<para>
+			Esta opción del menú presenta el listado de usuarios
+			de la base (como se presenta en la figura)
+		</para>
+<informalfigure>
+        <screenshot><mediaobject><imageobject>
+        <imagedata fileref="pusuarios.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
+        <imageobject><imagedata fileref="pusuarios.png" format="PNG" align="center"></imagedata></imageobject>
+	<textobject><phrase>Usuarios</phrase></textobject></mediaobject>
+        </screenshot>
+  </informalfigure>
+		<para>
+			Podrá añadir nuevos usuarios y sus contraseñas
+			(como se presenta en la siguiente figura), o cambiar 
+			datos, rol y contraseñas de usuarios ya existentes.
+			También puede desbloquear un usuario que haya 
+			dado su clave errada más de 5 veces consecutivas, para
+			esto deje en blanco los campos Intentos fallidos,
+			Testigo para desbloquear y Hora del Bloqueo.
+		</para>
+		<para>
+			Cuando un usuario deje de laborar con la organización
+			es recomendable dejar la cuenta --pues tiene un historial
+			asociado-- pero deshabilitarla poniendo una fecha
+			de deshabilitación.
+		</para>
+  <informalfigure>
+        <screenshot><mediaobject><imageobject>
+        <imagedata fileref="pusuarionuevo.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
+        <imageobject><imagedata fileref="pusuarionuevo.png" format="PNG" align="center"></imagedata></imageobject>
+	<textobject><phrase>Nuevo Usuario</phrase></textobject></mediaobject>
+        </screenshot>
+  </informalfigure>
+
+	</sect2> 

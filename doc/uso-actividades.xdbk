@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sect1 id="actividades">
+	<title>Actividades</title>
+	<!--      <highlights role="logros">
+		<itemizedlist>
+			<listitem role="indicador" id="logro1.ind1"><para>Puede buscar
+					empleando el formulario de consulta simple.
+			</para></listitem>
+			<listitem role="indicador" id="logro1.ind2"><para>Puede buscar
+					empleando el formulario de consulta completo.
+			</para></listitem>
+		</itemizedlist>
+	</highlights> -->
+	<para>
+		Al ingresar al menú actividades, podrá ver un listado de las
+		planeadas o realizadas en lotes de a 25 por página.
+	</para>
+	<informalfigure><screenshot><mediaobject>
+				<imageobject><imagedata fileref="listaactividades.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
+				<imageobject><imagedata fileref="listaactividades.png" format="PNG" align="center"></imagedata></imageobject>
+	</mediaobject></screenshot></informalfigure> 
+
+	<para>
+		Al crear o editar una actividad verá un formulario, sugerimos
+		que lo comience a llenar cuando esté planeando la actividad, 
+		suba allí formatos que requerirá para la actividad como anexos
+		y que lo complete una vez concluida la actividad, también
+		anexando soportes.
+	</para>
+		<informalfigure><screenshot><mediaobject>
+				<imageobject><imagedata fileref="editaactividad.eps" format="EPS" scale="40" align="center"></imagedata></imageobject>
+				<imageobject><imagedata fileref="editaactividad.png" format="PNG" align="center"></imagedata></imageobject>
+	</mediaobject></screenshot></informalfigure> 
+</sect1>
