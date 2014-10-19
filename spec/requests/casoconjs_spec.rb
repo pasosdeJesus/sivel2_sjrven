@@ -316,10 +316,14 @@ describe "Llenar caso con javascript", :js => true do
       page.save_screenshot('s-pr3.png')
 
       #Acto
+      page.save_screenshot('s-a-1.png')
       click_on "Causas/Antecedentes"
+      page.save_screenshot('s-a-2.png')
       if (!find_link('Añadir Causa/Antecedente').visible?)
+        page.save_screenshot('s-a-3.png')
         click_on "Causas/Antecedentes"
       end
+      page.save_screenshot('s-a-4.png')
       click_on "Añadir Causa/Antecedente"
       page.save_screenshot('s-a1.png')
       if (!find_field('Categoria').visible?)
@@ -329,7 +333,7 @@ describe "Llenar caso con javascript", :js => true do
       expect(find('#antecedentes')).to have_field( 'Categoria')
       within ("#antecedentes") do 
         find_field('Agente de Persecución').click
-        select('AUC', from: 'Agente de Persecuención') 
+        select('AUC', from: 'Agente de Persecución') 
         select('A23 HERIDO', from: 'Categoria') 
         find_field('Víctima').click
         select('Nombres Solicitanate Apellidos Solicitante', from: 'Víctima') 
@@ -338,8 +342,14 @@ describe "Llenar caso con javascript", :js => true do
       click_on "Causas/Antecedentes"
       page.save_screenshot('s-a4.png')
  
+      page.save_screenshot('s-g-1.png')
       click_button "Guardar"
       page.save_screenshot('s-g.png')
+      if (!first(:link, 'Regresar'))
+        click_button "Guardar"
+        page.save_screenshot('s-g1.png')
+      end
+      page.save_screenshot('s-g2.png')
       expect(page).to have_content("2014-08-03")
     end
 
