@@ -4,16 +4,20 @@
 
 connection = ActiveRecord::Base.connection();
 
-# De SIVeL generico
+# De motor SIVeL generico
 l = File.readlines(Gem.loaded_specs['sivel2_gen'].full_gem_path +
                    "/db/datos-basicas.sql")
 connection.execute(l.join("\n"))
 
-# De SIVeL SJR
+# De motor SIVeL SJR
 l = File.readlines(Gem.loaded_specs['sivel2_sjr'].full_gem_path +
                    "/db/datos-basicasn.sql")
-#.select { |line|  line !~ /INTO acreditacion /} 
 connection.execute(l.join("\n"));
+
+# De este
+l = File.readlines("db/datos-basicasp.sql")
+connection.execute(l.join("\n"));
+
 
 # Usuario inicial: sjrven con clave sjrven123
 connection.execute("INSERT INTO usuario 
