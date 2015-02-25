@@ -1,0 +1,10 @@
+
+es:
+  attributes:
+    fechacreacion: Creación
+    fechadeshabilitacion: Deshabilitación 
+  activerecord:
+    attributes:
+      "sivel2_sjr/aslegal": 
+        Aslegal: Asistencia Legal
+        Aslegales: Asistencias Legales

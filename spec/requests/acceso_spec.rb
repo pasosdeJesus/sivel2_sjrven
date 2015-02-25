@@ -5,7 +5,7 @@ describe "Control de acceso " do
   before { 
     @usuario = FactoryGirl.create(:usuario, 
                                   rol: Ability::ROLANALI, 
-                                  regionsjr_id: 100)
+                                  regionsjr_id: 1)
     visit new_usuario_session_path 
     fill_in "Usuario", with: @usuario.nusuario
     fill_in "Clave", with: @usuario.password
@@ -15,7 +15,7 @@ describe "Control de acceso " do
 
   describe "analista" do
     it "puede crear caso" do
-      visit new_caso_path
+      visit 'casos/nuevo'
       @numcaso=find_field('Código').value
 
 		  expect(@numcaso.to_i).to be > 0
