@@ -36,9 +36,11 @@ describe "Llenar caso con javascript", :js => true do
       # Sol principal
       click_on "Solicitante Principal"
       page.save_screenshot('tmp/al3.png')
-      #if (!find_link('Añadir Sitio Geográfico').visible?)
-      #  click_link "Sitios geográficos de refugios y desplazamientos"
-      #end
+      if (!find(:css, '#caso_victima_attributes_0_persona_attributes_nombres').visible?)
+        click_on "Solicitante Principal"
+      end
+      page.save_screenshot('tmp/al4.png')
+ 
       expect(page).to have_content "Nombres"
       within ("div#contacto") do 
         fill_in "Nombres", with: 'Nombres Solicitanate'
