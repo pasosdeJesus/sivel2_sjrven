@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.5"
+#ruby "2.1.5"
 
 # Rails (internacionalización)
 gem "rails", '~> 4.2.0'
@@ -121,7 +121,7 @@ group :test do
   gem "capybara"
   
   # Pruebas de regresión que requieren javascript
-  gem "capybara-webkit"
+  gem "capybara-webkit", '1.4.1'
 
   # Envia resultados de pruebas desde travis a codeclimate
   gem "codeclimate-test-reporter", require: nil

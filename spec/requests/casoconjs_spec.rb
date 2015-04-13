@@ -64,7 +64,7 @@ describe "Llenar caso con javascript", :js => true do
       fill_in "Descripción", with: 'con familiar'
 
       # Sol principal
-      skip # Problema localizando
+      #skip # Problema localizando
       click_on "Solicitante Principal"
       #if (!find_link('Añadir Sitio Geográfico').visible?)
       #  click_link "Sitios geográficos de refugios y desplazamientos"
@@ -79,7 +79,9 @@ describe "Llenar caso con javascript", :js => true do
       page.save_screenshot('tmp/s-sol2.png')
 
       # Núcleo familiar
+      page.save_screenshot('tmp/tras-nf0.png')
       click_on "Núcleo Familiar"
+      page.save_screenshot('tmp/tras-nf1.png')
       click_on "Añadir Víctima"
       within ("div#victima") do 
         fill_in "Nombres", with: 'Nombres Beneficiario'
