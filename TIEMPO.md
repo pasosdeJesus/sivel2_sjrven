@@ -33,6 +33,10 @@ SERVIDOR SJR-552b2d:
 El mismo SJR-55 pero con
 * Plataforma: adJ 5.5, PostgreSQL 9.3.5, ruby 2.1.0, RoR 4.2.0.beta2, unicorn 4.8.3
 
+SERVIDOR SJR-56:
+El mismo SJR-1 pero con
+* Plataforma: adJ 5.6, PostgreSQL 9.4.1, ruby 2.2.2, RoR 4.2.1, unicorn 4.8.3
+
 
 
 ## ESPECIFICACION DE CLIENTES
@@ -50,6 +54,14 @@ CLIENTE W-1:
 * Disco: 1T
 * Conexión a servidor directa LAN 100G.
 * Plataforma: adJ 5.5, chrome 32
+
+CLIENTE V-2:
+* Intel Core i7
+* RAM: 4G
+* Disco:700GB 
+* Plataforma: adJ 5.6, chromium 40.0.2214
+* Conexión a Internet por UNE Inalámbrico 2MB
+
 
 
 ## MEDICIONES
@@ -108,6 +120,17 @@ CLIENTE W-1:
 * Editar un caso: 4,5
 * Agregar etiqueta y guardar: 1,5
 * Editar de nuevo: 5
+
+### Fecha: 16.Abr.2015. Servidor: SJR-56. Cliente: V-2
+* Autenticar: 2,1
+* Lista de actividades: 1,3
+* Editar una actividad: 1,5
+* Lista de casos:  0,7
+* Editar un caso: 6,15
+* Agregar etiqueta y guardar: 2,7
+* Editar de nuevo: 4,38
+
+
 
 
 
