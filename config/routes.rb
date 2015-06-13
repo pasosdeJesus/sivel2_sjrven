@@ -12,15 +12,17 @@ Rails.application.routes.draw do
   end
   resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' } 
 
-  patch "/actos/agregar" => 'sivel2_gen/actos#agregar'
-  get "/actos/eliminar" => 'sivel2_gen/actos#eliminar'
+  patch "/actos/agregar" => 'sivel2_sjr/actos#agregar'
+  get "/actos/eliminar" => 'sivel2_sjr/actos#eliminar'
   
-  get "/personas" => 'sivel2_gen/personas#index'
-  get "/personas/remplazar" => 'sivel2_gen/personas#remplazar'
+  get "/personas" => 'sivel2_sjr/personas#index'
+  get "/personas/remplazar" => 'sivel2_sjr/personas#remplazar'
 
-  root 'sivel2_gen/hogar#index'
+  #root 'sivel2_gen/hogar#index'
+  mount Sip::Engine => "/", as: 'sip'
   mount Sivel2Sjr::Engine => "/", as: 'sivel2_sjr'
   mount Sivel2Gen::Engine => "/", as: 'sivel2_gen'
+  mount Cor1440Gen::Engine => "/", as: 'cor1440_gen'
 
 
   namespace :admin do

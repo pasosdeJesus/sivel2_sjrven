@@ -6,9 +6,6 @@ source 'https://rubygems.org'
 gem "rails", '~> 4.2.0'
 gem "rails-i18n"
 
-# Problemas con arel 6.0.0 al ejecutar rspec
-#gem "arel", '6.0.0.beta2'
-
 # Postgresql
 gem "pg"
 
@@ -19,7 +16,11 @@ gem "foreman"
 gem "jbuilder"
 
 # SCSS para hojas de estilo
-#gem "sass-rails", '~> 4.0.0.rc1'
+gem "sass"
+gem "sass-rails"
+
+# Colores en terminal
+gem "colorize"
 
 # Uglifier comprime recursos Javascript
 gem "uglifier", '>= 1.3.0'
@@ -28,8 +29,7 @@ gem "uglifier", '>= 1.3.0'
 gem "coffee-rails", '~> 4.1.0'
 
 # jquery como librería JavaScript
-gem "jquery-rails"#, '3.1.2'
-# Problema al actualiza a 4.0.0, al lanzar servidor reporta que jquery no existe
+gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "jquery-ui-bootstrap-rails", git: "https://github.com/kristianmandrup/jquery-ui-bootstrap-rails"
 
@@ -37,7 +37,7 @@ gem "jquery-ui-bootstrap-rails", git: "https://github.com/kristianmandrup/jquery
 gem "turbolinks"
 
 # Ambiente de CSS
-gem "twitter-bootstrap-rails"#, "=2.2.8"
+gem "twitter-bootstrap-rails"
 gem "bootstrap-datepicker-rails"
 gem "bootstrap-sass"
 
@@ -45,7 +45,7 @@ gem "chartkick"
 
 # Formularios simples 
 #gem "simple_form", git: "https://github.com/plataformatec/simple_form"
-gem "simple_form", "~> 3.1.0.rc2"
+gem "simple_form"
 
 # Formularios anidados (algunos con ajax)
 gem "cocoon", github: "vtamara/cocoon"
@@ -69,13 +69,21 @@ gem "paperclip", "~> 4.1"
 gem "tzinfo"
 gem "tzinfo-data"
 
+# Motor SIP
+gem 'sip', github: 'pasosdeJesus/sip'
+#gem 'sip', path: '../sip'
+
 # Motor de SIVeL 2
-gem 'sivel2_gen', github: 'pasosdeJesus/sivel2_gen'
+gem 'sivel2_gen', github: 'pasosdeJesus/sivel2_gen', branch: :consip
 #gem 'sivel2_gen', path: '../sivel2_gen'
 
 # Motor de SIVeL 2 - SJR
-gem 'sivel2_sjr', github: 'pasosdeJesus/sivel2_sjr'
+gem 'sivel2_sjr', github: 'pasosdeJesus/sivel2_sjr', branch: :consip
 #gem 'sivel2_sjr', path: '../sivel2_sjr'
+
+# Motor Cor1440_gen
+gem 'cor1440_gen', github: 'pasosdeJesus/cor1440_gen'
+#gem "cor1440_gen", path: '../cor1440_gen'
 
 
 group :doc do

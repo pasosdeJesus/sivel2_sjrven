@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class Aspsicosocial < ActiveRecord::Base
-  include Sivel2Gen::Basica
+  include Sip::Basica
 
   has_many :aspsicosocial_respuesta, 
     class_name: "AspsicosocialRespuesta", 
