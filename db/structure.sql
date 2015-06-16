@@ -253,6 +253,7 @@ CREATE TABLE aspsicosocial (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT aspsicosocial_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -547,6 +548,7 @@ CREATE TABLE sivel2_sjr_statusmigratorio (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT statusmigratorio_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -1102,6 +1104,7 @@ CREATE TABLE emprendimiento (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT emprendimiento_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -1947,24 +1950,19 @@ CREATE TABLE sivel2_gen_actocolectivo (
 
 
 --
--- Name: sivel2_gen_anexo; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: sivel2_gen_anexo_caso; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE sivel2_gen_anexo (
+CREATE TABLE sivel2_gen_anexo_caso (
     id integer DEFAULT nextval('anexo_seq'::regclass) NOT NULL,
     id_caso integer NOT NULL,
     fecha date NOT NULL,
-    descripcion character varying(1500) NOT NULL,
-    archivo character varying(255),
     fuenteprensa_id integer,
     fechaffrecuente date,
     id_fotra integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    adjunto_file_name character varying(255),
-    adjunto_content_type character varying(255),
-    adjunto_file_size integer,
-    adjunto_updated_at timestamp without time zone
+    id_anexo integer NOT NULL
 );
 
 
@@ -2739,6 +2737,7 @@ CREATE TABLE sivel2_sjr_acreditacion (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT acreditacion_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2780,6 +2779,7 @@ CREATE TABLE sivel2_sjr_aslegal (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT aslegal_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2807,6 +2807,7 @@ CREATE TABLE sivel2_sjr_ayudaestado (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT ayudaestado_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2844,6 +2845,7 @@ CREATE TABLE sivel2_sjr_ayudasjr (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT ayudasjr_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2881,6 +2883,7 @@ CREATE TABLE sivel2_sjr_clasifdesp (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT clasifdesp_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2930,6 +2933,7 @@ CREATE TABLE sivel2_sjr_declaroante (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT declaroante_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2945,6 +2949,7 @@ CREATE TABLE sivel2_sjr_derecho (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT derecho_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3045,6 +3050,7 @@ CREATE TABLE sivel2_sjr_idioma (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT idioma_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3060,6 +3066,7 @@ CREATE TABLE sivel2_sjr_inclusion (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT inclusion_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3105,6 +3112,7 @@ CREATE TABLE sivel2_sjr_modalidadtierra (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT modalidadtierra_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3135,6 +3143,7 @@ CREATE TABLE sivel2_sjr_motivosjr (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT motivosjr_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3172,6 +3181,7 @@ CREATE TABLE sivel2_sjr_personadesea (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT personadesea_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3187,6 +3197,7 @@ CREATE TABLE sivel2_sjr_progestado (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT progestado_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3224,6 +3235,7 @@ CREATE TABLE sivel2_sjr_proteccion (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT proteccion_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3254,6 +3266,7 @@ CREATE TABLE sivel2_sjr_rolfamilia (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT rolfamilia_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3281,6 +3294,7 @@ CREATE TABLE sivel2_sjr_tipodesp (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT tipodesp_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3547,7 +3561,7 @@ ALTER TABLE ONLY sivel2_sjr_actualizacionbase
 -- Name: anexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY sivel2_gen_anexo
+ALTER TABLE ONLY sivel2_gen_anexo_caso
     ADD CONSTRAINT anexo_pkey PRIMARY KEY (id);
 
 
@@ -4735,7 +4749,7 @@ ALTER TABLE ONLY sivel2_sjr_actosjr
 -- Name: anexo_fuenteprensa_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY sivel2_gen_anexo
+ALTER TABLE ONLY sivel2_gen_anexo_caso
     ADD CONSTRAINT anexo_fuenteprensa_id_fkey FOREIGN KEY (fuenteprensa_id) REFERENCES sip_fuenteprensa(id);
 
 
@@ -4743,7 +4757,7 @@ ALTER TABLE ONLY sivel2_gen_anexo
 -- Name: anexo_id_caso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY sivel2_gen_anexo
+ALTER TABLE ONLY sivel2_gen_anexo_caso
     ADD CONSTRAINT anexo_id_caso_fkey FOREIGN KEY (id_caso) REFERENCES sivel2_gen_caso(id);
 
 
@@ -4751,7 +4765,7 @@ ALTER TABLE ONLY sivel2_gen_anexo
 -- Name: anexo_id_fotra_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY sivel2_gen_anexo
+ALTER TABLE ONLY sivel2_gen_anexo_caso
     ADD CONSTRAINT anexo_id_fotra_fkey FOREIGN KEY (id_fotra) REFERENCES sivel2_gen_fotra(id);
 
 
@@ -5983,7 +5997,7 @@ ALTER TABLE ONLY sivel2_sjr_victimasjr
 -- PostgreSQL database dump complete
 --
 
-SET search_path TO public, pg_catalog;
+SET search_path TO "$user",public;
 
 INSERT INTO schema_migrations (version) VALUES ('20131128151014');
 
@@ -6198,4 +6212,16 @@ INSERT INTO schema_migrations (version) VALUES ('20150609094809');
 INSERT INTO schema_migrations (version) VALUES ('20150609094820');
 
 INSERT INTO schema_migrations (version) VALUES ('20150612160810');
+
+INSERT INTO schema_migrations (version) VALUES ('20150612203808');
+
+INSERT INTO schema_migrations (version) VALUES ('20150615024318');
+
+INSERT INTO schema_migrations (version) VALUES ('20150616030659');
+
+INSERT INTO schema_migrations (version) VALUES ('20150616095023');
+
+INSERT INTO schema_migrations (version) VALUES ('20150616100351');
+
+INSERT INTO schema_migrations (version) VALUES ('20150616100551');
 
