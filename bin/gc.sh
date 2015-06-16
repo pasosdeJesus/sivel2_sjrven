@@ -35,7 +35,7 @@ if (test "$SININS" != "1") then {
 	NOKOGIRI_USE_SYSTEM_LIBRARIES=1 MAKE=gmake make=gmake QMAKE=qmake4 bundle install
 } fi;
 
-RAILS_ENV=test rake db:drop db:setup db:migrate sivel2:indices
+RAILS_ENV=test rake db:drop db:setup db:migrate sip:indices
 if (test "$?" != "0") then {
 	echo "No puede preparse base de prueba";
 	exit 1;

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: f8719130e80dce0179712fb68e563d9eaa1f867b
+  revision: af7d526edcdf5bdfdd63e3277a3b769b8c06637a
   specs:
     cor1440_gen (1.0.a5)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 263291a6f7e4558b1c2da639fa95b1e8a88c160c
+  revision: bf7a83c3b28130e166f75c16f590233caaae8e71
   specs:
     sip (2.0.a6)
       devise
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_gen.git
-  revision: e2a67e77a3c2542c153a1d82566e3e14ba8c8113
+  revision: 70c251e72189572634332ea296b940cdeb4edf40
   branch: consip
   specs:
     sivel2_gen (2.0.a4)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 138e4d462fa2e27024759f8f346f26b3b9e618c3
+  revision: a2e2b160bcc1086265ffb588924238bc15cb8464
   branch: consip
   specs:
     sivel2_sjr (2.0.a3)
@@ -103,7 +103,7 @@ GEM
     byebug (5.0.0)
       columnize (= 0.9.0)
     camertron-eprun (1.1.0)
-    cancancan (1.10.1)
+    cancancan (1.11.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -155,7 +155,7 @@ GEM
       activesupport (>= 4.1.0)
     i18n (0.7.0)
     interception (0.5)
-    jbuilder (2.2.16)
+    jbuilder (2.3.0)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.3)
@@ -243,7 +243,7 @@ GEM
     rspec-mocks (3.3.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-rails (3.3.0)
+    rspec-rails (3.3.1)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -298,7 +298,7 @@ GEM
       tzinfo
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2015.4)
+    tzinfo-data (1.2015.5)
       tzinfo (>= 1.0.0)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
