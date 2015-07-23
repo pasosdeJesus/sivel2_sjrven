@@ -1,6 +1,6 @@
 # encoding: UTF-8
 module Admin
-  class EmprendimientosController < Sivel2Gen::Admin::BasicasController
+  class EmprendimientosController < Sip::Admin::BasicasController
     before_action :set_emprendimiento, only: [:show, :edit, :update, :destroy]
     load_and_authorize_resource
 

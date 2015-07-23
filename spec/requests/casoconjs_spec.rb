@@ -22,6 +22,7 @@ describe "Llenar caso con javascript", :js => true do
 
   describe "administrador llena" do
     it "puede crear caso con datos mínimos" do
+      skip
       visit '/casos/nuevo'
       @numcaso=find_field('Código').value
 
@@ -57,6 +58,7 @@ describe "Llenar caso con javascript", :js => true do
     end
 
     it "puede crear caso con familiar" do
+      skip
       visit '/casos/nuevo'
       # Datos básicos
       fill_in "Fecha de Recepción", with: '2014-08-04'
