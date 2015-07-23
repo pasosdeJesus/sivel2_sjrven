@@ -4,15 +4,16 @@
 
 connection = ActiveRecord::Base.connection();
 
+
 # De motor SIVeL generico
 l = File.readlines(
-  Gem.loaded_specs['sivel2_gen'].full_gem_path + "/db/datos-basicas.sql"
+  Gem.loaded_specs['sivel2_gen'].full_gem_path + "/db/cambios-basicas.sql"
 )
 connection.execute(l.join("\n"))
 
 # De motor SIVeL SJR
 l = File.readlines(Gem.loaded_specs['sivel2_sjr'].full_gem_path +
-                   "/db/datos-basicasn.sql")
+                   "/db/datos-basicas.sql")
 connection.execute(l.join("\n"));
 
 # De este
