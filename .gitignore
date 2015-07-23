@@ -30,4 +30,6 @@ spec/dummy/.sass-cache
 tmp/
 herram/
 
-
+doc/
+*.png
+db/*sql
