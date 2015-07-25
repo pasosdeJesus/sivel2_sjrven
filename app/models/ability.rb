@@ -5,7 +5,6 @@ class Ability < Sivel2Sjr::Ability
     ['', 'emprendimiento'],
     ['', 'aspsicosocial']
   ]
-
   @@tablasbasicas = Sip::Ability::BASICAS_PROPIAS + 
     Cor1440Gen::Ability::BASICAS_PROPIAS +
     Sivel2Gen::Ability::BASICAS_PROPIAS + 
