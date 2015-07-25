@@ -2,27 +2,22 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-connection = ActiveRecord::Base.connection();
+conexion = ActiveRecord::Base.connection();
 
 
-# De motor SIVeL generico
-l = File.readlines(
-  Gem.loaded_specs['sivel2_gen'].full_gem_path + "/db/cambios-basicas.sql"
-)
-connection.execute(l.join("\n"))
+# De motores
+Sip::carga_semillas_sql(conexion, 'sip', :datos)
+motor = ['sivel2_gen', 'sivel2_sjr', 'cor1440_gen']
+motor.each do |m|
+    Sip::carga_semillas_sql(conexion, m, :cambios)
+    Sip::carga_semillas_sql(conexion, m, :datos)
+end
 
-# De motor SIVeL SJR
-l = File.readlines(Gem.loaded_specs['sivel2_sjr'].full_gem_path +
-                   "/db/datos-basicas.sql")
-connection.execute(l.join("\n"));
-
-# De este
-l = File.readlines("db/datos-basicasp.sql")
-connection.execute(l.join("\n"));
-
+Sip::carga_semillas_sql(conexion, nil, :cambios)
+Sip::carga_semillas_sql(conexion, nil, :datos)
 
 # Usuario inicial: sjrven con clave sjrven123
-connection.execute("INSERT INTO usuario 
+conexion.execute("INSERT INTO usuario 
 	(nusuario, email, encrypted_password, password, 
   fechacreacion, created_at, updated_at, rol) 
 	VALUES ('sjrven', 'sjrven@localhost.org', 

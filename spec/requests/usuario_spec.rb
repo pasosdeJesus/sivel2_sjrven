@@ -16,7 +16,7 @@ describe "Usuarios" do
     end
 
     it "autentica con usuario creado en prueba" do
-		  usuario = FactoryGirl.create(:usuario)
+		  usuario = FactoryGirl.create(:usuario, oficina: nil)
       visit new_usuario_session_path 
 			fill_in "Usuario", with: usuario.nusuario
 			fill_in "Clave", with: usuario.password
