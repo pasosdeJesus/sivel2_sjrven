@@ -3,9 +3,9 @@
 
 
 ### Requerimientos
-* Ruby version >= 2.1
-* PostgreSQL >= 9.3 con extension unaccent
-* Recomendado sobre adJ 5.5p2 (que incluye todos los componentes mencionados). 
+* Ruby version >= 2.2
+* PostgreSQL >= 9.4 con extension unaccent
+* Recomendado sobre adJ 5.6 (que incluye todos los componentes mencionados). 
 * La cuenta desde la cual se ejecute el servidor o las pruebas debe poder abrir 2048 archivos --en adJ se establece en la clase del usuario que ejecuta en /etc/login.conf con :openfiles-cur=2048:
 
 
@@ -14,13 +14,8 @@ Aplican las mismas instrucciones de SIVeL 2
 https://github.com/pasosdeJesus/sivel2
 
 ### Arquitectura
-Se usa junto con sivel2_gen y sivel2_sjr, ver
+Se usa junto con sip, sivel2_gen, sivel2_sjr y cor1440_gen ver
+https://github.com/pasosdeJesus/sip
 https://github.com/pasosdeJesus/sivel2_gen
 https://github.com/pasosdeJesus/sivel2_sjr
-
-### Despliegue de prueba en Heroku
-
-[![heroku](https://www.herokucdn.com/deploy/button.svg)](http://sivel2sjrven.herokuapp.com) http://sivel2sjrven.herokuapp.com
-
-En el despliegue en Heroku se han eliminado las ciudades.
-
+https://github.com/pasosdeJesus/cor1440_gen

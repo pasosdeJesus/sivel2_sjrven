@@ -1,13 +1,12 @@
 language: ruby
 rvm:
-        - 2.1.5
+        - 2.2
 notifications:
         email: false
 script: CODECLIMATE_REPO_TOKEN=763d8da993788e74dc49fca5e3c87231c60b836854c16b0d7d1fa5dba919e07e xvfb-run rspec
 env:
         global:
                 - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-                - JRUBY_OPTS=-Xcext.enabled=true
 before_install: 
         - sudo apt-add-repository -y ppa:ubuntu-sdk-team/ppa
         - sudo apt-get update
@@ -19,5 +18,5 @@ before_install:
         - sed -e "s/SET lock_timeout = 0;//g" db/structure.sql.conlock >db/structure.sql
         - cp config/database.travis.yml config/database.yml
         - rake db:setup
-        - rake sivel2:indices
+        - rake sip:indices
 
