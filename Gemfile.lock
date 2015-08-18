@@ -9,6 +9,32 @@ GIT
       rails
 
 GIT
+  remote: git://github.com/pasosdeJesus/sip.git
+  revision: bca53fe19a3590e6d18fdca883bc9fffcc8edc03
+  specs:
+    sip (2.0.a6)
+      devise
+      jquery-rails
+      rails
+
+GIT
+  remote: git://github.com/pasosdeJesus/sivel2_gen.git
+  revision: 90b31e8f5c2eae40f45a55870df9724835347ff3
+  specs:
+    sivel2_gen (2.0.a7)
+      devise
+      jquery-rails
+      rails
+
+GIT
+  remote: git://github.com/pasosdeJesus/sivel2_sjr.git
+  revision: 31283c2c451b2b09cecbcb3700c7add3b0148ab2
+  specs:
+    sivel2_sjr (2.0.a7)
+      rails
+      sivel2_gen
+
+GIT
   remote: git://github.com/vtamara/cocoon.git
   revision: 836a331276ea1452d63325a6662483b9f1cb28be
   specs:
@@ -20,29 +46,6 @@ GIT
   specs:
     jquery-ui-bootstrap-rails (0.1.1)
       rails
-
-PATH
-  remote: ../sip
-  specs:
-    sip (2.0.a6)
-      devise
-      jquery-rails
-      rails
-
-PATH
-  remote: ../sivel2_gen
-  specs:
-    sivel2_gen (2.0.a7)
-      devise
-      jquery-rails
-      rails
-
-PATH
-  remote: ../sivel2_sjr
-  specs:
-    sivel2_sjr (2.0.a7)
-      rails
-      sivel2_gen
 
 GEM
   remote: https://rubygems.org/
