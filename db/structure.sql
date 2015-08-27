@@ -1816,254 +1816,6 @@ CREATE TABLE sivel2_gen_comunidad_vinculoestado (
 
 
 --
--- Name: victima_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE victima_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sivel2_gen_victima; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_gen_victima (
-    id_persona integer NOT NULL,
-    id_caso integer NOT NULL,
-    hijos integer,
-    id_profesion integer DEFAULT 22 NOT NULL,
-    id_rangoedad integer DEFAULT 6 NOT NULL,
-    id_filiacion integer DEFAULT 10 NOT NULL,
-    id_sectorsocial integer DEFAULT 15 NOT NULL,
-    id_organizacion integer DEFAULT 16 NOT NULL,
-    id_vinculoestado integer DEFAULT 38 NOT NULL,
-    organizacionarmada integer DEFAULT 35 NOT NULL,
-    anotaciones character varying(1000),
-    id_etnia integer DEFAULT 1,
-    id_iglesia integer DEFAULT 1,
-    orientacionsexual character(1) DEFAULT 'H'::bpchar NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id integer DEFAULT nextval('victima_seq'::regclass) NOT NULL,
-    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
-    CONSTRAINT victima_orientacionsexual_check CHECK (((((((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar)) OR (orientacionsexual = 'B'::bpchar)) OR (orientacionsexual = 'T'::bpchar)) OR (orientacionsexual = 'I'::bpchar)) OR (orientacionsexual = 'H'::bpchar)))
-);
-
-
---
--- Name: sivel2_sjr_casosjr; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_sjr_casosjr (
-    id_caso integer NOT NULL,
-    fecharec date NOT NULL,
-    asesor integer NOT NULL,
-    oficina_id integer DEFAULT 1,
-    direccion character varying(1000),
-    telefono character varying(1000),
-    contacto integer,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    dependen integer,
-    sustento character varying(1000),
-    leerescribir boolean,
-    trabaja boolean,
-    ingresomensual integer,
-    gastos integer,
-    estrato character(1),
-    id_statusmigratorio integer DEFAULT 0,
-    id_proteccion integer DEFAULT 0,
-    id_idioma integer DEFAULT 0,
-    concentimientosjr boolean,
-    concentimientobd boolean,
-    fechasalida date,
-    id_salida integer,
-    fechallegada date,
-    id_llegada integer,
-    categoriaref integer,
-    observacionesref character varying(5000),
-    comosupo_id integer DEFAULT 1
-);
-
-
---
--- Name: sivel2_sjr_respuesta; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_sjr_respuesta (
-    id_caso integer NOT NULL,
-    fechaatencion date NOT NULL,
-    prorrogas boolean,
-    numprorrogas integer,
-    montoprorrogas integer,
-    fechaultima date,
-    lugarultima character varying(500),
-    entregada boolean,
-    proxprorroga boolean,
-    turno character varying(100),
-    lugar character varying(500),
-    descamp character varying(5000),
-    compromisos character varying(5000),
-    remision character varying(5000),
-    orientaciones character varying(5000),
-    gestionessjr character varying(5000),
-    observaciones character varying(5000),
-    id_personadesea integer DEFAULT 0,
-    verifcsjr character varying(5000),
-    verifcper character varying(5000),
-    efectividad character varying(5000),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id integer DEFAULT nextval('respuesta_seq'::regclass) NOT NULL,
-    detallear character varying(5000),
-    montoar integer,
-    cantidadayes character varying(50),
-    institucionayes character varying(500),
-    informacionder boolean,
-    accionesder character varying(5000),
-    detallemotivo character varying(5000),
-    difobsprog character varying(5000),
-    detalleal character varying(5000),
-    montoal integer,
-    detalleap character varying(5000),
-    montoap integer,
-    detalleem character varying(5000),
-    montoem integer
-);
-
-
---
--- Name: sivel2_sjr_statusmigratorio_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE sivel2_sjr_statusmigratorio_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sivel2_sjr_statusmigratorio; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_sjr_statusmigratorio (
-    id integer DEFAULT nextval('sivel2_sjr_statusmigratorio_id_seq'::regclass) NOT NULL,
-    nombre character varying(100) NOT NULL,
-    fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
-    fechadeshabilitacion date,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    observaciones character varying(5000),
-    CONSTRAINT statusmigratorio_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
-);
-
-
---
--- Name: usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE usuario_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: usuario; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE usuario (
-    id integer DEFAULT nextval('usuario_id_seq'::regclass) NOT NULL,
-    nusuario character varying(15) NOT NULL,
-    password character varying(64) DEFAULT ''::character varying NOT NULL,
-    nombre character varying(50) COLLATE public.es_co_utf_8,
-    descripcion character varying(50),
-    rol integer DEFAULT 4,
-    idioma character varying(6) DEFAULT 'es_CO'::character varying NOT NULL,
-    email character varying(255) DEFAULT ''::character varying NOT NULL,
-    encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
-    sign_in_count integer DEFAULT 0 NOT NULL,
-    fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
-    fechadeshabilitacion date,
-    reset_password_token character varying(255),
-    reset_password_sent_at timestamp without time zone,
-    remember_created_at timestamp without time zone,
-    current_sign_in_at timestamp without time zone,
-    last_sign_in_at timestamp without time zone,
-    current_sign_in_ip character varying(255),
-    last_sign_in_ip character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    oficina_id integer,
-    failed_attempts integer DEFAULT 0,
-    unlock_token character varying(255),
-    locked_at timestamp without time zone,
-    CONSTRAINT usuario_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion))),
-    CONSTRAINT usuario_rol_check CHECK ((rol >= 1))
-);
-
-
---
--- Name: sivel2_gen_conscaso1; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW sivel2_gen_conscaso1 AS
- SELECT casosjr.id_caso AS caso_id,
-    array_to_string(ARRAY( SELECT (((persona.nombres)::text || ' '::text) || (persona.apellidos)::text)
-           FROM sip_persona persona
-          WHERE (persona.id = casosjr.contacto)), ', '::text) AS contacto,
-    casosjr.fecharec,
-    oficina.nombre AS oficina,
-    usuario.nusuario,
-    caso.fecha,
-    statusmigratorio.nombre AS statusmigratorio,
-    array_to_string(ARRAY( SELECT respuesta.fechaatencion
-           FROM sivel2_sjr_respuesta respuesta
-          WHERE (respuesta.id_caso = casosjr.id_caso)
-          ORDER BY respuesta.fechaatencion DESC
-         LIMIT 1), ', '::text) AS ultimafechaatencion,
-    caso.memo,
-    array_to_string(ARRAY( SELECT (((persona.nombres)::text || ' '::text) || (persona.apellidos)::text)
-           FROM sip_persona persona,
-            sivel2_gen_victima victima
-          WHERE ((persona.id = victima.id_persona) AND (victima.id_caso = caso.id))), ', '::text) AS victimas
-   FROM sivel2_sjr_casosjr casosjr,
-    sivel2_gen_caso caso,
-    sip_oficina oficina,
-    usuario,
-    sivel2_sjr_statusmigratorio statusmigratorio
-  WHERE ((((casosjr.id_caso = caso.id) AND (oficina.id = casosjr.oficina_id)) AND (usuario.id = casosjr.asesor)) AND (statusmigratorio.id = casosjr.id_statusmigratorio));
-
-
---
--- Name: sivel2_gen_conscaso; Type: MATERIALIZED VIEW; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE MATERIALIZED VIEW sivel2_gen_conscaso AS
- SELECT sivel2_gen_conscaso1.caso_id,
-    sivel2_gen_conscaso1.contacto,
-    sivel2_gen_conscaso1.fecharec,
-    sivel2_gen_conscaso1.oficina,
-    sivel2_gen_conscaso1.nusuario,
-    sivel2_gen_conscaso1.fecha,
-    sivel2_gen_conscaso1.statusmigratorio,
-    sivel2_gen_conscaso1.ultimafechaatencion,
-    sivel2_gen_conscaso1.memo,
-    sivel2_gen_conscaso1.victimas,
-    to_tsvector('spanish'::regconfig, unaccent(((((((((((((((((((sivel2_gen_conscaso1.caso_id || ' '::text) || sivel2_gen_conscaso1.contacto) || ' '::text) || replace(((sivel2_gen_conscaso1.fecharec)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || (sivel2_gen_conscaso1.oficina)::text) || ' '::text) || (sivel2_gen_conscaso1.nusuario)::text) || ' '::text) || replace(((sivel2_gen_conscaso1.fecha)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || (sivel2_gen_conscaso1.statusmigratorio)::text) || ' '::text) || replace(((sivel2_gen_conscaso1.ultimafechaatencion)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || sivel2_gen_conscaso1.memo) || ' '::text) || sivel2_gen_conscaso1.victimas))) AS q
-   FROM sivel2_gen_conscaso1
-  WITH NO DATA;
-
-
---
 -- Name: sivel2_gen_contexto; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -2477,21 +2229,6 @@ CREATE TABLE sivel2_gen_rangoedad (
 
 
 --
--- Name: sivel2_gen_regimensalud; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_gen_regimensalud (
-    id integer DEFAULT nextval('regimensalud_seq'::regclass) NOT NULL,
-    nombre character varying(50) NOT NULL,
-    fechacreacion date DEFAULT '2013-05-13'::date NOT NULL,
-    fechadeshabilitacion date,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    CONSTRAINT regimensalud_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
-);
-
-
---
 -- Name: sivel2_gen_region_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -2591,6 +2328,45 @@ CREATE TABLE sivel2_gen_tviolencia (
     updated_at timestamp without time zone,
     observaciones character varying(5000),
     CONSTRAINT tviolencia_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
+);
+
+
+--
+-- Name: victima_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE victima_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sivel2_gen_victima; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_gen_victima (
+    id_persona integer NOT NULL,
+    id_caso integer NOT NULL,
+    hijos integer,
+    id_profesion integer DEFAULT 22 NOT NULL,
+    id_rangoedad integer DEFAULT 6 NOT NULL,
+    id_filiacion integer DEFAULT 10 NOT NULL,
+    id_sectorsocial integer DEFAULT 15 NOT NULL,
+    id_organizacion integer DEFAULT 16 NOT NULL,
+    id_vinculoestado integer DEFAULT 38 NOT NULL,
+    organizacionarmada integer DEFAULT 35 NOT NULL,
+    anotaciones character varying(1000),
+    id_etnia integer DEFAULT 1,
+    id_iglesia integer DEFAULT 1,
+    orientacionsexual character(1) DEFAULT 'H'::bpchar NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id integer DEFAULT nextval('victima_seq'::regclass) NOT NULL,
+    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
+    CONSTRAINT victima_orientacionsexual_check CHECK (((((((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar)) OR (orientacionsexual = 'B'::bpchar)) OR (orientacionsexual = 'T'::bpchar)) OR (orientacionsexual = 'I'::bpchar)) OR (orientacionsexual = 'H'::bpchar)))
 );
 
 
@@ -2827,6 +2603,42 @@ CREATE TABLE sivel2_sjr_ayudasjr_respuesta (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id_respuesta integer NOT NULL
+);
+
+
+--
+-- Name: sivel2_sjr_casosjr; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_sjr_casosjr (
+    id_caso integer NOT NULL,
+    fecharec date NOT NULL,
+    asesor integer NOT NULL,
+    oficina_id integer DEFAULT 1,
+    direccion character varying(1000),
+    telefono character varying(1000),
+    contacto integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    dependen integer,
+    sustento character varying(1000),
+    leerescribir boolean,
+    trabaja boolean,
+    ingresomensual integer,
+    gastos integer,
+    estrato character(1),
+    id_statusmigratorio integer DEFAULT 0,
+    id_proteccion integer DEFAULT 0,
+    id_idioma integer DEFAULT 0,
+    concentimientosjr boolean,
+    concentimientobd boolean,
+    fechasalida date,
+    id_salida integer,
+    fechallegada date,
+    id_llegada integer,
+    categoriaref integer,
+    observacionesref character varying(5000),
+    comosupo_id integer DEFAULT 1
 );
 
 
@@ -3319,6 +3131,21 @@ CREATE TABLE sivel2_sjr_proteccion (
 
 
 --
+-- Name: sivel2_sjr_regimensalud; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_sjr_regimensalud (
+    id integer DEFAULT nextval('regimensalud_seq'::regclass) NOT NULL,
+    nombre character varying(50) NOT NULL,
+    fechacreacion date DEFAULT '2013-05-13'::date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    CONSTRAINT regimensalud_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
+);
+
+
+--
 -- Name: sivel2_sjr_resagresion; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -3330,6 +3157,52 @@ CREATE TABLE sivel2_sjr_resagresion (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     CONSTRAINT resagresion_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
+);
+
+
+--
+-- Name: sivel2_sjr_respuesta; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_sjr_respuesta (
+    id_caso integer NOT NULL,
+    fechaatencion date NOT NULL,
+    prorrogas boolean,
+    numprorrogas integer,
+    montoprorrogas integer,
+    fechaultima date,
+    lugarultima character varying(500),
+    entregada boolean,
+    proxprorroga boolean,
+    turno character varying(100),
+    lugar character varying(500),
+    descamp character varying(5000),
+    compromisos character varying(5000),
+    remision character varying(5000),
+    orientaciones character varying(5000),
+    gestionessjr character varying(5000),
+    observaciones character varying(5000),
+    id_personadesea integer DEFAULT 0,
+    verifcsjr character varying(5000),
+    verifcper character varying(5000),
+    efectividad character varying(5000),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id integer DEFAULT nextval('respuesta_seq'::regclass) NOT NULL,
+    detallear character varying(5000),
+    montoar integer,
+    cantidadayes character varying(50),
+    institucionayes character varying(500),
+    informacionder boolean,
+    accionesder character varying(5000),
+    detallemotivo character varying(5000),
+    difobsprog character varying(5000),
+    detalleal character varying(5000),
+    montoal integer,
+    detalleap character varying(5000),
+    montoap integer,
+    detalleem character varying(5000),
+    montoem integer
 );
 
 
@@ -3358,6 +3231,34 @@ CREATE TABLE sivel2_sjr_rolfamilia (
     updated_at timestamp without time zone,
     observaciones character varying(5000),
     CONSTRAINT rolfamilia_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
+);
+
+
+--
+-- Name: sivel2_sjr_statusmigratorio_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sivel2_sjr_statusmigratorio_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sivel2_sjr_statusmigratorio; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_sjr_statusmigratorio (
+    id integer DEFAULT nextval('sivel2_sjr_statusmigratorio_id_seq'::regclass) NOT NULL,
+    nombre character varying(100) NOT NULL,
+    fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    observaciones character varying(5000),
+    CONSTRAINT statusmigratorio_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
 
@@ -3419,6 +3320,53 @@ CREATE TABLE sivel2_sjr_victimasjr (
     id_pais integer,
     enfermedad character varying(5000),
     ndiscapacidad character varying(100)
+);
+
+
+--
+-- Name: usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE usuario_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: usuario; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    id integer DEFAULT nextval('usuario_id_seq'::regclass) NOT NULL,
+    nusuario character varying(15) NOT NULL,
+    password character varying(64) DEFAULT ''::character varying NOT NULL,
+    nombre character varying(50) COLLATE public.es_co_utf_8,
+    descripcion character varying(50),
+    rol integer DEFAULT 4,
+    idioma character varying(6) DEFAULT 'es_CO'::character varying NOT NULL,
+    email character varying(255) DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
+    sign_in_count integer DEFAULT 0 NOT NULL,
+    fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
+    fechadeshabilitacion date,
+    reset_password_token character varying(255),
+    reset_password_sent_at timestamp without time zone,
+    remember_created_at timestamp without time zone,
+    current_sign_in_at timestamp without time zone,
+    last_sign_in_at timestamp without time zone,
+    current_sign_in_ip character varying(255),
+    last_sign_in_ip character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    oficina_id integer,
+    failed_attempts integer DEFAULT 0,
+    unlock_token character varying(255),
+    locked_at timestamp without time zone,
+    CONSTRAINT usuario_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion))),
+    CONSTRAINT usuario_rol_check CHECK ((rol >= 1))
 );
 
 
@@ -3559,38 +3507,6 @@ ALTER TABLE ONLY sivel2_sjr_etiqueta_usuario ALTER COLUMN id SET DEFAULT nextval
 
 
 --
--- Name: actividad_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY cor1440_gen_actividad
-    ADD CONSTRAINT actividad_pkey PRIMARY KEY (id);
-
-
---
--- Name: actividad_rangoedadac_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY cor1440_gen_actividad_rangoedadac
-    ADD CONSTRAINT actividad_rangoedadac_pkey PRIMARY KEY (id);
-
-
---
--- Name: actividadarea_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY cor1440_gen_actividadarea
-    ADD CONSTRAINT actividadarea_pkey PRIMARY KEY (id);
-
-
---
--- Name: actividadareas_actividad_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY cor1440_gen_actividadareas_actividad
-    ADD CONSTRAINT actividadareas_actividad_pkey PRIMARY KEY (id);
-
-
---
 -- Name: actividadoficio_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -3660,14 +3576,6 @@ ALTER TABLE ONLY sivel2_sjr_actualizacionbase
 
 ALTER TABLE ONLY sivel2_gen_anexo_caso
     ADD CONSTRAINT anexo_pkey PRIMARY KEY (id);
-
-
---
--- Name: anexoactividad_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY sip_anexo
-    ADD CONSTRAINT anexoactividad_pkey PRIMARY KEY (id);
 
 
 --
@@ -3879,14 +3787,6 @@ ALTER TABLE ONLY sivel2_sjr_clasifdesp
 
 
 --
--- Name: comosupo_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY sivel2_sjr_comosupo
-    ADD CONSTRAINT comosupo_pkey PRIMARY KEY (id);
-
-
---
 -- Name: comunidad_filiacion_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -4095,14 +3995,6 @@ ALTER TABLE ONLY sip_etiqueta
 
 
 --
--- Name: etiqueta_usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY sivel2_sjr_etiqueta_usuario
-    ADD CONSTRAINT etiqueta_usuario_pkey PRIMARY KEY (id);
-
-
---
 -- Name: etnia_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -4239,14 +4131,6 @@ ALTER TABLE ONLY sivel2_gen_organizacion
 
 
 --
--- Name: pais_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY sip_pais
-    ADD CONSTRAINT pais_pkey PRIMARY KEY (id);
-
-
---
 -- Name: pconsolidado_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -4319,14 +4203,6 @@ ALTER TABLE ONLY sivel2_gen_rangoedad
 
 
 --
--- Name: rangoedadac_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY cor1440_gen_rangoedadac
-    ADD CONSTRAINT rangoedadac_pkey PRIMARY KEY (id);
-
-
---
 -- Name: refugio_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -4338,7 +4214,7 @@ ALTER TABLE ONLY refugio
 -- Name: regimensalud_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY sivel2_gen_regimensalud
+ALTER TABLE ONLY sivel2_sjr_regimensalud
     ADD CONSTRAINT regimensalud_pkey PRIMARY KEY (id);
 
 
@@ -4503,11 +4379,67 @@ ALTER TABLE ONLY sip_persona_trelacion
 
 
 --
+-- Name: sivel2_gen_actividad_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad
+    ADD CONSTRAINT sivel2_gen_actividad_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_actividad_rangoedadac_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_rangoedadac
+    ADD CONSTRAINT sivel2_gen_actividad_rangoedadac_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_actividadarea_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY cor1440_gen_actividadarea
+    ADD CONSTRAINT sivel2_gen_actividadarea_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_actividadareas_actividad_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY cor1440_gen_actividadareas_actividad
+    ADD CONSTRAINT sivel2_gen_actividadareas_actividad_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_anexoactividad_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sip_anexo
+    ADD CONSTRAINT sivel2_gen_anexoactividad_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: sivel2_gen_caso_fuenteprensa_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY sivel2_gen_caso_fuenteprensa
     ADD CONSTRAINT sivel2_gen_caso_fuenteprensa_pkey PRIMARY KEY (fecha, fuenteprensa_id, id_caso);
+
+
+--
+-- Name: sivel2_gen_pais_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sip_pais
+    ADD CONSTRAINT sivel2_gen_pais_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_rangoedadac_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY cor1440_gen_rangoedadac
+    ADD CONSTRAINT sivel2_gen_rangoedadac_pkey PRIMARY KEY (id);
 
 
 --
@@ -4527,6 +4459,30 @@ ALTER TABLE ONLY sivel2_gen_supracategoria
 
 
 --
+-- Name: sivel2_gen_tdocumento_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sip_tdocumento
+    ADD CONSTRAINT sivel2_gen_tdocumento_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_sjr_comosupo_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sivel2_sjr_comosupo
+    ADD CONSTRAINT sivel2_sjr_comosupo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_sjr_etiqueta_usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY sivel2_sjr_etiqueta_usuario
+    ADD CONSTRAINT sivel2_sjr_etiqueta_usuario_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: statusmigratorio_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -4540,14 +4496,6 @@ ALTER TABLE ONLY sivel2_sjr_statusmigratorio
 
 ALTER TABLE ONLY sip_tclase
     ADD CONSTRAINT tclase_pkey PRIMARY KEY (id);
-
-
---
--- Name: tdocumento_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY sip_tdocumento
-    ADD CONSTRAINT tdocumento_pkey PRIMARY KEY (id);
 
 
 --
@@ -4684,13 +4632,6 @@ ALTER TABLE ONLY sivel2_sjr_victimasjr
 
 ALTER TABLE ONLY sivel2_gen_vinculoestado
     ADD CONSTRAINT vinculoestado_pkey PRIMARY KEY (id);
-
-
---
--- Name: busca_conscaso; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX busca_conscaso ON sivel2_gen_conscaso USING gin (q);
 
 
 --
@@ -5618,11 +5559,19 @@ ALTER TABLE ONLY emprendimiento_respuesta
 
 
 --
--- Name: fk_rails_00fcb50e1e; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_025bc94355; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY sivel2_sjr_motivosjr_derecho
-    ADD CONSTRAINT fk_rails_00fcb50e1e FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
+    ADD CONSTRAINT fk_rails_025bc94355 FOREIGN KEY (motivosjr_id) REFERENCES sivel2_sjr_motivosjr(id);
+
+
+--
+-- Name: fk_rails_07092afc7a; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_sjr_motivosjr_derecho
+    ADD CONSTRAINT fk_rails_07092afc7a FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
 
 
 --
@@ -5634,19 +5583,11 @@ ALTER TABLE ONLY cor1440_gen_financiador_proyectofinanciero
 
 
 --
--- Name: fk_rails_115bca8b2c; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_sjr_progestado_derecho
-    ADD CONSTRAINT fk_rails_115bca8b2c FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
-
-
---
--- Name: fk_rails_1e1b715428; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_257d7770de; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY sivel2_sjr_ayudasjr_derecho
-    ADD CONSTRAINT fk_rails_1e1b715428 FOREIGN KEY (ayudasjr_id) REFERENCES sivel2_sjr_ayudasjr(id);
+    ADD CONSTRAINT fk_rails_257d7770de FOREIGN KEY (ayudasjr_id) REFERENCES sivel2_sjr_ayudasjr(id);
 
 
 --
@@ -5698,19 +5639,11 @@ ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
 
 
 --
--- Name: fk_rails_5ff8e2bab4; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_67a0c62011; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY sivel2_sjr_ayudasjr_derecho
-    ADD CONSTRAINT fk_rails_5ff8e2bab4 FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
-
-
---
--- Name: fk_rails_69992070a3; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_sjr_ayudaestado_derecho
-    ADD CONSTRAINT fk_rails_69992070a3 FOREIGN KEY (ayudaestado_id) REFERENCES sivel2_sjr_ayudaestado(id);
+    ADD CONSTRAINT fk_rails_67a0c62011 FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
 
 
 --
@@ -5722,27 +5655,27 @@ ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
 
 
 --
--- Name: fk_rails_b0849b6ac6; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_sjr_ayudaestado_derecho
-    ADD CONSTRAINT fk_rails_b0849b6ac6 FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
-
-
---
--- Name: fk_rails_b909b1844d; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_sjr_motivosjr_derecho
-    ADD CONSTRAINT fk_rails_b909b1844d FOREIGN KEY (motivosjr_id) REFERENCES sivel2_sjr_motivosjr(id);
-
-
---
 -- Name: fk_rails_c02831dd89; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY cor1440_gen_informe
     ADD CONSTRAINT fk_rails_c02831dd89 FOREIGN KEY (filtroactividadarea) REFERENCES cor1440_gen_actividadarea(id);
+
+
+--
+-- Name: fk_rails_c0e3a876ba; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_sjr_progestado_derecho
+    ADD CONSTRAINT fk_rails_c0e3a876ba FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
+
+
+--
+-- Name: fk_rails_c2b3897008; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_sjr_progestado_derecho
+    ADD CONSTRAINT fk_rails_c2b3897008 FOREIGN KEY (progestado_id) REFERENCES sivel2_sjr_progestado(id);
 
 
 --
@@ -5770,11 +5703,19 @@ ALTER TABLE ONLY cor1440_gen_actividad_proyecto
 
 
 --
--- Name: fk_rails_f808034a20; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_e2eac2e0d5; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY sivel2_sjr_progestado_derecho
-    ADD CONSTRAINT fk_rails_f808034a20 FOREIGN KEY (progestado_id) REFERENCES sivel2_sjr_progestado(id);
+ALTER TABLE ONLY sivel2_sjr_ayudaestado_derecho
+    ADD CONSTRAINT fk_rails_e2eac2e0d5 FOREIGN KEY (ayudaestado_id) REFERENCES sivel2_sjr_ayudaestado(id);
+
+
+--
+-- Name: fk_rails_f5ed8ca37f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_sjr_ayudaestado_derecho
+    ADD CONSTRAINT fk_rails_f5ed8ca37f FOREIGN KEY (derecho_id) REFERENCES sivel2_sjr_derecho(id);
 
 
 --
@@ -6173,7 +6114,7 @@ ALTER TABLE ONLY sivel2_sjr_victimasjr
 -- PostgreSQL database dump complete
 --
 
-SET search_path TO public, pg_catalog;
+SET search_path TO "$user",public;
 
 INSERT INTO schema_migrations (version) VALUES ('20131128151014');
 
@@ -6306,8 +6247,6 @@ INSERT INTO schema_migrations (version) VALUES ('20141222174247');
 INSERT INTO schema_migrations (version) VALUES ('20141222174257');
 
 INSERT INTO schema_migrations (version) VALUES ('20141222174267');
-
-INSERT INTO schema_migrations (version) VALUES ('20141225174739');
 
 INSERT INTO schema_migrations (version) VALUES ('20150213114933');
 
