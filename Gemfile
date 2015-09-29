@@ -9,6 +9,11 @@ gem "rails-i18n"
 # Postgresql
 gem "pg"
 
+# PDF
+gem "prawn"
+gem "prawnto_2",  :require => "prawnto"
+gem "prawn-table"
+
 # Maneja variables de ambiente (como claves y secretos) en .env
 gem "foreman"
 
