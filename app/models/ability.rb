@@ -18,7 +18,8 @@ class Ability < Sivel2Sjr::Ability
       ['Sivel2Gen', 'pconsolidado'],
       ['Sivel2Gen', 'region'],
       ['Sivel2Gen', 'sectorsocial'],
-      ['Sivel2Gen', 'vinculoestado']
+      ['Sivel2Gen', 'vinculoestado'],
+      ['Sivel2Sjr', 'acreditacion']
   ]
 
   # Lo demas de sivel2_sjr
