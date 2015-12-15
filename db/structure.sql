@@ -259,45 +259,6 @@ CREATE SEQUENCE caso_presponsable_seq
 
 
 --
--- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE sip_persona_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sip_persona; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sip_persona (
-    id integer DEFAULT nextval('sip_persona_id_seq'::regclass) NOT NULL,
-    nombres character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
-    apellidos character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
-    anionac integer,
-    mesnac integer,
-    dianac integer,
-    sexo character(1) NOT NULL,
-    numerodocumento character varying(100),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_pais integer,
-    nacionalde integer,
-    tdocumento_id integer,
-    id_departamento integer,
-    id_municipio integer,
-    id_clase integer,
-    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR ((((dianac >= 1) AND ((((((((mesnac = 1) OR (mesnac = 3)) OR (mesnac = 5)) OR (mesnac = 7)) OR (mesnac = 8)) OR (mesnac = 10)) OR (mesnac = 12)) AND (dianac <= 31))) OR (((((mesnac = 4) OR (mesnac = 6)) OR (mesnac = 9)) OR (mesnac = 11)) AND (dianac <= 30))) OR ((mesnac = 2) AND (dianac <= 29))))),
-    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
-    CONSTRAINT persona_sexo_check CHECK ((((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar)) OR (sexo = 'M'::bpchar)))
-);
-
-
---
 -- Name: sivel2_gen_caso_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -407,6 +368,39 @@ CREATE TABLE sivel2_sjr_casosjr (
 
 
 --
+-- Name: sivel2_sjr_victimasjr; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_sjr_victimasjr (
+    sindocumento boolean,
+    id_estadocivil integer DEFAULT 0,
+    id_rolfamilia integer DEFAULT 0 NOT NULL,
+    cabezafamilia boolean,
+    id_maternidad integer DEFAULT 0,
+    discapacitado boolean,
+    id_actividadoficio integer DEFAULT 0,
+    id_escolaridad integer DEFAULT 0,
+    asisteescuela boolean,
+    tienesisben boolean,
+    id_departamento integer,
+    id_municipio integer,
+    nivelsisben integer,
+    id_regimensalud integer DEFAULT 0,
+    eps character varying(1000),
+    libretamilitar boolean,
+    distrito integer,
+    progadultomayor boolean,
+    fechadesagregacion date,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_victima integer NOT NULL,
+    id_pais integer,
+    enfermedad character varying(5000),
+    ndiscapacidad character varying(100)
+);
+
+
+--
 -- Name: cben1; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -422,12 +416,15 @@ CREATE VIEW cben1 AS
             ELSE 0
         END AS beneficiario,
     1 AS npersona,
-    persona.sexo
+        CASE
+            WHEN victimasjr.cabezafamilia THEN 'SI'::text
+            ELSE 'NO'::text
+        END AS cabezafamilia
    FROM sivel2_gen_caso caso,
     sivel2_sjr_casosjr casosjr,
     sivel2_gen_victima victima,
-    sip_persona persona
-  WHERE (((((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso)) AND (caso.id = victima.id_caso)) AND (casosjr.oficina_id = 1)) AND (persona.id = victima.id_persona));
+    sivel2_sjr_victimasjr victimasjr
+  WHERE ((((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso)) AND (caso.id = victima.id_caso)) AND (victima.id = victimasjr.id_victima));
 
 
 --
@@ -623,7 +620,7 @@ CREATE VIEW cben2 AS
     cben1.contacto,
     cben1.beneficiario,
     cben1.npersona,
-    cben1.sexo,
+    cben1.cabezafamilia,
     ubicacion.id_departamento,
     departamento.nombre AS departamento_nombre,
     ubicacion.id_municipio,
@@ -637,7 +634,7 @@ CREATE VIEW cben2 AS
      LEFT JOIN sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
      LEFT JOIN sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
      LEFT JOIN sip_clase clase ON ((ubicacion.id_clase = clase.id)))
-  GROUP BY cben1.id_caso, cben1.id_persona, cben1.contacto, cben1.beneficiario, cben1.npersona, cben1.sexo, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
+  GROUP BY cben1.id_caso, cben1.id_persona, cben1.contacto, cben1.beneficiario, cben1.npersona, cben1.cabezafamilia, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
 
 
 --
@@ -1123,6 +1120,92 @@ ALTER SEQUENCE cor1440_gen_rangoedadac_id_seq OWNED BY cor1440_gen_rangoedadac.i
 
 
 --
+-- Name: respuesta_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE respuesta_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sivel2_sjr_ayudasjr_respuesta; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_sjr_ayudasjr_respuesta (
+    id_ayudasjr integer DEFAULT 0 NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_respuesta integer NOT NULL
+);
+
+
+--
+-- Name: sivel2_sjr_respuesta; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sivel2_sjr_respuesta (
+    id_caso integer NOT NULL,
+    fechaatencion date NOT NULL,
+    prorrogas boolean,
+    numprorrogas integer,
+    montoprorrogas integer,
+    fechaultima date,
+    lugarultima character varying(500),
+    entregada boolean,
+    proxprorroga boolean,
+    turno character varying(100),
+    lugar character varying(500),
+    descamp character varying(5000),
+    compromisos character varying(5000),
+    remision character varying(5000),
+    orientaciones character varying(5000),
+    gestionessjr character varying(5000),
+    observaciones character varying(5000),
+    id_personadesea integer DEFAULT 0,
+    verifcsjr character varying(5000),
+    verifcper character varying(5000),
+    efectividad character varying(5000),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id integer DEFAULT nextval('respuesta_seq'::regclass) NOT NULL,
+    detallear character varying(5000),
+    montoar integer,
+    cantidadayes character varying(50),
+    institucionayes character varying(500),
+    informacionder boolean,
+    accionesder character varying(5000),
+    detallemotivo character varying(5000),
+    difobsprog character varying(5000),
+    detalleal character varying(5000),
+    montoal integer,
+    detalleap character varying(5000),
+    montoap integer,
+    detalleem character varying(5000),
+    montoem integer
+);
+
+
+--
+-- Name: cres1; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW cres1 AS
+ SELECT caso.id AS id_caso,
+    respuesta.fechaatencion,
+    casosjr.oficina_id,
+    ayudasjr_respuesta.id_ayudasjr
+   FROM sivel2_gen_caso caso,
+    sivel2_sjr_casosjr casosjr,
+    sivel2_sjr_respuesta respuesta,
+    sivel2_sjr_ayudasjr_respuesta ayudasjr_respuesta
+  WHERE (((caso.id = casosjr.id_caso) AND (caso.id = respuesta.id_caso)) AND (respuesta.id = ayudasjr_respuesta.id_respuesta));
+
+
+--
 -- Name: emprendimiento_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -1276,18 +1359,6 @@ CREATE SEQUENCE regimensalud_seq
 --
 
 CREATE SEQUENCE resagresion_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: respuesta_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE respuesta_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1496,6 +1567,45 @@ CREATE SEQUENCE sip_pais_id_seq
 --
 
 ALTER SEQUENCE sip_pais_id_seq OWNED BY sip_pais.id;
+
+
+--
+-- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sip_persona_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_persona; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE sip_persona (
+    id integer DEFAULT nextval('sip_persona_id_seq'::regclass) NOT NULL,
+    nombres character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
+    apellidos character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
+    anionac integer,
+    mesnac integer,
+    dianac integer,
+    sexo character(1) NOT NULL,
+    numerodocumento character varying(100),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_pais integer,
+    nacionalde integer,
+    tdocumento_id integer,
+    id_departamento integer,
+    id_municipio integer,
+    id_clase integer,
+    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR ((((dianac >= 1) AND ((((((((mesnac = 1) OR (mesnac = 3)) OR (mesnac = 5)) OR (mesnac = 7)) OR (mesnac = 8)) OR (mesnac = 10)) OR (mesnac = 12)) AND (dianac <= 31))) OR (((((mesnac = 4) OR (mesnac = 6)) OR (mesnac = 9)) OR (mesnac = 11)) AND (dianac <= 30))) OR ((mesnac = 2) AND (dianac <= 29))))),
+    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
+    CONSTRAINT persona_sexo_check CHECK ((((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar)) OR (sexo = 'M'::bpchar)))
+);
 
 
 --
@@ -2008,52 +2118,6 @@ CREATE TABLE sivel2_gen_comunidad_vinculoestado (
     id_caso integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
-);
-
-
---
--- Name: sivel2_sjr_respuesta; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_sjr_respuesta (
-    id_caso integer NOT NULL,
-    fechaatencion date NOT NULL,
-    prorrogas boolean,
-    numprorrogas integer,
-    montoprorrogas integer,
-    fechaultima date,
-    lugarultima character varying(500),
-    entregada boolean,
-    proxprorroga boolean,
-    turno character varying(100),
-    lugar character varying(500),
-    descamp character varying(5000),
-    compromisos character varying(5000),
-    remision character varying(5000),
-    orientaciones character varying(5000),
-    gestionessjr character varying(5000),
-    observaciones character varying(5000),
-    id_personadesea integer DEFAULT 0,
-    verifcsjr character varying(5000),
-    verifcper character varying(5000),
-    efectividad character varying(5000),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id integer DEFAULT nextval('respuesta_seq'::regclass) NOT NULL,
-    detallear character varying(5000),
-    montoar integer,
-    cantidadayes character varying(50),
-    institucionayes character varying(500),
-    informacionder boolean,
-    accionesder character varying(5000),
-    detallemotivo character varying(5000),
-    difobsprog character varying(5000),
-    detalleal character varying(5000),
-    montoal integer,
-    detalleap character varying(5000),
-    montoap integer,
-    detalleem character varying(5000),
-    montoem integer
 );
 
 
@@ -2940,18 +3004,6 @@ CREATE TABLE sivel2_sjr_ayudasjr_derecho (
 
 
 --
--- Name: sivel2_sjr_ayudasjr_respuesta; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_sjr_ayudasjr_respuesta (
-    id_ayudasjr integer DEFAULT 0 NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_respuesta integer NOT NULL
-);
-
-
---
 -- Name: sivel2_sjr_clasifdesp_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -3466,39 +3518,6 @@ CREATE TABLE sivel2_sjr_tipodesp (
     updated_at timestamp without time zone,
     observaciones character varying(5000),
     CONSTRAINT tipodesp_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
-);
-
-
---
--- Name: sivel2_sjr_victimasjr; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE sivel2_sjr_victimasjr (
-    sindocumento boolean,
-    id_estadocivil integer DEFAULT 0,
-    id_rolfamilia integer DEFAULT 0 NOT NULL,
-    cabezafamilia boolean,
-    id_maternidad integer DEFAULT 0,
-    discapacitado boolean,
-    id_actividadoficio integer DEFAULT 0,
-    id_escolaridad integer DEFAULT 0,
-    asisteescuela boolean,
-    tienesisben boolean,
-    id_departamento integer,
-    id_municipio integer,
-    nivelsisben integer,
-    id_regimensalud integer DEFAULT 0,
-    eps character varying(1000),
-    libretamilitar boolean,
-    distrito integer,
-    progadultomayor boolean,
-    fechadesagregacion date,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_victima integer NOT NULL,
-    id_pais integer,
-    enfermedad character varying(5000),
-    ndiscapacidad character varying(100)
 );
 
 
