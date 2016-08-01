@@ -33,3 +33,6 @@ herram/
 doc/
 *.png
 db/*sql
+public/colchon-articulos/
+archivos/
+

@@ -22,6 +22,14 @@
           <%= menu_item "Informes", cor1440_gen.informes_path %>
         <% end %>
       <% end %>
+
+       <%= drop_down "Archivo de Prensa" do %>
+         <%= menu_item "Buscar", sal7711_gen.buscar_path %>
+         <% if can? :manage, Sal7711Gen::Articulo then %>
+           <%= menu_item "Añadir Artículo", sal7711_gen.new_articulo_path %>
+         <% end %>
+       <% end %>
+
     <% end %>
   <% end %>
   <%= menu_group :pull => :right do %>
@@ -55,7 +63,7 @@
 
 <% content_for :piedepagina do %>
     <p><span class='derechos'>Dominio Público de acuerdo a Legislación Colombiana<br/>
-      Desarrollado para <a href="http://www.sjrlac.org" target="_blank">SJR LAC</a> por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2014. 
+      Desarrollado para <a href="http://www.sjrlac.org" target="_blank">SJR LAC</a> por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2014-2016. 
     </span></p>
 <% end %>
 

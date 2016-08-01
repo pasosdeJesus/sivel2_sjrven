@@ -37,13 +37,17 @@ gem "coffee-rails"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 
+# Cuadros de selección para búsquedas 
+gem 'chosen-rails' 
+
 # Seguir enlaces más rápido. Ver: https://github.com/rails/turbolinks
-gem "turbolinks"
+gem "turbolinks", '2.5.3'
 
 # Ambiente de CSS
 gem "twitter-bootstrap-rails"
 gem "bootstrap-datepicker-rails"
 gem "bootstrap-sass"
+gem "font-awesome-rails" 
 
 gem "chartkick"
 
@@ -88,6 +92,13 @@ gem 'sivel2_sjr', github: 'pasosdeJesus/sivel2_sjr'
 gem 'cor1440_gen', github: 'pasosdeJesus/cor1440_gen'
 #gem "cor1440_gen", path: '../cor1440_gen'
 
+# Motor sal7711_gen 
+gem 'sal7711_gen', github: 'pasosdeJesus/sal7711_gen'
+#gem "sal7711_gen", path: '../sal7711_gen'
+
+# Motor sal7711_web
+gem 'sal7711_web', github: 'pasosdeJesus/sal7711_web'
+#gem "sal7711_web", path: '../sal7711_web'
 
 group :doc do
     # Genera documentación en doc/api con bundle exec rake doc:rails
