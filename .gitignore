@@ -35,4 +35,8 @@ doc/
 db/*sql
 public/colchon-articulos/
 archivos/
+config/initializers/sip.rb
+public/assets/
+.env
+app/views/sip/
 
