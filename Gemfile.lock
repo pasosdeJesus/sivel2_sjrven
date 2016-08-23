@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 66838e7f60ee9c8745f272ea1df16d309f177ada
+  revision: be117ac527b91801a1c012f23344fa921c8aa92b
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 4235d8763bf55b4184d43457a9171bcb77a65c1f
+  revision: 53e854cd07cc1507809178d140e251e1d00a868d
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_web.git
-  revision: af29100e460bbad653e2fddb8794c22ddce80c8f
+  revision: 254ab78adf875820e465658541e3e53f609071fe
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 94392b92609e5fc8b4ff72ce86246817bdb4cf50
+  revision: c08075b3cb6ec7a3e66f202d4a2e5411f3646cfe
   specs:
     sip (2.0.b1)
       bootstrap-datepicker-rails
@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 8df217d2f7f98b0fa12ca1429ac58a66e347cee3
+  revision: 9d1c5d050246c18ea044b3cd46dbee08d07825e6
   specs:
     sivel2_gen (2.0b1)
       devise
@@ -55,7 +55,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 6d30ba1f31e989c8ad1568612780504d07a04fe1
+  revision: 8b11c566e5d0e141fd0c306274af413f0b565bb1
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -109,7 +109,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.1)
-    autoprefixer-rails (6.4.0.2)
+    autoprefixer-rails (6.4.0.3)
       execjs
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
@@ -210,7 +210,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
-    newrelic_rpm (3.16.1.320)
+    newrelic_rpm (3.16.2.321)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
