@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 0b188484cbcde615d99baaa9c7bcac3fc0508ba4
+  revision: f09bd7fb179bcf769c5aa4465e7663eb2741bc4c
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 55bb7310098cd88f3f64ca4eff09508b923da70f
+  revision: badee41cb20767015b5efeec9a82bb62b2ae3f12
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_web.git
-  revision: f252dd114d948827e390c2866e43a367591c661c
+  revision: 04cc273dd6c92991ebc6dd5bdf1076cd86907e1f
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: c21e60ec72322eeef0edf99d6a7420994f944fdf
+  revision: b7a09bfed6c239f9b8203fccc1be436c8b98ed08
   specs:
     sip (2.0.b1)
       bootstrap-datepicker-rails
@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 2fcb75c1386bc2ad99f099846da7493e3f669c06
+  revision: 89c7b6f2d992b2e0b172366629a3e43a0b93b571
   specs:
     sivel2_gen (2.0b1)
       devise
@@ -55,7 +55,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: c2d2d302f967871ce330b663dcddf65c01bcaf84
+  revision: 7a1553ca729eb5e5cfdeb81e5a2c00421b00b2c7
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -108,8 +108,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    arel (7.1.1)
-    autoprefixer-rails (6.4.0.3)
+    arel (7.1.2)
+    autoprefixer-rails (6.5.0.1)
       execjs
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
@@ -132,7 +132,7 @@ GEM
     capybara-webkit (1.11.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
-    chartkick (2.0.2)
+    chartkick (2.1.1)
     chosen-rails (1.5.2)
       coffee-rails (>= 3.2)
       railties (>= 3.0)
@@ -208,9 +208,9 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     multi_json (1.12.1)
-    newrelic_rpm (3.16.2.321)
+    newrelic_rpm (3.16.3.323)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -223,7 +223,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pdf-core (0.6.1)
-    pg (0.18.4)
+    pg (0.19.0)
     pkg-config (1.1.7)
     prawn (2.1.0)
       pdf-core (~> 0.6.1)
@@ -268,7 +268,7 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-i18n (5.0.0)
+    rails-i18n (5.0.1)
       i18n (~> 0.7)
       railties (~> 5.0)
     rails_12factor (0.0.3)
@@ -283,12 +283,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.17.0)
-    rake (11.2.2)
+    rake (11.3.0)
     rdoc (4.2.2)
       json (~> 1.4)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
-    rspec-core (3.5.2)
+    rspec-core (3.5.3)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -331,7 +331,7 @@ GEM
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.1.1)
+    sprockets-rails (3.2.0)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
@@ -352,7 +352,7 @@ GEM
       tzinfo
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2016.6)
+    tzinfo-data (1.2016.7)
       tzinfo (>= 1.0.0)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
@@ -369,7 +369,7 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    will_paginate (3.1.0)
+    will_paginate (3.1.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -435,4 +435,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
