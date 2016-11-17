@@ -30,5 +30,9 @@ module Sivel2Sjrven
 
     # Esquema en SQL
     config.active_record.schema_format = :sql
+
+    config.x.url_colchon = 'colchon-articulos'
+
+    config.x.formato_fecha = 'yyyy-mm-dd'
   end
 end
