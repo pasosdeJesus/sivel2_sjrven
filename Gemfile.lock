@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: f988539935e535d93f26ecc4e53bf40525b5abc3
+  revision: 2a9505168c75ac134ff0b19074103389390dd1c1
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -10,13 +10,13 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 4eb9f1b11db220d71b8bc6b83e18737700a1be14
+  revision: e4f24835393522da9565b1e65eab0ba5016d44e9
   specs:
     heb412_gen (1.0.a1)
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: a536a3da8b7b1f3406677e819f7330d34ad4b69f
+  revision: 6a81402e91688d000b701a7a2c158b5bea35f746
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 204066eeeafdc7e42c5077f50167feb85075cf0a
+  revision: e2f539c9f15d79bfb7a07898178bbff037c3b290
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: ee7f74f4024e9621949af3519bc381fe83fa6141
+  revision: e722c131d25543743a43e8beda13cfa2a4b0eaeb
   specs:
     sip (2.0.b2)
       bootstrap-datepicker-rails
@@ -52,7 +52,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 97d0e7db1590b9e97b1496903bd42c05e0bb621a
+  revision: 9de2b9ee43925c2efa2badb9c15bc7b45b1f2f3b
   specs:
     sivel2_gen (2.0b2)
       devise
@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 7168d3b86b2cc6e4a2ba3e48d7ca85963039e571
+  revision: 6b662905feb0e9a6649ad362bd0130d6f4855fa7
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -116,7 +116,7 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
-    autoprefixer-rails (6.7.0)
+    autoprefixer-rails (6.7.5)
       execjs
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
@@ -128,8 +128,8 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     camertron-eprun (1.1.1)
-    cancancan (1.15.0)
-    capybara (2.12.0)
+    cancancan (1.16.0)
+    capybara (2.12.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -139,7 +139,7 @@ GEM
     capybara-webkit (1.12.0)
       capybara (>= 2.3.0, < 2.13.0)
       json
-    chartkick (2.2.2)
+    chartkick (2.2.3)
     chosen-rails (1.5.2)
       coffee-rails (>= 3.2)
       railties (>= 3.0)
@@ -158,7 +158,7 @@ GEM
     coffee-script-source (1.12.2)
     colorize (0.8.1)
     commonjs (0.2.7)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -181,10 +181,10 @@ GEM
       thor (~> 0.19.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    i18n (0.7.0)
+    i18n (0.8.1)
     interception (0.5)
-    jbuilder (2.6.1)
-      activesupport (>= 3.0.0, < 5.1)
+    jbuilder (2.6.3)
+      activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
     jquery-rails (4.2.2)
       rails-dom-testing (>= 1, < 3)
@@ -213,7 +213,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
-    newrelic_rpm (3.18.0.329)
+    newrelic_rpm (3.18.1.330)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -238,14 +238,14 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-rescue (1.4.4)
+    pry-rescue (1.4.5)
       interception (>= 0.5)
       pry
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (2.0.5)
-    puma (3.6.2)
+    puma (3.7.1)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -270,7 +270,7 @@ GEM
       nokogiri (~> 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-i18n (5.0.2)
+    rails-i18n (5.0.3)
       i18n (~> 0.7)
       railties (~> 5.0)
     rails_12factor (0.0.3)
@@ -329,16 +329,16 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (0.19.4)
-    thread_safe (0.3.5)
-    tilt (2.0.5)
+    thread_safe (0.3.6)
+    tilt (2.0.6)
     ttfunk (1.4.0)
     turbolinks (2.5.3)
       coffee-rails
-    twitter-bootstrap-rails (3.2.2)
-      actionpack (>= 3.1)
-      execjs (>= 2.2.2, >= 2.2)
-      less-rails (>= 2.5.0)
-      railties (>= 3.1)
+    twitter-bootstrap-rails (4.0.0)
+      actionpack (~> 5.0, >= 5.0.1)
+      execjs (~> 2.7)
+      less-rails (~> 2.8, >= 2.8.0)
+      railties (~> 5.0, >= 5.0.1)
     twitter_cldr (4.2.0)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
@@ -347,7 +347,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2016.10)
       tzinfo (>= 1.0.0)
-    uglifier (3.0.4)
+    uglifier (3.1.0)
       execjs (>= 0.3.0, < 3)
     unicorn (5.2.0)
       kgio (~> 2.6)
@@ -427,4 +427,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.13.7
+   1.14.3
