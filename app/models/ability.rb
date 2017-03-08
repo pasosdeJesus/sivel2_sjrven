@@ -30,15 +30,23 @@ class Ability < Sivel2Sjr::Ability
       Sivel2Gen::Ability::BASICAS_PROPIAS + 
       Sivel2Sjr::Ability::BASICAS_PROPIAS + 
       BASICAS_PROPIAS  - [
+        ['Sivel2Sjr', 'acreditacion'],
+        ['Sivel2Sjr', 'ayudaestado'],
+        ['Sivel2Sjr', 'clasifdesp'],
+        ['Sivel2Sjr', 'declaroante'],
         ['Sivel2Gen', 'filiacion'],
         ['Sivel2Gen', 'frontera'],
+        ['Sivel2Sjr', 'inclusion'],
         ['Sivel2Gen', 'intervalo'],
+        ['Sivel2Sjr', 'modalidadtierra'],
         ['Sivel2Gen', 'organizacion'],
         ['Sivel2Gen', 'pconsolidado'],
+        ['Sivel2Sjr', 'personadesea'],
+        ['Sivel2Sjr', 'progestado'],
         ['Sivel2Gen', 'region'],
         ['Sivel2Gen', 'sectorsocial'],
-        ['Sivel2Gen', 'vinculoestado'],
-        ['Sivel2Sjr', 'acreditacion']
+        ['Sivel2Sjr', 'tipodesp'],
+        ['Sivel2Gen', 'vinculoestado']
       ]
   end
 
