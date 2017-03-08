@@ -33,16 +33,20 @@ class Ability < Sivel2Sjr::Ability
         ['Sivel2Sjr', 'acreditacion'],
         ['Sivel2Sjr', 'ayudaestado'],
         ['Sivel2Sjr', 'clasifdesp'],
+        ['Sivel2Sjr', 'comosupo'],
         ['Sivel2Sjr', 'declaroante'],
+        ['Sivel2Sjr', 'derecho'],
         ['Sivel2Gen', 'filiacion'],
         ['Sivel2Gen', 'frontera'],
         ['Sivel2Sjr', 'inclusion'],
         ['Sivel2Gen', 'intervalo'],
         ['Sivel2Sjr', 'modalidadtierra'],
+        ['Sivel2Sjr', 'motivosjr'],
         ['Sivel2Gen', 'organizacion'],
         ['Sivel2Gen', 'pconsolidado'],
         ['Sivel2Sjr', 'personadesea'],
         ['Sivel2Sjr', 'progestado'],
+        ['Sivel2Sjr', 'proteccion'],
         ['Sivel2Gen', 'region'],
         ['Sivel2Gen', 'sectorsocial'],
         ['Sivel2Sjr', 'tipodesp'],
@@ -81,6 +85,7 @@ class Ability < Sivel2Sjr::Ability
         can [:update, :create, :destroy], Sivel2Gen::Caso, 
           casosjr: { asesor: usuario.id, oficina_id:usuario.oficina_id }
         can [:read, :new], Cor1440Gen::Actividad
+        can :read, Cor1440Gen::Proyectofinanciero
         can :new, Sivel2Gen::Caso 
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
           oficina: { id: usuario.oficina_id}
@@ -92,6 +97,7 @@ class Ability < Sivel2Sjr::Ability
         can [:update, :create, :destroy], Sivel2Gen::Caso, 
           casosjr: { oficina_id: usuario.oficina_id }
         can :read, Cor1440Gen::Informe
+        can :read, Cor1440Gen::Proyectofinanciero
         can :read, Cor1440Gen::Actividad
         can :new, Cor1440Gen::Actividad
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
@@ -106,6 +112,7 @@ class Ability < Sivel2Sjr::Ability
         can :manage, Cor1440Gen::Informe
         can :read, Cor1440Gen::Actividad
         can :new, Cor1440Gen::Actividad
+        can :read, Cor1440Gen::Proyectofinanciero
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
           oficina: { id: usuario.oficina_id}
         can :manage, Sivel2Gen::Acto
@@ -116,6 +123,7 @@ class Ability < Sivel2Sjr::Ability
         can :manage, Sivel2Gen::Caso
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
+        can :manage, Cor1440Gen::Proyectofinanciero
         can :manage, Sivel2Gen::Acto
         can :manage, Sip::Persona
         can :manage, Usuario
