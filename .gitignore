@@ -39,4 +39,4 @@ config/initializers/sip.rb
 public/assets/
 .env
 app/views/sip/
-
+coverage
