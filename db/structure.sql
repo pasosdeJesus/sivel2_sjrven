@@ -288,8 +288,8 @@ CREATE TABLE sivel2_gen_caso (
     memo text NOT NULL,
     grconfiabilidad character varying(5),
     gresclarecimiento character varying(5),
-    grimpunidad character varying(5),
-    grinformacion character varying(5),
+    grimpunidad character varying(8),
+    grinformacion character varying(8),
     bienes text,
     id_intervalo integer DEFAULT 5,
     created_at timestamp without time zone,
@@ -327,12 +327,12 @@ CREATE TABLE sivel2_gen_victima (
     anotaciones character varying(1000),
     id_etnia integer DEFAULT 1,
     id_iglesia integer DEFAULT 1,
-    orientacionsexual character(1) DEFAULT 'H'::bpchar NOT NULL,
+    orientacionsexual character(1) DEFAULT 'S'::bpchar NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('victima_seq'::regclass) NOT NULL,
     CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
-    CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'I'::bpchar) OR (orientacionsexual = 'H'::bpchar)))
+    CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
 );
 
 
@@ -373,39 +373,6 @@ CREATE TABLE sivel2_sjr_casosjr (
 
 
 --
--- Name: sivel2_sjr_victimasjr; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE sivel2_sjr_victimasjr (
-    sindocumento boolean,
-    id_estadocivil integer DEFAULT 0,
-    id_rolfamilia integer DEFAULT 0 NOT NULL,
-    cabezafamilia boolean,
-    id_maternidad integer DEFAULT 0,
-    discapacitado boolean,
-    id_actividadoficio integer DEFAULT 0,
-    id_escolaridad integer DEFAULT 0,
-    asisteescuela boolean,
-    tienesisben boolean,
-    id_departamento integer,
-    id_municipio integer,
-    nivelsisben integer,
-    id_regimensalud integer DEFAULT 0,
-    eps character varying(1000),
-    libretamilitar boolean,
-    distrito integer,
-    progadultomayor boolean,
-    fechadesagregacion date,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_victima integer NOT NULL,
-    id_pais integer,
-    enfermedad character varying(5000),
-    ndiscapacidad character varying(100)
-);
-
-
---
 -- Name: cben1; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -421,15 +388,11 @@ CREATE VIEW cben1 AS
             ELSE 0
         END AS beneficiario,
     1 AS npersona,
-        CASE
-            WHEN victimasjr.cabezafamilia THEN 'SI'::text
-            ELSE 'NO'::text
-        END AS cabezafamilia
+    'total'::text AS total
    FROM sivel2_gen_caso caso,
     sivel2_sjr_casosjr casosjr,
-    sivel2_gen_victima victima,
-    sivel2_sjr_victimasjr victimasjr
-  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso) AND (victima.id = victimasjr.id_victima));
+    sivel2_gen_victima victima
+  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
 
 
 --
@@ -625,7 +588,7 @@ CREATE VIEW cben2 AS
     cben1.contacto,
     cben1.beneficiario,
     cben1.npersona,
-    cben1.cabezafamilia,
+    cben1.total,
     ubicacion.id_departamento,
     departamento.nombre AS departamento_nombre,
     ubicacion.id_municipio,
@@ -639,19 +602,7 @@ CREATE VIEW cben2 AS
      LEFT JOIN sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
      LEFT JOIN sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
      LEFT JOIN sip_clase clase ON ((ubicacion.id_clase = clase.id)))
-  GROUP BY cben1.id_caso, cben1.id_persona, cben1.contacto, cben1.beneficiario, cben1.npersona, cben1.cabezafamilia, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
-
-
---
--- Name: contexto_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE contexto_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
+  GROUP BY cben1.id_caso, cben1.id_persona, cben1.contacto, cben1.beneficiario, cben1.npersona, cben1.total, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
 
 
 --
@@ -1141,14 +1092,14 @@ CREATE SEQUENCE respuesta_seq
 
 
 --
--- Name: sivel2_sjr_ayudasjr_respuesta; Type: TABLE; Schema: public; Owner: -
+-- Name: sivel2_sjr_aslegal_respuesta; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE sivel2_sjr_ayudasjr_respuesta (
-    id_ayudasjr integer DEFAULT 0 NOT NULL,
+CREATE TABLE sivel2_sjr_aslegal_respuesta (
+    id_respuesta integer NOT NULL,
+    id_aslegal integer DEFAULT 0 NOT NULL,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_respuesta integer NOT NULL
+    updated_at timestamp without time zone
 );
 
 
@@ -1206,12 +1157,12 @@ CREATE VIEW cres1 AS
  SELECT caso.id AS id_caso,
     respuesta.fechaatencion,
     casosjr.oficina_id,
-    ayudasjr_respuesta.id_ayudasjr
+    aslegal_respuesta.id_aslegal
    FROM sivel2_gen_caso caso,
     sivel2_sjr_casosjr casosjr,
     sivel2_sjr_respuesta respuesta,
-    sivel2_sjr_ayudasjr_respuesta ayudasjr_respuesta
-  WHERE ((caso.id = casosjr.id_caso) AND (caso.id = respuesta.id_caso) AND (respuesta.id = ayudasjr_respuesta.id_respuesta));
+    sivel2_sjr_aslegal_respuesta aslegal_respuesta
+  WHERE ((caso.id = casosjr.id_caso) AND (caso.id = respuesta.id_caso) AND (respuesta.fechaatencion >= '2015-01-01'::date) AND (respuesta.id = aslegal_respuesta.id_respuesta));
 
 
 --
@@ -1734,6 +1685,50 @@ CREATE TABLE sip_fuenteprensa (
 
 
 --
+-- Name: sip_grupo; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sip_grupo (
+    id integer NOT NULL,
+    nombre character varying(500) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sip_grupo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sip_grupo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_grupo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE sip_grupo_id_seq OWNED BY sip_grupo.id;
+
+
+--
+-- Name: sip_grupo_usuario; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sip_grupo_usuario (
+    usuario_id integer NOT NULL,
+    sip_grupo_id integer NOT NULL
+);
+
+
+--
 -- Name: sip_mundep_sinorden; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -2042,6 +2037,18 @@ CREATE TABLE sivel2_gen_acto (
 
 
 --
+-- Name: sivel2_gen_actocolectivo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sivel2_gen_actocolectivo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
 -- Name: sivel2_gen_actocolectivo; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2051,7 +2058,8 @@ CREATE TABLE sivel2_gen_actocolectivo (
     id_grupoper integer NOT NULL,
     id_caso integer NOT NULL,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    id integer DEFAULT nextval('sivel2_gen_actocolectivo_id_seq'::regclass) NOT NULL
 );
 
 
@@ -2128,8 +2136,6 @@ CREATE TABLE sivel2_gen_antecedente_combatiente (
 
 CREATE TABLE sivel2_gen_antecedente_victima (
     id_antecedente integer NOT NULL,
-    id_persona integer NOT NULL,
-    id_caso integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id_victima integer
@@ -2502,16 +2508,29 @@ CREATE MATERIALIZED VIEW sivel2_gen_conscaso AS
 
 
 --
+-- Name: sivel2_gen_contexto_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sivel2_gen_contexto_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
 -- Name: sivel2_gen_contexto; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE sivel2_gen_contexto (
-    id integer DEFAULT nextval('contexto_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval('sivel2_gen_contexto_id_seq'::regclass) NOT NULL,
     nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT contexto_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3288,18 +3307,6 @@ CREATE TABLE sivel2_sjr_aslegal (
 
 
 --
--- Name: sivel2_sjr_aslegal_respuesta; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE sivel2_sjr_aslegal_respuesta (
-    id_respuesta integer NOT NULL,
-    id_aslegal integer DEFAULT 0 NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
 -- Name: sivel2_sjr_ayudaestado_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -3384,6 +3391,18 @@ CREATE TABLE sivel2_sjr_ayudasjr (
 CREATE TABLE sivel2_sjr_ayudasjr_derecho (
     ayudasjr_id integer,
     derecho_id integer
+);
+
+
+--
+-- Name: sivel2_sjr_ayudasjr_respuesta; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sivel2_sjr_ayudasjr_respuesta (
+    id_ayudasjr integer DEFAULT 0 NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_respuesta integer NOT NULL
 );
 
 
@@ -3906,6 +3925,39 @@ CREATE TABLE sivel2_sjr_tipodesp (
 
 
 --
+-- Name: sivel2_sjr_victimasjr; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sivel2_sjr_victimasjr (
+    sindocumento boolean,
+    id_estadocivil integer DEFAULT 0,
+    id_rolfamilia integer DEFAULT 0 NOT NULL,
+    cabezafamilia boolean,
+    id_maternidad integer DEFAULT 0,
+    discapacitado boolean,
+    id_actividadoficio integer DEFAULT 0,
+    id_escolaridad integer DEFAULT 0,
+    asisteescuela boolean,
+    tienesisben boolean,
+    id_departamento integer,
+    id_municipio integer,
+    nivelsisben integer,
+    id_regimensalud integer DEFAULT 0,
+    eps character varying(1000),
+    libretamilitar boolean,
+    distrito integer,
+    progadultomayor boolean,
+    fechadesagregacion date,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_victima integer NOT NULL,
+    id_pais integer,
+    enfermedad character varying(5000),
+    ndiscapacidad character varying(100)
+);
+
+
+--
 -- Name: vvictimasoundexesp; Type: MATERIALIZED VIEW; Schema: public; Owner: -
 --
 
@@ -4063,6 +4115,13 @@ ALTER TABLE ONLY sip_anexo ALTER COLUMN id SET DEFAULT nextval('sip_anexo_id_seq
 
 
 --
+-- Name: sip_grupo id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_grupo ALTER COLUMN id SET DEFAULT nextval('sip_grupo_id_seq'::regclass);
+
+
+--
 -- Name: sip_pais id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -4169,14 +4228,6 @@ ALTER TABLE ONLY sivel2_gen_acto
 
 
 --
--- Name: sivel2_gen_actocolectivo actocolectivo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_gen_actocolectivo
-    ADD CONSTRAINT actocolectivo_pkey PRIMARY KEY (id_presponsable, id_categoria, id_grupoper, id_caso);
-
-
---
 -- Name: sivel2_sjr_actosjr actosjr_id_acto_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4230,14 +4281,6 @@ ALTER TABLE ONLY sivel2_gen_antecedente_caso
 
 ALTER TABLE ONLY sivel2_gen_antecedente
     ADD CONSTRAINT antecedente_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_antecedente_victima antecedente_victima_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_gen_antecedente_victima
-    ADD CONSTRAINT antecedente_victima_pkey PRIMARY KEY (id_antecedente, id_persona, id_caso);
 
 
 --
@@ -5001,6 +5044,14 @@ ALTER TABLE ONLY sip_fuenteprensa
 
 
 --
+-- Name: sip_grupo sip_grupo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_grupo
+    ADD CONSTRAINT sip_grupo_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: sip_municipio sip_municipio_id_departamento_id_munlocal_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5046,6 +5097,30 @@ ALTER TABLE ONLY sip_persona_trelacion
 
 ALTER TABLE ONLY sip_persona_trelacion
     ADD CONSTRAINT sip_persona_trelacion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_actocolectivo sivel2_gen_actocolectivo_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_gen_actocolectivo
+    ADD CONSTRAINT sivel2_gen_actocolectivo_id_key UNIQUE (id);
+
+
+--
+-- Name: sivel2_gen_actocolectivo sivel2_gen_actocolectivo_id_presponsable_id_categoria_id_gr_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_gen_actocolectivo
+    ADD CONSTRAINT sivel2_gen_actocolectivo_id_presponsable_id_categoria_id_gr_key UNIQUE (id_presponsable, id_categoria, id_grupoper, id_caso);
+
+
+--
+-- Name: sivel2_gen_actocolectivo sivel2_gen_actocolectivo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_gen_actocolectivo
+    ADD CONSTRAINT sivel2_gen_actocolectivo_pkey PRIMARY KEY (id);
 
 
 --
@@ -5550,22 +5625,6 @@ ALTER TABLE ONLY sivel2_gen_antecedente_victimacolectiva
 
 ALTER TABLE ONLY sivel2_gen_antecedente_victima
     ADD CONSTRAINT antecedente_victima_id_antecedente_fkey FOREIGN KEY (id_antecedente) REFERENCES sivel2_gen_antecedente(id);
-
-
---
--- Name: sivel2_gen_antecedente_victima antecedente_victima_id_caso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_gen_antecedente_victima
-    ADD CONSTRAINT antecedente_victima_id_caso_fkey FOREIGN KEY (id_caso) REFERENCES sivel2_gen_caso(id);
-
-
---
--- Name: sivel2_gen_antecedente_victima antecedente_victima_id_persona_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_gen_antecedente_victima
-    ADD CONSTRAINT antecedente_victima_id_persona_fkey FOREIGN KEY (id_persona) REFERENCES sip_persona(id);
 
 
 --
@@ -6217,11 +6276,27 @@ ALTER TABLE ONLY sivel2_sjr_ayudaestado_derecho
 
 
 --
+-- Name: sip_grupo_usuario fk_rails_734ee21e62; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_grupo_usuario
+    ADD CONSTRAINT fk_rails_734ee21e62 FOREIGN KEY (usuario_id) REFERENCES usuario(id);
+
+
+--
 -- Name: sal7711_gen_articulo_categoriaprensa fk_rails_7d1213c35b; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY sal7711_gen_articulo_categoriaprensa
     ADD CONSTRAINT fk_rails_7d1213c35b FOREIGN KEY (articulo_id) REFERENCES sal7711_gen_articulo(id);
+
+
+--
+-- Name: sip_grupo_usuario fk_rails_8d24f7c1c0; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_grupo_usuario
+    ADD CONSTRAINT fk_rails_8d24f7c1c0 FOREIGN KEY (sip_grupo_id) REFERENCES sip_grupo(id);
 
 
 --
@@ -6721,14 +6796,6 @@ ALTER TABLE ONLY sip_ubicacion
 
 
 --
--- Name: sivel2_gen_antecedente_victima victima_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY sivel2_gen_antecedente_victima
-    ADD CONSTRAINT victima_fkey FOREIGN KEY (id_caso, id_persona) REFERENCES sivel2_gen_victima(id_caso, id_persona);
-
-
---
 -- Name: sivel2_gen_victima victima_id_caso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6991,7 +7058,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20150604102321'),
 ('20150609094809'),
 ('20150609094820'),
-('20150612160810'),
 ('20150612203808'),
 ('20150615024318'),
 ('20150616030659'),
@@ -7061,6 +7127,17 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20161103081041'),
 ('20161103083352'),
 ('20161108102349'),
-('20161212175928');
+('20161212175928'),
+('20170405104322'),
+('20170406213334'),
+('20170413185012'),
+('20170414035328'),
+('20170503145808'),
+('20170526100040'),
+('20170526124219'),
+('20170526131129'),
+('20170529020218'),
+('20170529154413'),
+('20170609131212');
 
 
