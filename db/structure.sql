@@ -1,10 +1,3 @@
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 9.6.1
--- Dumped by pg_dump version 9.6.1
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -2545,6 +2538,39 @@ CREATE MATERIALIZED VIEW sivel2_gen_conscaso AS
 
 
 --
+-- Name: sivel2_gen_consexpcaso; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW sivel2_gen_consexpcaso AS
+ SELECT conscaso.caso_id,
+    conscaso.contacto,
+    conscaso.fecharec,
+    conscaso.oficina,
+    conscaso.nusuario,
+    conscaso.fecha,
+    conscaso.statusmigratorio,
+    conscaso.ultimafechaatencion,
+    conscaso.memo,
+    conscaso.victimas,
+    conscaso.q,
+    caso.titulo,
+    caso.hora,
+    caso.duracion,
+    caso.grconfiabilidad,
+    caso.gresclarecimiento,
+    caso.grimpunidad,
+    caso.grinformacion,
+    caso.bienes,
+    caso.id_intervalo,
+    caso.created_at,
+    caso.updated_at
+   FROM (sivel2_gen_conscaso conscaso
+     JOIN sivel2_gen_caso caso ON ((caso.id = conscaso.caso_id)))
+  WHERE (true = false)
+  WITH NO DATA;
+
+
+--
 -- Name: sivel2_gen_contexto_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -3781,6 +3807,16 @@ CREATE TABLE sivel2_sjr_motivosjr_respuesta (
     id_motivosjr integer DEFAULT 0 NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
+);
+
+
+--
+-- Name: sivel2_sjr_oficina_proyectofinanciero; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sivel2_sjr_oficina_proyectofinanciero (
+    oficina_id bigint NOT NULL,
+    proyectofinanciero_id bigint NOT NULL
 );
 
 
@@ -6200,6 +6236,14 @@ ALTER TABLE ONLY heb412_gen_doc
 
 
 --
+-- Name: sivel2_sjr_oficina_proyectofinanciero fk_rails_3479b42b5c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_sjr_oficina_proyectofinanciero
+    ADD CONSTRAINT fk_rails_3479b42b5c FOREIGN KEY (oficina_id) REFERENCES sip_oficina(id);
+
+
+--
 -- Name: cor1440_gen_actividad_proyecto fk_rails_395faa0882; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6269,6 +6313,14 @@ ALTER TABLE ONLY sivel2_gen_combatiente
 
 ALTER TABLE ONLY sal7711_gen_articulo
     ADD CONSTRAINT fk_rails_65eae7449f FOREIGN KEY (departamento_id) REFERENCES sip_departamento(id);
+
+
+--
+-- Name: sivel2_sjr_oficina_proyectofinanciero fk_rails_669494cbb1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_sjr_oficina_proyectofinanciero
+    ADD CONSTRAINT fk_rails_669494cbb1 FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
 
 
 --
@@ -7143,6 +7195,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170526131129'),
 ('20170529020218'),
 ('20170529154413'),
-('20170609131212');
+('20170609131212'),
+('20170712205819');
 
 

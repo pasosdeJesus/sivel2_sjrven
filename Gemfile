@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Rails (internacionalización)
-gem "rails", '~> 5.0.0'
+gem "rails", '~> 5.1.0'
 gem "rails-i18n"
 
 # Postgresql
@@ -41,7 +41,7 @@ gem "jquery-ui-rails"
 gem 'chosen-rails' 
 
 # Seguir enlaces más rápido. Ver: https://github.com/rails/turbolinks
-gem "turbolinks", '2.5.3'
+gem "turbolinks"
 
 # Ambiente de CSS
 gem "twitter-bootstrap-rails"
@@ -132,8 +132,6 @@ group :test do
   gem 'minitest-rails-capybara'
 
   gem 'simplecov'
-  # Envia resultados de pruebas desde travis a codeclimate
-  gem "codeclimate-test-reporter", require: nil
 
   # Para examinar errores, usar "rescue rspec" en lugar de "rspec"
   gem 'pry-rescue'
