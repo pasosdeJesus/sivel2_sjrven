@@ -147,5 +147,4 @@ group :production do
 end
 
 group :staging do
-    gem "newrelic_rpm"
 end
