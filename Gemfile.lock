@@ -247,7 +247,7 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     pdf-core (0.7.0)
-    pg (0.21.0)
+    pg (1.0.0)
     poltergeist (1.17.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -418,7 +418,7 @@ DEPENDENCIES
   jquery-ui-rails
   minitest-rails-capybara
   paperclip
-  pg (~> 0.21)
+  pg
   poltergeist
   prawn
   prawn-table
