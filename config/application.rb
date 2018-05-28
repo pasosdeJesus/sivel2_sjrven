@@ -41,5 +41,6 @@ module Sivel2Sjrven
     config.x.sal7711_presencia_fecha = true
     config.x.sal7711_presencia_pagina = false
 
+    #config.web_console.whitelisted_ips = '190.25.163.93'
   end
 end
