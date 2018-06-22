@@ -125,22 +125,18 @@ group :test do
   # Acelera desarrollo ejecutando en fondo.  https://github.com/jonleighton/spring
   gem "spring"
 
-  gem 'rails-controller-testing'
-
+  #gem 'rails-controller-testing'
  
   gem 'connection_pool'
-
-  gem 'minitest'
-  gem 'minitest-rails'
   gem 'minitest-reporters'
-  gem 'poltergeist'
   gem 'minitest-rails-capybara'
+  gem 'poltergeist'
 
   # Un proceso para cada prueba -- acelera
   gem 'spork'
 
   # Pruebas de regresión que no requieren javascript
-  gem "capybara"
+  #gem "capybara"
 
 
   # Para examinar errores, usar "rescue rspec" en lugar de "rspec"

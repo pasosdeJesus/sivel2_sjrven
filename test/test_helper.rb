@@ -7,6 +7,10 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
+
+require 'minitest/reporters'
+require 'minitest/rails/capybara'
+require 'minitest/rails'
 # Usuario para ingresar y hacer pruebas
 PRUEBA_USUARIO = {
   nusuario: "admin",
