@@ -2,8 +2,8 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 
-#require 'simplecov'
-#SimpleCov.start
+require 'simplecov'
+SimpleCov.start
 require_relative '../config/environment'
 require 'rails/test_help'
 
