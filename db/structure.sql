@@ -976,7 +976,8 @@ CREATE TABLE cor1440_gen_campoact (
     id bigint NOT NULL,
     actividadtipo_id integer,
     nombrecampo character varying(128),
-    ayudauso character varying(1024)
+    ayudauso character varying(1024),
+    tipo integer DEFAULT 1
 );
 
 
@@ -1007,7 +1008,8 @@ CREATE TABLE cor1440_gen_campotind (
     id bigint NOT NULL,
     tipoindicador_id integer NOT NULL,
     nombrecampo character varying(128) NOT NULL,
-    ayudauso character varying(1024)
+    ayudauso character varying(1024),
+    tipo integer DEFAULT 1
 );
 
 
@@ -7678,7 +7680,7 @@ ALTER TABLE ONLY sivel2_sjr_victimasjr
 -- PostgreSQL database dump complete
 --
 
-SET search_path TO public, pg_catalog;
+SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
 ('20131128151014'),
@@ -7899,6 +7901,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180320230847'),
 ('20180427194732'),
 ('20180509111948'),
-('20180519102415');
+('20180519102415'),
+('20180611222635'),
+('20180612024009'),
+('20180612030340');
 
 
