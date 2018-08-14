@@ -99,6 +99,8 @@ class Ability < Sivel2Sjr::Ability
         can :new, Sivel2Gen::Caso 
 
 
+        can [:new, :create, :read, :index, :edit, :update], 
+          Sip::Actorsocial
         can :manage, Sip::Persona
       when Ability::ROLANALI
         can :read, Cor1440Gen::Actividad
@@ -115,6 +117,8 @@ class Ability < Sivel2Sjr::Ability
         can [:update, :create, :destroy], Sivel2Gen::Caso, 
           casosjr: { oficina_id: usuario.oficina_id }
 
+        can [:new, :create, :read, :index, :edit, :update], 
+          Sip::Actorsocial
         can :manage, Sip::Persona
       when Ability::ROLCOOR
         can [:read, :manage], Usuario, oficina: { id: usuario.oficina_id}
@@ -133,6 +137,8 @@ class Ability < Sivel2Sjr::Ability
         can [:update, :create, :destroy, :poneretcomp], Sivel2Gen::Caso, 
           casosjr: { oficina_id: usuario.oficina_id }
 
+        can [:new, :create, :read, :index, :edit, :update], 
+          Sip::Actorsocial
         can :manage, Sip::Persona
 
       when Ability::ROLADMIN, Ability::ROLDIR
@@ -144,6 +150,7 @@ class Ability < Sivel2Sjr::Ability
 
         can :manage, Sal7711Gen::Articulo
 
+        can :manage, Sip::Actorsocial
         can :manage, Sip::Persona
 
         can :manage, Sivel2Gen::Acto
