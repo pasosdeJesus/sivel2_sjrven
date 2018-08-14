@@ -2,11 +2,14 @@
 require_dependency "cor1440_gen/concerns/controllers/actividades_controller"
 
 module Cor1440Gen
-  class ActividadesController < Sip::ModelosController
+  class ActividadesController < Heb412Gen::ModelosController
 
     include Cor1440Gen::Concerns::Controllers::ActividadesController
-
-    Cor1440Gen.actividadg1 = "Mujeres empleadas SJR"
-    Cor1440Gen.actividadg3 = "Hombres empleados SJR"
+    
+    # Lista blanca de parametros
+    def actividad_params
+      lp = [:descripcion, :metodologia] + lista_params
+      params.require(:actividad).permit(lp)
+    end
   end
 end
