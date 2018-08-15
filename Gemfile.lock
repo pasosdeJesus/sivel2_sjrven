@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 3df36762799ad11945642939afb990ccfb2694d7
+  revision: 6f653b717a4c37ed5d148bb39872051672d5f844
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 69d0e7ae853ffb7d0d88cbbefc87fdda06012603
+  revision: e083a3f1c294e1d18be8c3ac4ba3aa88377aec88
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 933c5c3af2e539f3fb2737a0ebe1ee0a0616aefe
+  revision: 5f67df0f8837b972c6789bab0afb1322718a46a1
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 5058215620050bce0bb821ef37ef9f370422d1f2
+  revision: fbb1dba41daf3583f901dbae564266d95b3bc29e
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 700d0682547930dcc401742528e2555644032d17
+  revision: fa3f5049b3f64907b01aab9c91230e5bef495da9
   branch: sip_grupoper
   specs:
     sip (2.0.b5)
@@ -62,7 +62,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: a83d876fe500e5ab64e002545335028a1f3bfe97
+  revision: f732494ca7f2bd1ab959acd958b88ed6e0c47bd0
   branch: sip_grupoper
   specs:
     sivel2_gen (2.0b7)
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 32fdc04440fb007bd670c7de18b0af145d06b672
+  revision: ab24576c37d38eb7b2f2b9d6f03bf2778ef02dfc
   branch: sip_grupoper
   specs:
     sivel2_sjr (2.0.b1)
@@ -313,7 +313,7 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.5)
     rack-test (1.1.0)
