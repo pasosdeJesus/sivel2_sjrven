@@ -1,18 +1,6 @@
 GIT
-  remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 6f653b717a4c37ed5d148bb39872051672d5f844
-  specs:
-    cor1440_gen (1.0b2)
-      devise
-      heb412_gen
-      jquery-rails
-      paperclip
-      rails
-      sip
-
-GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: e083a3f1c294e1d18be8c3ac4ba3aa88377aec88
+  revision: d931824e10891d20236c18152e594f8a523413c5
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -23,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 5f67df0f8837b972c6789bab0afb1322718a46a1
+  revision: 7d6ba9665a5ec6481b4180ed8367c3040ddaa63c
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -31,16 +19,41 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: fbb1dba41daf3583f901dbae564266d95b3bc29e
+  revision: 031c6204ff0eb8cd21c3d9de33b779433727ab1e
   specs:
     sal7711_web (1.0.a3)
       rails
       sal7711_gen
 
 GIT
-  remote: https://github.com/pasosdeJesus/sip.git
-  revision: fa3f5049b3f64907b01aab9c91230e5bef495da9
-  branch: sip_grupoper
+  remote: https://github.com/pasosdeJesus/sivel2_gen.git
+  revision: ff0ee06094fd855584ce5de925e21f8c75dae188
+  specs:
+    sivel2_gen (2.0b7)
+      devise
+      jquery-rails
+      rails
+
+GIT
+  remote: https://github.com/vtamara/cocoon.git
+  revision: 9d29a8abcc5b6ed9aefcad85ca54dd1364262583
+  branch: new_id_with_ajax
+  specs:
+    cocoon (1.2.11)
+
+PATH
+  remote: ../cor1440_gen
+  specs:
+    cor1440_gen (1.0b2)
+      devise
+      heb412_gen
+      jquery-rails
+      paperclip
+      rails
+      sip
+
+PATH
+  remote: ../sip
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -60,107 +73,63 @@ GIT
       twitter_cldr
       will_paginate
 
-GIT
-  remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: f732494ca7f2bd1ab959acd958b88ed6e0c47bd0
-  branch: sip_grupoper
-  specs:
-    sivel2_gen (2.0b7)
-      devise
-      jquery-rails
-      rails
-
-GIT
-  remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: ab24576c37d38eb7b2f2b9d6f03bf2778ef02dfc
-  branch: sip_grupoper
+PATH
+  remote: ../sivel2_sjr
   specs:
     sivel2_sjr (2.0.b1)
       rails
       sivel2_gen
 
-GIT
-  remote: https://github.com/rails/rails.git
-  revision: 4887f97bd8a8859294ad02ccea20d83a94ec0812
-  ref: 4887f97bd8a8859294ad02ccea20d83a94ec0812
+GEM
+  remote: https://rubygems.org/
   specs:
-    actioncable (5.2.0)
-      actionpack (= 5.2.0)
+    actioncable (5.2.1)
+      actionpack (= 5.2.1)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
-    actionmailer (5.2.0)
-      actionpack (= 5.2.0)
-      actionview (= 5.2.0)
-      activejob (= 5.2.0)
+    actionmailer (5.2.1)
+      actionpack (= 5.2.1)
+      actionview (= 5.2.1)
+      activejob (= 5.2.1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (5.2.0)
-      actionview (= 5.2.0)
-      activesupport (= 5.2.0)
+    actionpack (5.2.1)
+      actionview (= 5.2.1)
+      activesupport (= 5.2.1)
       rack (~> 2.0)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.2.0)
-      activesupport (= 5.2.0)
+    actionview (5.2.1)
+      activesupport (= 5.2.1)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    activejob (5.2.0)
-      activesupport (= 5.2.0)
+    activejob (5.2.1)
+      activesupport (= 5.2.1)
       globalid (>= 0.3.6)
-    activemodel (5.2.0)
-      activesupport (= 5.2.0)
-    activerecord (5.2.0)
-      activemodel (= 5.2.0)
-      activesupport (= 5.2.0)
+    activemodel (5.2.1)
+      activesupport (= 5.2.1)
+    activerecord (5.2.1)
+      activemodel (= 5.2.1)
+      activesupport (= 5.2.1)
       arel (>= 9.0)
-    activestorage (5.2.0)
-      actionpack (= 5.2.0)
-      activerecord (= 5.2.0)
+    activestorage (5.2.1)
+      actionpack (= 5.2.1)
+      activerecord (= 5.2.1)
       marcel (~> 0.3.1)
-    activesupport (5.2.0)
+    activesupport (5.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    rails (5.2.0)
-      actioncable (= 5.2.0)
-      actionmailer (= 5.2.0)
-      actionpack (= 5.2.0)
-      actionview (= 5.2.0)
-      activejob (= 5.2.0)
-      activemodel (= 5.2.0)
-      activerecord (= 5.2.0)
-      activestorage (= 5.2.0)
-      activesupport (= 5.2.0)
-      bundler (>= 1.3.0)
-      railties (= 5.2.0)
-      sprockets-rails (>= 2.0.0)
-    railties (5.2.0)
-      actionpack (= 5.2.0)
-      activesupport (= 5.2.0)
-      method_source
-      rake (>= 0.8.7)
-      thor (>= 0.18.1, < 2.0)
-
-GIT
-  remote: https://github.com/vtamara/cocoon.git
-  revision: 9d29a8abcc5b6ed9aefcad85ca54dd1364262583
-  branch: new_id_with_ajax
-  specs:
-    cocoon (1.2.11)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     andand (1.3.3)
     ansi (1.5.0)
     arel (9.0.0)
-    autoprefixer-rails (9.1.1)
+    autoprefixer-rails (9.1.3)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
@@ -174,6 +143,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
+    byebug (10.0.2)
     camertron-eprun (1.1.1)
     cancancan (2.2.0)
     capybara (2.18.0)
@@ -205,7 +175,7 @@ GEM
     connection_pool (2.2.2)
     crass (1.0.4)
     debug_inspector (0.0.3)
-    devise (4.4.3)
+    devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 6.0)
@@ -273,7 +243,7 @@ GEM
       minitest-capybara (~> 0.8)
       minitest-metadata (~> 0.6)
       minitest-rails (~> 3.0)
-    minitest-reporters (1.3.1)
+    minitest-reporters (1.3.2)
       ansi
       builder
       minitest (>= 5.0)
@@ -318,6 +288,19 @@ GEM
     rack (2.0.5)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rails (5.2.1)
+      actioncable (= 5.2.1)
+      actionmailer (= 5.2.1)
+      actionpack (= 5.2.1)
+      actionview (= 5.2.1)
+      activejob (= 5.2.1)
+      activemodel (= 5.2.1)
+      activerecord (= 5.2.1)
+      activestorage (= 5.2.1)
+      activesupport (= 5.2.1)
+      bundler (>= 1.3.0)
+      railties (= 5.2.1)
+      sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -331,6 +314,12 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
+    railties (5.2.1)
+      actionpack (= 5.2.1)
+      activesupport (= 5.2.1)
+      method_source
+      rake (>= 0.8.7)
+      thor (>= 0.19.0, < 2.0)
     raindrops (0.19.0)
     rake (12.3.1)
     rb-fsevent (0.10.3)
@@ -380,9 +369,9 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     ttfunk (1.5.1)
-    turbolinks (5.1.1)
-      turbolinks-source (~> 5.1)
-    turbolinks-source (5.1.0)
+    turbolinks (5.2.0)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     twitter-bootstrap-rails (4.0.0)
       actionpack (~> 5.0, >= 5.0.1)
       execjs (~> 2.7)
@@ -421,6 +410,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
   bootstrap-sass
+  byebug
   cancancan
   chartkick
   chosen-rails
@@ -448,7 +438,7 @@ DEPENDENCIES
   pry-rescue
   pry-stack_explorer
   puma
-  rails (~> 5.2.0)!
+  rails (~> 5.2.1)
   rails-i18n
   rails_12factor
   sal7711_gen!
@@ -472,4 +462,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.3
+   1.16.4

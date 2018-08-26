@@ -8,6 +8,10 @@ es:
       "sivel2_sjr/aslegal": 
         Aslegal: Asistencia Legal
         Aslegales: Asistencias Legales
+      "cor1440_gen/actividad": 
+        nombre: Actividad
       "cor1440_gen/proyecto": 
         Proyecto: Línea de acción
         Proyectos: Línea de acción
+      "cor1440_gen/actividad": 
+        proyecto: Línea de acción
