@@ -43,6 +43,9 @@ gem "jquery-ui-rails"
 # Cuadros de selección para búsquedas 
 gem 'chosen-rails' 
 
+gem 'rspreadsheet'
+gem 'libxml-ruby', '~> 3.0'
+
 # Seguir enlaces más rápido. Ver: https://github.com/rails/turbolinks
 gem "turbolinks"
 

@@ -59,6 +59,15 @@ class Ability < Sivel2Sjr::Ability
       ]
   end
 
+  def campos_plantillas 
+    c = Heb412Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
+      Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
+        Cor1440Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone
+      ) 
+    )
+    return c
+  end
+
   def initialize(usuario = nil)
     # Sin autenticación puede consultarse información geográfica 
     can :read, [Sip::Pais, Sip::Departamento, Sip::Municipio, Sip::Clase]
@@ -81,14 +90,24 @@ class Ability < Sivel2Sjr::Ability
       case usuario.rol 
       when Ability::ROLANALIPRENSA
         can :manage, Sal7711Gen::Articulo
+
+        can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantilladoc
+
       when Ability::ROLINV
         cannot :buscar, Sivel2Gen::Caso
         can :read, Sivel2Gen::Caso 
+
       when Ability::ROLSIST
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
           oficina: { id: usuario.oficina_id}
         can [:read, :new], Cor1440Gen::Actividad
         can [:index, :read], Cor1440Gen::Proyectofinanciero
+
+        can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantilladoc
 
         can :manage, Sivel2Gen::Acto
         
@@ -102,6 +121,7 @@ class Ability < Sivel2Sjr::Ability
         can [:new, :create, :read, :index, :edit, :update], 
           Sip::Actorsocial
         can :manage, Sip::Persona
+
       when Ability::ROLANALI
         can :read, Cor1440Gen::Actividad
         can :new, Cor1440Gen::Actividad
@@ -109,6 +129,10 @@ class Ability < Sivel2Sjr::Ability
           oficina: { id: usuario.oficina_id}
         can :read, Cor1440Gen::Informe
         can [:index, :read], Cor1440Gen::Proyectofinanciero
+
+        can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantilladoc
 
         can :manage, Sivel2Gen::Acto
 
@@ -120,6 +144,7 @@ class Ability < Sivel2Sjr::Ability
         can [:new, :create, :read, :index, :edit, :update], 
           Sip::Actorsocial
         can :manage, Sip::Persona
+
       when Ability::ROLCOOR
         can [:read, :manage], Usuario, oficina: { id: usuario.oficina_id}
 
@@ -129,6 +154,10 @@ class Ability < Sivel2Sjr::Ability
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
           oficina: { id: usuario.oficina_id}
         can [:index, :read], Cor1440Gen::Proyectofinanciero
+
+        can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantilladoc
 
         can :manage, Sivel2Gen::Acto
 
@@ -147,6 +176,10 @@ class Ability < Sivel2Sjr::Ability
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :manage, Cor1440Gen::Proyectofinanciero
+
+        can :manage, Heb412Gen::Doc
+        can :manage, Heb412Gen::Plantillahcm
+        can :manage, Heb412Gen::Plantilladoc
 
         can :manage, Sal7711Gen::Articulo
 
