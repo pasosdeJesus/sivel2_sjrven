@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 8a12d2e19ffe82a87700cb7628f4f3a0bcff1dd9
+  revision: a3358f7c65f7040c7a8e28a75cf4cc5d138475bc
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: c746a8cbe532d5475196e837cde83a3472458a2f
+  revision: a293a43aae142a8bb1cf9ce5b4130e5aef05628c
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
