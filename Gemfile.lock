@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: a3358f7c65f7040c7a8e28a75cf4cc5d138475bc
+  revision: a15fb23cb132cce486f63d6922831b43df277b2c
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: ce8d3f0bd81b3f17611ca20a3485a6273195a80c
+  revision: 81b6ada11dfd88d4e640c3b11eb2f06fcc616333
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 968b46e9432349841d0e600d9ad1f0bd48bfef72
+  revision: d8e0ab1c7a7e9bde1cf8090f40a7650421009bed
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 7788d19c50337604c5f23c838947ef5bcb67c84c
+  revision: 3c93615802fdaf5152728fa4916ab4e7763d7902
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 79c8bd3fc7e1b32dcbeb01c657830594a054205b
+  revision: 912c507bdd6aaa849df6a7c356693a0e15ad5637
   specs:
     sivel2_gen (2.0b7)
       devise
@@ -70,7 +70,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 459247a482d5b1345f2c0ac033f2ce49fd0c71f2
+  revision: f3c491193b253f088a33860d1942d0bda7f9715e
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -146,7 +146,6 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
-    byebug (10.0.2)
     camertron-eprun (1.1.1)
     cancancan (2.2.0)
     capybara (2.18.0)
@@ -247,7 +246,7 @@ GEM
       minitest-capybara (~> 0.8)
       minitest-metadata (~> 0.6)
       minitest-rails (~> 3.0)
-    minitest-reporters (1.3.2)
+    minitest-reporters (1.3.3)
       ansi
       builder
       minitest (>= 5.0)
@@ -265,7 +264,7 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     pdf-core (0.7.0)
-    pg (1.1.0)
+    pg (1.1.2)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
@@ -337,7 +336,7 @@ GEM
       andand (~> 1.3)
       rubyzip (~> 1.1)
     ruby-progressbar (1.10.0)
-    rubyzip (1.2.1)
+    rubyzip (1.2.2)
     sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -394,7 +393,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.6.2)
+    web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
@@ -414,7 +413,6 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
   bootstrap-sass
-  byebug
   cancancan
   chartkick
   chosen-rails
