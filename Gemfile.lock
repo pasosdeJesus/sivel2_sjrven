@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 3697228c69b6447b01e9bc35e564984a284872bb
+  revision: bee85f4aff0371f42101c9d9c402a01e1e85da6b
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 1bf00c725061bfce9e1773e8a07263c34b7325fc
+  revision: b6fc4ca283caaaa44801f6dd03ab78a114ce2bd5
   specs:
     sivel2_gen (2.0b7)
       devise
@@ -70,7 +70,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 59b5d03db1d43dc62ad64ee7c86eef1bae063217
+  revision: 4517bc4087c6ef0f6f3c3df5986fd72724a47161
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -132,7 +132,7 @@ GEM
     andand (1.3.3)
     ansi (1.5.0)
     arel (9.0.0)
-    autoprefixer-rails (9.1.3)
+    autoprefixer-rails (9.1.4)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
