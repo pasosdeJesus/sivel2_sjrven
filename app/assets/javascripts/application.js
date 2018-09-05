@@ -31,10 +31,5 @@ $(document).on('turbolinks:load ready page:load', function() {
 	sal7711_gen_prepara_eventos_comunes(root);
 	sivel2_sjr_prepara_eventos_unicos(root);
 
-	$(document).on('click', 'input[data-enviarautomatico]', function(e) {
-		e.preventDefault();
-		sip_enviarautomatico_formulario($(e.target.form));
-	});
-
 });
 
