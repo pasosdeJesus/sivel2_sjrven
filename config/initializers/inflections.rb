@@ -15,5 +15,7 @@
 #   inflect.acronym 'RESTful'
 # end
 ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'perfilactorsocial', 'perfilesactorsocial'
 	inflect.irregular 'progestado', 'progsestado'
 end
+
