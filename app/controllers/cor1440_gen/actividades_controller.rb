@@ -5,7 +5,12 @@ module Cor1440Gen
   class ActividadesController < Heb412Gen::ModelosController
 
     include Cor1440Gen::Concerns::Controllers::ActividadesController
-   
+  
+    Cor1440Gen.actividadg1 = "Mujeres venezolanas"
+    Cor1440Gen.actividadg2 = "Mujeres colombianas"
+    Cor1440Gen.actividadg3 = "Hombres venezolanos" 
+    Cor1440Gen.actividadg4 = "Hombres colombianos" 
+
     def atributos_show
       [ :id, 
         :nombre, 

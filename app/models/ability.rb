@@ -60,11 +60,11 @@ class Ability < Sivel2Sjr::Ability
   end
 
   def campos_plantillas 
+    a = Cor1440Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone
+    a['Actividad'][:campos]=a['Actividad'][:campos] + 
+      ['descripcion', 'metodologia', 'linea_accion']
     c = Heb412Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
-      Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
-        Cor1440Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone
-      ) 
-    )
+      Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(a) )
     return c
   end
 
@@ -93,6 +93,7 @@ class Ability < Sivel2Sjr::Ability
 
         can :read, Heb412Gen::Doc
         can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantillahcr
         can :read, Heb412Gen::Plantilladoc
 
       when Ability::ROLINV
@@ -107,6 +108,7 @@ class Ability < Sivel2Sjr::Ability
 
         can :read, Heb412Gen::Doc
         can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantillahcr
         can :read, Heb412Gen::Plantilladoc
 
         can :manage, Sivel2Gen::Acto
@@ -132,6 +134,7 @@ class Ability < Sivel2Sjr::Ability
 
         can :read, Heb412Gen::Doc
         can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantillahcr
         can :read, Heb412Gen::Plantilladoc
 
         can :manage, Sivel2Gen::Acto
@@ -157,6 +160,7 @@ class Ability < Sivel2Sjr::Ability
 
         can :read, Heb412Gen::Doc
         can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantillahcr
         can :read, Heb412Gen::Plantilladoc
 
         can :manage, Sivel2Gen::Acto
@@ -179,6 +183,7 @@ class Ability < Sivel2Sjr::Ability
 
         can :manage, Heb412Gen::Doc
         can :manage, Heb412Gen::Plantillahcm
+        can :manage, Heb412Gen::Plantillahcr
         can :manage, Heb412Gen::Plantilladoc
 
         can :manage, Sal7711Gen::Articulo

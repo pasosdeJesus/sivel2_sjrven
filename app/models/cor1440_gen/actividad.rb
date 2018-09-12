@@ -8,5 +8,16 @@ module Cor1440Gen
 
     validates :descripcion, length: { maximum: 5000 } 
     validates :metodologia, length: { maximum: 5000 } 
+
+    def presenta(atr)
+      case atr.to_s
+      when 'linea_accion'
+        proyecto.inject('') { |memo, r| 
+          memo == '' ? r.presenta_nombre : ';' + r.presenta_nombre
+        }
+      else
+        presenta_actividad(atr)
+      end
+    end
   end
 end
