@@ -86,7 +86,7 @@ gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
 # Motor de heb412_ge
-gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git", branch: :hojacalculo_registro
+gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git"
 #gem 'heb412_gen', path: '../heb412_gen'
 
 # Motor de SIVeL 2
