@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 4908f3884456f15235c18855b15836db71759e76
+  revision: 3545f22d1b2ece90e7c399fc6bb3cf14d0a7a62d
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 06e7da02fabdf454bc8a80dea58a603609f6df3a
+  revision: 07a73fad8be08cf52409ee1e13b8e8b55c68f984
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: fda1fa07315ca1197a7980ec33e5f0542c2495d6
+  revision: f909781d02689cf10015e230b126893dae6720b4
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: edc2285da24843c4f86288e4da3cdee01a8d9c88
+  revision: 1295cf559957493682bb60f72b464c285c75ff19
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 38dbbac8728ea736a147093c340cfc452c897c29
+  revision: ea56b39c7c4a95186595693eeffaf4524f2446ef
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -61,7 +61,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 488a3ce9f71afe020753af6ff0e235fb10ddb0cf
+  revision: d3d2de5704b6ed95cb6437dc2f14e89867bfbe33
   specs:
     sivel2_gen (2.0b7)
       devise
@@ -70,7 +70,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: d3df3421aa58a35a11042c75076225fff083ceb8
+  revision: 73e6c6f7b5afb24576e0b844d04cbad3def6ae80
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -132,7 +132,7 @@ GEM
     andand (1.3.3)
     ansi (1.5.0)
     arel (9.0.0)
-    autoprefixer-rails (9.3.0)
+    autoprefixer-rails (9.3.1)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
@@ -217,7 +217,7 @@ GEM
       sprockets (> 2, < 4)
       tilt
     libxml-ruby (3.1.0)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -309,7 +309,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails-i18n (5.1.1)
+    rails-i18n (5.1.2)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
     rails_12factor (0.0.3)
@@ -466,4 +466,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
