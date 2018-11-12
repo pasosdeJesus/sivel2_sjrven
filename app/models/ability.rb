@@ -23,8 +23,7 @@ class Ability < Sivel2Sjr::Ability
   ]
 
   BASICAS_PROPIAS = [
-    ['', 'emprendimiento'],
-    ['', 'aspsicosocial']
+    ['', 'emprendimiento']
   ]
   
   def tablasbasicas 

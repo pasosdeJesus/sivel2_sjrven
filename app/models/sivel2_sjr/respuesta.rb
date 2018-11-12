@@ -14,9 +14,9 @@ module Sivel2Sjr
       reject_if: :all_blank, update_only: true
 
     has_many :aspsicosocial_respuesta, 
-      class_name: "AspsicosocialRespuesta",  
+      class_name: "Sivel2Sjr::AspsicosocialRespuesta",  
       foreign_key: "id_respuesta", dependent: :destroy, validate: true
-    has_many :aspsicosocial, class_name: "Aspsicosocial", 
+    has_many :aspsicosocial, class_name: "Sivel2Sjr::Aspsicosocial", 
       :through => :aspsicosocial_respuesta
     accepts_nested_attributes_for :aspsicosocial_respuesta, 
       reject_if: :all_blank, update_only: true
