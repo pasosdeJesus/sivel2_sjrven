@@ -5,22 +5,19 @@ module Sivel2Sjr
   class Respuesta < ActiveRecord::Base
     include Sivel2Sjr::Concerns::Models::Respuesta
 
-    has_many :emprendimiento_respuesta, 
-      class_name: "EmprendimientoRespuesta",  
-      foreign_key: "id_respuesta", dependent: :destroy, validate: true
-    has_many :emprendimiento, class_name: "Emprendimiento", 
-      :through => :emprendimiento_respuesta
-    accepts_nested_attributes_for :emprendimiento_respuesta, 
-      reject_if: :all_blank, update_only: true
+    has_and_belongs_to_many :emprendimiento, 
+      class_name: "Emprendimiento", 
+      foreign_key: "id_respuesta",  
+      validate: true,
+      association_foreign_key: 'id_emprendimiento',
+      join_table: :emprendimiento_respuesta
 
-    has_many :aspsicosocial_respuesta, 
-      class_name: "Sivel2Sjr::AspsicosocialRespuesta",  
-      foreign_key: "id_respuesta", dependent: :destroy, validate: true
-    has_many :aspsicosocial, class_name: "Sivel2Sjr::Aspsicosocial", 
-      :through => :aspsicosocial_respuesta
-    accepts_nested_attributes_for :aspsicosocial_respuesta, 
-      reject_if: :all_blank, update_only: true
-
+    has_and_belongs_to_many :aspsicosocial, 
+      class_name: "Sivel2Sjr::Aspsicosocial", 
+      foreign_key: "id_respuesta", 
+      validate: true,
+      association_foreign_key: 'id_aspsicosocial',
+      join_table: 'sivel2_sjr_aspsicosocial_respuesta'
 
   end
 end
