@@ -3358,18 +3358,17 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
            FROM public.sivel2_sjr_respuesta respuesta
           WHERE (respuesta.id_caso = casosjr.id_caso)
           ORDER BY respuesta.fechaatencion DESC
-         LIMIT 1), ', '::text) AS ultimafechaatencion,
+         LIMIT 1), ', '::text) AS ultimaatencion_fecha,
     caso.memo,
     array_to_string(ARRAY( SELECT (((persona.nombres)::text || ' '::text) || (persona.apellidos)::text)
            FROM public.sip_persona persona,
             public.sivel2_gen_victima victima
           WHERE ((persona.id = victima.id_persona) AND (victima.id_caso = caso.id))), ', '::text) AS victimas
-   FROM public.sivel2_sjr_casosjr casosjr,
-    public.sivel2_gen_caso caso,
-    public.sip_oficina oficina,
-    public.usuario,
-    public.sivel2_sjr_statusmigratorio statusmigratorio
-  WHERE ((casosjr.id_caso = caso.id) AND (oficina.id = casosjr.oficina_id) AND (usuario.id = casosjr.asesor) AND (statusmigratorio.id = casosjr.id_statusmigratorio));
+   FROM ((((public.sivel2_sjr_casosjr casosjr
+     JOIN public.sivel2_gen_caso caso ON ((casosjr.id_caso = caso.id)))
+     JOIN public.sip_oficina oficina ON ((oficina.id = casosjr.oficina_id)))
+     JOIN public.usuario ON ((usuario.id = casosjr.asesor)))
+     LEFT JOIN public.sivel2_sjr_statusmigratorio statusmigratorio ON ((statusmigratorio.id = casosjr.id_statusmigratorio)));
 
 
 --
@@ -3384,10 +3383,10 @@ CREATE MATERIALIZED VIEW public.sivel2_gen_conscaso AS
     sivel2_gen_conscaso1.nusuario,
     sivel2_gen_conscaso1.fecha,
     sivel2_gen_conscaso1.statusmigratorio,
-    sivel2_gen_conscaso1.ultimafechaatencion,
+    sivel2_gen_conscaso1.ultimaatencion_fecha,
     sivel2_gen_conscaso1.memo,
     sivel2_gen_conscaso1.victimas,
-    to_tsvector('spanish'::regconfig, public.unaccent(((((((((((((((((((sivel2_gen_conscaso1.caso_id || ' '::text) || sivel2_gen_conscaso1.contacto) || ' '::text) || replace(((sivel2_gen_conscaso1.fecharec)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || (sivel2_gen_conscaso1.oficina)::text) || ' '::text) || (sivel2_gen_conscaso1.nusuario)::text) || ' '::text) || replace(((sivel2_gen_conscaso1.fecha)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || (sivel2_gen_conscaso1.statusmigratorio)::text) || ' '::text) || replace(((sivel2_gen_conscaso1.ultimafechaatencion)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || sivel2_gen_conscaso1.memo) || ' '::text) || sivel2_gen_conscaso1.victimas))) AS q
+    to_tsvector('spanish'::regconfig, public.unaccent(((((((((((((((((((sivel2_gen_conscaso1.caso_id || ' '::text) || sivel2_gen_conscaso1.contacto) || ' '::text) || replace(((sivel2_gen_conscaso1.fecharec)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || (sivel2_gen_conscaso1.oficina)::text) || ' '::text) || (sivel2_gen_conscaso1.nusuario)::text) || ' '::text) || replace(((sivel2_gen_conscaso1.fecha)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || (sivel2_gen_conscaso1.statusmigratorio)::text) || ' '::text) || replace(((sivel2_gen_conscaso1.ultimaatencion_fecha)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || sivel2_gen_conscaso1.memo) || ' '::text) || sivel2_gen_conscaso1.victimas))) AS q
    FROM public.sivel2_gen_conscaso1
   WITH NO DATA;
 
@@ -3404,7 +3403,7 @@ CREATE MATERIALIZED VIEW public.sivel2_gen_consexpcaso AS
     conscaso.nusuario,
     conscaso.fecha,
     conscaso.statusmigratorio,
-    conscaso.ultimafechaatencion,
+    conscaso.ultimaatencion_fecha,
     conscaso.memo,
     conscaso.victimas,
     conscaso.q,
@@ -8874,6 +8873,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190109125417'),
 ('20190110191802'),
 ('20190111092816'),
-('20190111102201');
+('20190111102201'),
+('20190116133230');
 
 
