@@ -1,8 +1,9 @@
 # encoding: UTF-8
 
-require_relative '../test_helper'
+require 'application_system_test_case'
 
-class UsuarioTest < Capybara::Rails::TestCase
+class UsuarioTest < ApplicationSystemTestCase
+
   test "no autentica con clave errada a usuario existente" do
     @usuario = Usuario.find_by(nusuario: 'sjrven')
     visit main_app.new_usuario_session_path 

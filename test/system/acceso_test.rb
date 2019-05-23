@@ -1,8 +1,8 @@
 # encoding: UTF-8
 
-require_relative '../test_helper'
+require 'application_system_test_case'
 
-class AccesoTest < Capybara::Rails::TestCase
+class AccesoTest < ApplicationSystemTestCase
 
   test "puede crear caso" do
     @usuario = Usuario.create(PRUEBA_USUARIO)
@@ -11,7 +11,6 @@ class AccesoTest < Capybara::Rails::TestCase
     fill_in "Clave", with: @usuario.password
     click_button "Iniciar Sesión"
     assert page.has_content?("Administrar")
-
 
     visit '/casos/nuevo'
     @numcaso=find_field('Código').value

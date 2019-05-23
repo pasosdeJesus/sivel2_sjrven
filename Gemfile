@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" } 
+
+ruby '2.6.2'
 
 # Rails (internacionalización)
 gem 'rails', '~> 6.0.0.rc1'
@@ -29,14 +32,11 @@ gem 'odf-report'
 
 # Plantilla ODS
 #gem 'rspreadsheet', path: '../rspreadsheet'
-gem 'rspreadsheet'#, git: 'https://github.com/gorn/rspreadsheet'
+gem 'rspreadsheet'
 gem 'libxml-ruby'
 
 # Postgresql
-gem 'pg'#, '~> 0.21'
-
-# Maneja variables de ambiente (como claves y secretos) en .env
-gem 'foreman'
+gem 'pg'
 
 # API JSON facil. Ver: https://github.com/rails/jbuilder
 gem 'jbuilder'
@@ -127,24 +127,26 @@ gem 'sal7711_web', git: 'https://github.com/pasosdeJesus/sal7711_web.git', branc
 
 # Los siguientes son para desarrollo o para pruebas con generadores
 group :development do
-  # Depurar
-  #gem 'byebug'
-  
   # Consola irb en páginas con excepciones o usando <%= console %> en vistasA
   gem 'web-console'
 
 end
 
+# Los siguientes son para desarrollo o para pruebas con generadores
+group :development, :test do
+  # Depurar
+  #gem 'byebug'
+  gem 'minitest'
+end
+ 
 # Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo
 group :test do
-  # Acelera desarrollo ejecutando en fondo.  https://github.com/jonleighton/spring
-
+  gem 'spring'
   gem 'simplecov'
+  gem 'capybara'
   gem 'poltergeist'
-
-  # Pruebas de regresión que no requieren javascript
   gem 'selenium-webdriver'
-  #gem 'chromedriver-helper'
+  gem 'chromedriver-helper'
 
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
@@ -152,8 +154,7 @@ end
 
 group :production do
   # Para despliegue
-  gem 'unicorn', '~> 5.5.0.1.g6836'
-
+  gem 'unicorn'
 
   # Requerido por heroku para usar stdout como bitacora
   gem 'rails_12factor'
