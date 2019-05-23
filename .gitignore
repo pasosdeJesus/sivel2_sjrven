@@ -41,3 +41,10 @@ public/assets/
 app/views/sip/
 coverage
 public/heb412/generados
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
