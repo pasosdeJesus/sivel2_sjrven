@@ -23,7 +23,7 @@ class UsuarioTest < ApplicationSystemTestCase
     @usuario.destroy
   end
 
-  it "autentica con usuario existente en base inicial" do
+  test "autentica con usuario existente en base inicial" do
     @usuario = Usuario.find_by(nusuario: 'sjrven')
     @usuario.password = 'sjrven123'
     visit main_app.new_usuario_session_path 
