@@ -22,7 +22,7 @@ module Cor1440Gen
         :responsable,
         :corresponsables,
         :actividadpf, 
-        :valorcampoact,
+        :respuestafor,
         :descripcion, # ven
         :metodologia, # ven
         :listadoasistencia,
