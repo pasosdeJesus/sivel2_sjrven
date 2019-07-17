@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 92807c4b37e6c7a0c883a9b66f486fa7330a9762
+  revision: 0a19e6d7cee2582bf813faeba9f32084b489dd39
+  branch: sintemas
   specs:
     cor1440_gen (1.0b3)
       devise
@@ -13,7 +14,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: dc7f7f68f668dbf988f1ef87f51128e2477a6975
+  revision: c292d6c1490fd3c74362c83e2557b91891107ece
+  branch: sintemas
   specs:
     heb412_gen (1.0.b6)
       chosen-rails
@@ -25,7 +27,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: cfd26b89ab12af424e9f59f3365f0e73844e9de3
+  revision: 2f093ee860ed3f161dbcbe16fbe44f9dfc14ffc4
+  branch: sintemas
   specs:
     mr519_gen (0.2.0)
       rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
@@ -33,7 +36,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 76eb6a9e994b9786062dac9c63349f4a4d6881ed
+  revision: 4b054fcf0c86b453d0bdc96a8970470a2fd89d43
+  branch: sintemas
   specs:
     sal7711_gen (1.0.b2)
       rails
@@ -41,7 +45,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 37c2a7b226871cb228f49f6498f0c710cae66da9
+  revision: 274530964943928e313453f7522e1a3d34dcb68b
+  branch: sintemas
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -50,6 +55,7 @@ GIT
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
   revision: 6a7f927fde50807da9389f7f9fb3d80e78f585e4
+  branch: sintemas
   specs:
     sip (2.0.b6)
       bootstrap-datepicker-rails
@@ -71,7 +77,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 8c052bc19fe4987436fa94213b70fbcedb2b1c74
+  revision: 0d11d125f65f1613666406494e0c53a604f95f7d
+  branch: sintemas
   specs:
     sivel2_gen (2.0b9)
       devise
@@ -80,7 +87,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: cdf2b096d1345ca033515220131bcad080af6c6e
+  revision: 771864448766afd325981536970e4c8f87bcbda6
+  branch: sintemas
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -167,7 +175,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     bcrypt (3.1.13)
-    bindex (0.7.0)
+    bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.4)
@@ -177,7 +185,7 @@ GEM
     builder (3.2.3)
     camertron-eprun (1.1.1)
     cancancan (3.0.1)
-    capybara (3.25.0)
+    capybara (3.26.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -185,7 +193,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    chartkick (3.2.0)
+    chartkick (3.2.1)
     childprocess (1.0.1)
       rake (< 13.0)
     chromedriver-helper (2.1.1)
@@ -256,7 +264,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
-    mini_mime (1.0.1)
+    mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.3.0)
@@ -297,7 +305,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (3.1.1)
-    puma (4.0.0)
+    puma (4.0.1)
       nio4r (~> 2.0)
     rack (2.0.7)
     rack-proxy (0.6.5)
@@ -344,7 +352,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redcarpet (3.4.0)
-    regexp_parser (1.5.1)
+    regexp_parser (1.6.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -424,7 +432,7 @@ GEM
     will_paginate (3.1.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.1.8)
+    zeitwerk (2.1.9)
 
 PLATFORMS
   ruby
