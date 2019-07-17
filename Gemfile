@@ -65,6 +65,10 @@ gem 'font-awesome-rails'
 
 gem 'chartkick'
 
+# Facilita elegir colores en tema
+gem 'pick-a-color-rails'
+gem 'tiny-color-rails'
+
 # Formularios simples 
 gem 'simple_form'
 
