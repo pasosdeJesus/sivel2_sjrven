@@ -405,7 +405,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    unicorn (5.5.0.1.g6836)
+    unicorn (5.5.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     warden (1.2.8)
@@ -482,9 +482,9 @@ DEPENDENCIES
   twitter_cldr
   tzinfo
   uglifier
-  unicorn (~> 5.5.0.1.g6836)
+  unicorn
   web-console
   will_paginate
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
