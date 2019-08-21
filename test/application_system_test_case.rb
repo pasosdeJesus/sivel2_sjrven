@@ -1,5 +1,4 @@
 require "test_helper"
-require 'capybara/poltergeist'
 
 class NilLogger
     def puts * ; end
@@ -24,9 +23,10 @@ PRUEBA_USUARIO = {
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
-  driven_by :poltergeist, screen_size: [1400, 1400], options: { 
-    js_errors: true,
-    logger: NilLogger.new#,
+  driven_by :selenium, usign: :headless_chrome,
+    screen_size: [1400, 1400], options: { 
+    #js_errors: true,
+    #logger: NilLogger.new#,
 #    phantomjs_logger: STDOUT,
 #    phantomjs_options: ['--debug=true'],
 #    debug: true 

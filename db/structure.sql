@@ -5,6 +5,7 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
@@ -312,39 +313,6 @@ CREATE TABLE public.sivel2_sjr_casosjr (
 
 
 --
--- Name: sivel2_sjr_victimasjr; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sivel2_sjr_victimasjr (
-    sindocumento boolean,
-    id_estadocivil integer DEFAULT 0,
-    id_rolfamilia integer DEFAULT 0 NOT NULL,
-    cabezafamilia boolean,
-    id_maternidad integer DEFAULT 0,
-    discapacitado boolean,
-    id_actividadoficio integer DEFAULT 0,
-    id_escolaridad integer DEFAULT 0,
-    asisteescuela boolean,
-    tienesisben boolean,
-    id_departamento integer,
-    id_municipio integer,
-    nivelsisben integer,
-    id_regimensalud integer DEFAULT 0,
-    eps character varying(1000),
-    libretamilitar boolean,
-    distrito integer,
-    progadultomayor boolean,
-    fechadesagregacion date,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_victima integer NOT NULL,
-    id_pais integer,
-    enfermedad character varying(5000),
-    ndiscapacidad character varying(100)
-);
-
-
---
 -- Name: cben1; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -360,15 +328,11 @@ CREATE VIEW public.cben1 AS
             ELSE 0
         END AS beneficiario,
     1 AS npersona,
-        CASE
-            WHEN victimasjr.cabezafamilia THEN 'SI'::text
-            ELSE 'NO'::text
-        END AS cabezafamilia
+    'total'::text AS total
    FROM public.sivel2_gen_caso caso,
     public.sivel2_sjr_casosjr casosjr,
-    public.sivel2_gen_victima victima,
-    public.sivel2_sjr_victimasjr victimasjr
-  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso) AND (victima.id = victimasjr.id_victima));
+    public.sivel2_gen_victima victima
+  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
 
 
 --
@@ -555,6 +519,23 @@ CREATE TABLE public.sivel2_sjr_desplazamiento (
 
 
 --
+-- Name: ultimodesplazamiento; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public.ultimodesplazamiento AS
+ SELECT sivel2_sjr_desplazamiento.id,
+    s.id_caso,
+    s.fechaexpulsion,
+    sivel2_sjr_desplazamiento.id_expulsion
+   FROM public.sivel2_sjr_desplazamiento,
+    ( SELECT sivel2_sjr_desplazamiento_1.id_caso,
+            max(sivel2_sjr_desplazamiento_1.fechaexpulsion) AS fechaexpulsion
+           FROM public.sivel2_sjr_desplazamiento sivel2_sjr_desplazamiento_1
+          GROUP BY sivel2_sjr_desplazamiento_1.id_caso) s
+  WHERE ((sivel2_sjr_desplazamiento.id_caso = s.id_caso) AND (sivel2_sjr_desplazamiento.fechaexpulsion = s.fechaexpulsion));
+
+
+--
 -- Name: cben2; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -564,21 +545,20 @@ CREATE VIEW public.cben2 AS
     cben1.contacto,
     cben1.beneficiario,
     cben1.npersona,
-    cben1.cabezafamilia,
+    cben1.total,
     ubicacion.id_departamento,
     departamento.nombre AS departamento_nombre,
     ubicacion.id_municipio,
     municipio.nombre AS municipio_nombre,
     ubicacion.id_clase,
     clase.nombre AS clase_nombre,
-    max(sivel2_sjr_desplazamiento.fechaexpulsion) AS max
+    ultimodesplazamiento.fechaexpulsion
    FROM (((((public.cben1
-     LEFT JOIN public.sivel2_sjr_desplazamiento ON ((cben1.id_caso = sivel2_sjr_desplazamiento.id_caso)))
-     LEFT JOIN public.sip_ubicacion ubicacion ON ((sivel2_sjr_desplazamiento.id_expulsion = ubicacion.id)))
+     LEFT JOIN public.ultimodesplazamiento ON ((cben1.id_caso = ultimodesplazamiento.id_caso)))
+     LEFT JOIN public.sip_ubicacion ubicacion ON ((ultimodesplazamiento.id_expulsion = ubicacion.id)))
      LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
      LEFT JOIN public.sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
-     LEFT JOIN public.sip_clase clase ON ((ubicacion.id_clase = clase.id)))
-  GROUP BY cben1.id_caso, cben1.id_persona, cben1.contacto, cben1.beneficiario, cben1.npersona, cben1.cabezafamilia, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
+     LEFT JOIN public.sip_clase clase ON ((ubicacion.id_clase = clase.id)));
 
 
 --
@@ -1744,14 +1724,14 @@ CREATE SEQUENCE public.respuesta_seq
 
 
 --
--- Name: sivel2_sjr_ayudasjr_respuesta; Type: TABLE; Schema: public; Owner: -
+-- Name: sivel2_sjr_aslegal_respuesta; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.sivel2_sjr_ayudasjr_respuesta (
-    id_ayudasjr integer DEFAULT 0 NOT NULL,
+CREATE TABLE public.sivel2_sjr_aslegal_respuesta (
+    id_respuesta integer NOT NULL,
+    id_aslegal integer DEFAULT 0 NOT NULL,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_respuesta integer NOT NULL
+    updated_at timestamp without time zone
 );
 
 
@@ -1809,12 +1789,12 @@ CREATE VIEW public.cres1 AS
  SELECT caso.id AS id_caso,
     respuesta.fechaatencion,
     casosjr.oficina_id,
-    ayudasjr_respuesta.id_ayudasjr
+    aslegal_respuesta.id_aslegal
    FROM public.sivel2_gen_caso caso,
     public.sivel2_sjr_casosjr casosjr,
     public.sivel2_sjr_respuesta respuesta,
-    public.sivel2_sjr_ayudasjr_respuesta ayudasjr_respuesta
-  WHERE ((caso.id = casosjr.id_caso) AND (caso.id = respuesta.id_caso) AND (respuesta.id = ayudasjr_respuesta.id_respuesta));
+    public.sivel2_sjr_aslegal_respuesta aslegal_respuesta
+  WHERE ((caso.id = casosjr.id_caso) AND (caso.id = respuesta.id_caso) AND (respuesta.id = aslegal_respuesta.id_respuesta));
 
 
 --
@@ -2191,7 +2171,8 @@ CREATE TABLE public.mr519_gen_campo (
     nombreinterno character varying(60),
     fila integer,
     columna integer,
-    ancho integer
+    ancho integer,
+    tablabasica character varying(32)
 );
 
 
@@ -2212,6 +2193,41 @@ CREATE SEQUENCE public.mr519_gen_campo_id_seq
 --
 
 ALTER SEQUENCE public.mr519_gen_campo_id_seq OWNED BY public.mr519_gen_campo.id;
+
+
+--
+-- Name: mr519_gen_encuestapersona; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.mr519_gen_encuestapersona (
+    id bigint NOT NULL,
+    persona_id integer,
+    formulario_id integer,
+    fecha date,
+    fechainicio date NOT NULL,
+    fechafin date,
+    adurl character varying(32),
+    respuestafor_id integer
+);
+
+
+--
+-- Name: mr519_gen_encuestapersona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.mr519_gen_encuestapersona_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: mr519_gen_encuestapersona_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.mr519_gen_encuestapersona_id_seq OWNED BY public.mr519_gen_encuestapersona.id;
 
 
 --
@@ -3148,6 +3164,40 @@ CREATE TABLE public.sip_trelacion (
     inverso character varying(2),
     CONSTRAINT trelacion_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
+
+
+--
+-- Name: sip_trivalente; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_trivalente (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sip_trivalente_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sip_trivalente_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_trivalente_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sip_trivalente_id_seq OWNED BY public.sip_trivalente.id;
 
 
 --
@@ -4540,18 +4590,6 @@ CREATE TABLE public.sivel2_sjr_aslegal (
 
 
 --
--- Name: sivel2_sjr_aslegal_respuesta; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sivel2_sjr_aslegal_respuesta (
-    id_respuesta integer NOT NULL,
-    id_aslegal integer DEFAULT 0 NOT NULL,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
 -- Name: sivel2_sjr_aspsicosocial_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -4676,6 +4714,18 @@ CREATE TABLE public.sivel2_sjr_ayudasjr (
 CREATE TABLE public.sivel2_sjr_ayudasjr_derecho (
     ayudasjr_id integer,
     derecho_id integer
+);
+
+
+--
+-- Name: sivel2_sjr_ayudasjr_respuesta; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sivel2_sjr_ayudasjr_respuesta (
+    id_ayudasjr integer DEFAULT 0 NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_respuesta integer NOT NULL
 );
 
 
@@ -5208,6 +5258,39 @@ CREATE TABLE public.sivel2_sjr_tipodesp (
 
 
 --
+-- Name: sivel2_sjr_victimasjr; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sivel2_sjr_victimasjr (
+    sindocumento boolean,
+    id_estadocivil integer DEFAULT 0,
+    id_rolfamilia integer DEFAULT 0 NOT NULL,
+    cabezafamilia boolean,
+    id_maternidad integer DEFAULT 0,
+    discapacitado boolean,
+    id_actividadoficio integer DEFAULT 0,
+    id_escolaridad integer DEFAULT 0,
+    asisteescuela boolean,
+    tienesisben boolean,
+    id_departamento integer,
+    id_municipio integer,
+    nivelsisben integer,
+    id_regimensalud integer DEFAULT 0,
+    eps character varying(1000),
+    libretamilitar boolean,
+    distrito integer,
+    progadultomayor boolean,
+    fechadesagregacion date,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_victima integer NOT NULL,
+    id_pais integer,
+    enfermedad character varying(5000),
+    ndiscapacidad character varying(100)
+);
+
+
+--
 -- Name: vvictimasoundexesp; Type: MATERIALIZED VIEW; Schema: public; Owner: -
 --
 
@@ -5484,6 +5567,13 @@ ALTER TABLE ONLY public.mr519_gen_campo ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
+-- Name: mr519_gen_encuestapersona id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_encuestapersona ALTER COLUMN id SET DEFAULT nextval('public.mr519_gen_encuestapersona_id_seq'::regclass);
+
+
+--
 -- Name: mr519_gen_encuestausuario id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5607,6 +5697,13 @@ ALTER TABLE ONLY public.sip_tdocumento ALTER COLUMN id SET DEFAULT nextval('publ
 --
 
 ALTER TABLE ONLY public.sip_tema ALTER COLUMN id SET DEFAULT nextval('public.sip_tema_id_seq'::regclass);
+
+
+--
+-- Name: sip_trivalente id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_trivalente ALTER COLUMN id SET DEFAULT nextval('public.sip_trivalente_id_seq'::regclass);
 
 
 --
@@ -6397,6 +6494,14 @@ ALTER TABLE ONLY public.mr519_gen_campo
 
 
 --
+-- Name: mr519_gen_encuestapersona mr519_gen_encuestapersona_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_encuestapersona
+    ADD CONSTRAINT mr519_gen_encuestapersona_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: mr519_gen_encuestausuario mr519_gen_encuestausuario_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6789,6 +6894,14 @@ ALTER TABLE ONLY public.sip_tema
 
 
 --
+-- Name: sip_trivalente sip_trivalente_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_trivalente
+    ADD CONSTRAINT sip_trivalente_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: sivel2_gen_actocolectivo sivel2_gen_actocolectivo_id_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7126,6 +7239,13 @@ CREATE INDEX index_cor1440_gen_actividad_sip_anexo_on_anexo_id ON public.cor1440
 --
 
 CREATE INDEX index_heb412_gen_doc_on_tdoc_type_and_tdoc_id ON public.heb412_gen_doc USING btree (tdoc_type, tdoc_id);
+
+
+--
+-- Name: index_mr519_gen_encuestapersona_on_adurl; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_mr519_gen_encuestapersona_on_adurl ON public.mr519_gen_encuestapersona USING btree (adurl);
 
 
 --
@@ -8187,6 +8307,14 @@ ALTER TABLE ONLY public.sal7711_gen_bitacora
 
 
 --
+-- Name: mr519_gen_encuestapersona fk_rails_54b3e0ed5c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_encuestapersona
+    ADD CONSTRAINT fk_rails_54b3e0ed5c FOREIGN KEY (persona_id) REFERENCES public.sip_persona(id);
+
+
+--
 -- Name: cor1440_gen_objetivopf fk_rails_57b4fd8780; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8339,11 +8467,27 @@ ALTER TABLE ONLY public.mr519_gen_valorcampo
 
 
 --
+-- Name: mr519_gen_encuestapersona fk_rails_83755e20b9; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_encuestapersona
+    ADD CONSTRAINT fk_rails_83755e20b9 FOREIGN KEY (respuestafor_id) REFERENCES public.mr519_gen_respuestafor(id);
+
+
+--
 -- Name: sivel2_gen_caso fk_rails_850036942a; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sivel2_gen_caso
     ADD CONSTRAINT fk_rails_850036942a FOREIGN KEY (ubicacion_id) REFERENCES public.sip_ubicacion(id);
+
+
+--
+-- Name: mr519_gen_encuestapersona fk_rails_88eeb03074; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_encuestapersona
+    ADD CONSTRAINT fk_rails_88eeb03074 FOREIGN KEY (formulario_id) REFERENCES public.mr519_gen_formulario(id);
 
 
 --
@@ -9562,6 +9706,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190703044126'),
 ('20190715083916'),
 ('20190715182611'),
-('20190718032712');
+('20190718032712'),
+('20190726203302'),
+('20190804223012'),
+('20190818013251');
 
 

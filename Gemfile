@@ -148,7 +148,6 @@ group :test do
   gem 'spring'
   gem 'simplecov'
   gem 'capybara'
-  gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 
