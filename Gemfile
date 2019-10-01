@@ -1,123 +1,79 @@
 source 'https://rubygems.org'
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" } 
 
-ruby '~> 2.6.0'
+ruby '>= 2.6.0'
 
-# Rails (internacionalización)
-gem 'rails', '~> 6.0.0.rc1'
 
-gem 'rails-i18n'
+gem 'bcrypt'
 
 gem 'bootsnap', '>=1.1.0', require: false
 
-# Colores en terminal
-gem 'colorize'
-
-# Servidor web
-gem 'puma'
-
-gem 'redcarpet'
-
-# Cuadros de selección para búsquedas
-gem 'chosen-rails', git: 'https://github.com/vtamara/chosen-rails.git', branch: 'several-fixes'
-
-# Generación de PDF
-gem 'prawn'
-gem 'prawnto_2',  :require => 'prawnto'
-gem 'prawn-table'
-
-# Plantilla ODT
-gem 'odf-report'
-
-
-# Plantilla ODS
-#gem 'rspreadsheet', path: '../rspreadsheet'
-gem 'rspreadsheet'
-gem 'libxml-ruby'
-
-# Postgresql
-gem 'pg'
-
-# API JSON facil. Ver: https://github.com/rails/jbuilder
-gem 'jbuilder'
-
-gem 'sass-rails'
-
-gem 'webpacker'
-
-# Uglifier comprime recursos Javascript
-gem 'uglifier'
-
-# CoffeeScript para recuersos .js.coffee y vistas
-gem 'coffee-rails'
-
-# jquery como librería JavaScript
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-
-# Seguir enlaces más rápido. Ver: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
-# Ambiente de CSS
-gem 'twitter-bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
-gem 'font-awesome-rails'
+
+gem 'cancancan'
 
 gem 'chartkick'
 
-# Facilita elegir colores en tema
-gem 'pick-a-color-rails'
-gem 'tiny-color-rails'
+gem 'chosen-rails', git: 'https://github.com/vtamara/chosen-rails.git', branch: 'several-fixes' # Cuadros de selección para búsquedas
 
-# Formularios simples 
-gem 'simple_form'
+gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax' # Formularios anidados (algunos con ajax)
 
-# Formularios anidados (algunos con ajax)
-gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax'
+gem 'coffee-rails' # CoffeeScript para recuersos .js.coffee y vistas
 
+gem 'colorize' # Colores en terminal
 
-# Autenticación y roles
-gem 'devise'
+# Motor Cor1440_gen
+gem 'cor1440_gen', git: 'https://github.com/pasosdeJesus/cor1440_gen.git'
+#gem 'cor1440_gen', path: '../cor1440_gen'
+
+gem 'devise' # Autenticación 
+
 gem 'devise-i18n'
-gem 'cancancan'
-gem 'bcrypt'
 
-# Listados en páginas
-gem 'will_paginate'
-
-# ICU con CLDR
-gem 'twitter_cldr'
-
-# Maneja adjuntos
-gem 'paperclip'
-
-# Zonas horarias
-gem 'tzinfo'
-
-# Motor SIP
-gem 'sip', git: 'https://github.com/pasosdeJesus/sip.git'
-#gem 'sip', path: '../sip'
+gem 'font-awesome-rails'
 
 # Motor de nube y plantillas
 gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git'
 #gem 'heb412_gen', path: '../heb412_gen'
 
+gem 'jbuilder' # API JSON facil. 
+
+gem 'jquery-rails' # jquery como librería JavaScript 
+
+gem 'jquery-ui-rails'
+
+gem 'libxml-ruby'
+
 # Motor de formularios
 gem 'mr519_gen', git: 'https://github.com/pasosdeJesus/mr519_gen.git'
 #gem 'mr519_gen', path: '../mr519_gen'
 
+gem 'odf-report', git: 'https://github.com/vtamara/odf-report.git', branch: 'rubyzip-1.3' # Genera ODT
 
-# Motor de SIVeL 2
-gem 'sivel2_gen', git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
-#gem 'sivel2_gen', path: '../sivel2_gen'
+gem 'paperclip' # Maneja adjuntos
 
-# Motor de SIVeL 2 - SJR
-gem 'sivel2_sjr', git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
-#gem 'sivel2_sjr', path: '../sivel2_sjr'
+gem 'pick-a-color-rails' # Facilita elegir colores en tema 
 
-# Motor Cor1440_gen
-gem 'cor1440_gen', git: 'https://github.com/pasosdeJesus/cor1440_gen.git'
-#gem 'cor1440_gen', path: '../cor1440_gen'
+gem 'pg' # Postgresql
+
+gem 'prawn' # Generación de PDF
+
+gem 'prawnto_2',  :require => 'prawnto'
+
+gem 'prawn-table'
+
+gem 'puma'# Servidor web
+
+gem 'rails', '~> 6.0.0.rc1' # Rails 
+
+gem 'rails-i18n'
+
+gem 'redcarpet'
+
+gem 'rspreadsheet'
+
+gem 'rubyzip', '>=2.0.0'
 
 # Motor Sal7711_gen
 gem 'sal7711_gen', git: 'https://github.com/pasosdeJesus/sal7711_gen.git'
@@ -127,38 +83,74 @@ gem 'sal7711_gen', git: 'https://github.com/pasosdeJesus/sal7711_gen.git'
 gem 'sal7711_web', git: 'https://github.com/pasosdeJesus/sal7711_web.git'
 #gem 'sal7711_web', path: '../sal7711_web'
 
+gem 'sass-rails'
 
+gem 'simple_form' # Formularios simples 
 
-# Los siguientes son para desarrollo o para pruebas con generadores
-group :development do
-  # Consola irb en páginas con excepciones o usando <%= console %> en vistasA
-  gem 'web-console'
+# Motor SIP
+gem 'sip', git: 'https://github.com/pasosdeJesus/sip.git'
+#gem 'sip', path: '../sip'
 
-end
+# Motor de SIVeL 2
+gem 'sivel2_gen', git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
+#gem 'sivel2_gen', path: '../sivel2_gen'
 
-# Los siguientes son para desarrollo o para pruebas con generadores
-group :development, :test do
-  # Depurar
-  #gem 'byebug'
-  gem 'minitest'
-end
+# Motor de SIVeL 2 - SJR
+gem 'sivel2_sjr', git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
+#gem 'sivel2_sjr', path: '../sivel2_sjr'
+
+gem 'tiny-color-rails'
+
+gem 'turbolinks' # Seguir enlaces más rápido. 
+
+gem 'twitter-bootstrap-rails' # Ambiente de CSS
+
+gem 'twitter_cldr' # ICU con CLDR
+
+gem 'tzinfo' # Zonas horarias
+
+gem 'uglifier' # Uglifier comprime recursos Javascript
+
+gem 'webpacker'
+
+gem 'will_paginate'
  
-# Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo
+
+
+
+group :development do
+  
+  gem 'web-console' # Consola irb en páginas 
+
+end
+
+
+group :development, :test do
+  
+  #gem 'byebug' # Depurar
+  
+end
+
+
 group :test do
-  gem 'spring'
-  gem 'simplecov'
+
   gem 'capybara'
-  gem 'selenium-webdriver'
+
   gem 'chromedriver-helper'
 
-  gem 'pry-rescue'
-  gem 'pry-stack_explorer'
+  gem 'minitest'
+
+  gem 'selenium-webdriver'
+
+  gem 'simplecov'
+
+  gem 'spring'
+
 end
 
-group :production do
-  # Para despliegue
-  gem 'unicorn'
 
-  # Requerido por heroku para usar stdout como bitacora
-  gem 'rails_12factor'
+group :production do
+  
+  gem 'unicorn' # Para despliegue
+
 end
