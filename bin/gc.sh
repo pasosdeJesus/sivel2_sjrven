@@ -54,9 +54,17 @@ if (test "$SINAC" != "1") then {
 	if (test "$?" != "0") then {
 		exit 1;
 	} fi;
+	CXX=c++ yarn upgrade
+	if (test "$?" != "0") then {
+		exit 1;
+	} fi;
 } fi;
 if (test "$SININS" != "1") then {
 	NOKOGIRI_USE_SYSTEM_LIBRARIES=1 MAKE=gmake make=gmake QMAKE=qmake4 bundle install
+	if (test "$?" != "0") then {
+		exit 1;
+	} fi;
+	CXX=c++ yarn install
 	if (test "$?" != "0") then {
 		exit 1;
 	} fi;
@@ -68,7 +76,7 @@ if (test "$SINMIG" != "1") then {
 	} fi;
 } fi;
 
-RAILS_ENV=test bundle exec rake db:drop db:setup db:migrate sip:indices
+RAILS_ENV=test bundle exec rake db:drop db:setup; RAILS_ENV=test bin/rails db:migrate sip:indices
 if (test "$?" != "0") then {
 	echo "No puede preparse base de prueba";
 	exit 1;
