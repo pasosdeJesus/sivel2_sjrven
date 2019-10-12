@@ -96,7 +96,10 @@ gem 'sivel2_gen', git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
 #gem 'sivel2_gen', path: '../sivel2_gen'
 
 # Motor de SIVeL 2 - SJR
-gem 'sivel2_sjr', git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
+gem 'sivel2_sjr', 
+  git: 'https://github.com/pasosdeJesus/sivel2_sjr.git',
+  branch: 'antes-respactividad'
+
 #gem 'sivel2_sjr', path: '../sivel2_sjr'
 
 gem 'tiny-color-rails'
