@@ -265,7 +265,7 @@ CREATE TABLE public.sivel2_gen_victima (
     id_vinculoestado integer DEFAULT 38 NOT NULL,
     organizacionarmada integer DEFAULT 35 NOT NULL,
     anotaciones character varying(1000),
-    id_etnia integer DEFAULT 1,
+    id_etnia integer DEFAULT 1 NOT NULL,
     id_iglesia integer DEFAULT 1,
     orientacionsexual character(1) DEFAULT 'S'::bpchar NOT NULL,
     created_at timestamp without time zone,
@@ -9935,6 +9935,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190926133640'),
 ('20190926143845'),
 ('20190926165901'),
-('20190926170423');
+('20190926170423'),
+('20191001021851'),
+('20191012003202'),
+('20191012042159');
 
 

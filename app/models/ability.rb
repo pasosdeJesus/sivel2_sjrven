@@ -185,6 +185,8 @@ class Ability < Sivel2Sjr::Ability
         can :manage, Heb412Gen::Plantillahcr
         can :manage, Heb412Gen::Plantilladoc
 
+        can :manage, Mr519Gen::Formulario
+
         can :manage, Sal7711Gen::Articulo
 
         can :manage, Sip::Actorsocial
