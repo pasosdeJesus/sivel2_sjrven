@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: dffb66b9befef6bffcd4614e3ad27b80626e2643
+  revision: 6071a5467a50c9af9bcb3e7ea2d36da57a9c1d2e
   specs:
     cor1440_gen (1.0b3)
       devise
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 503dc91bd599e1a3791059d838c610c17a4fc4df
+  revision: 4cf49ed75b80e271d4f3dc367fe485a2927faace
   specs:
     heb412_gen (1.0.b6)
       chosen-rails
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: 18fbc5ec50580c62e4be421d9e08570a34c507ec
+  revision: dac1490e4d643b7d218717b88ddcf10eaf8c61af
   specs:
     mr519_gen (0.2.0)
       rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
@@ -49,7 +49,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 8a2c80636e6f4ed5a1bedb66394c7304f287fee6
+  revision: d9f85765f75f31e09e9ba1f6ac2b0711b85d777a
   specs:
     sip (2.0.b6)
       bootstrap-datepicker-rails
@@ -71,7 +71,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: d6f929c93414e756567ba8b9dc668c24772d41eb
+  revision: de1e9c978aa77225d21127d95f8ed31c5c9ad269
   specs:
     sivel2_gen (2.0b9)
       devise
@@ -80,9 +80,9 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 7f3fc84aae4f35e0cc6bc9ce41b5784362026313
+  revision: 54e3f017471718e3dabf862d73f1de0986d513f3
   specs:
-    sivel2_sjr (2.0.b1)
+    sivel2_sjr (2.0b10)
       rails
       sivel2_gen
 
@@ -182,6 +182,7 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
+    byebug (11.0.1)
     camertron-eprun (1.1.1)
     cancancan (3.0.1)
     capybara (3.29.0)
@@ -404,7 +405,7 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
-    will_paginate (3.2.0)
+    will_paginate (3.2.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.2.0)
@@ -416,6 +417,7 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
+  byebug
   cancancan
   capybara
   chartkick
