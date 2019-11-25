@@ -54,7 +54,10 @@ module Sivel2Sjrven
     config.x.cor1440_permisos_por_oficina = true
 
     config.x.heb412_ruta = Rails.root.join('public', 'heb412') 
-    
+
+
+    config.hosts << ENV['CONFIG_HOSTS'] || '127.0.0.1'
+
     #config.web_console.whitelisted_ips = '190.25.163.93'
   end
 end
