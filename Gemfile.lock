@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: d0fa925e75ab79393f9c067d654ef50a9e6909f4
+  revision: 04ecab4b2d5cc77e6aafbd0210c40a8cd5a8357f
   specs:
     cor1440_gen (1.0b3)
       devise
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 0be230a760eacc07b355bd5ad3537d4439cc55ce
+  revision: 5222187aa9d47a0ed36872325c7b70e35a26a389
   specs:
     heb412_gen (1.0.b6)
       mr519_gen
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: c348acf478f6e9969e3be91b75a89a08c337269c
+  revision: fbd24f3eefc7676a48a8988c94c0255c3a9bb797
   specs:
     mr519_gen (0.2.0)
       rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: f8943a9748de387c36a8a9e5a6325978394396c1
+  revision: 7c63f769bcaca20eba77130fe9b69d28384d31c4
   specs:
     sal7711_gen (1.0.b2)
       rails
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 031a9aa060d8f7b41834648e4559241c4c847b02
+  revision: ac101701a24ab8d9c1000b78487b55fb9e38e3f8
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 6ffb355626f4c358c0c337f6a6d05c221e3f26d3
+  revision: a7afb9f3b2e93d38ea875515909a100b71a92146
   specs:
     sip (2.0.b10)
       cancancan
@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 0e1c263ca46a44b041e69a610a91d71656d96501
+  revision: d255567512786f2c9f85a6c3ad674ef093bb69ab
   specs:
     sivel2_gen (2.0b10)
       devise
@@ -74,7 +74,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 0099e1b1224a6676534d9e971a81f2608d05485b
+  revision: a07e4a9eaf07174b67af2386355d3420cb540c15
   specs:
     sivel2_sjr (2.0b10)
       rails
@@ -157,7 +157,7 @@ GEM
     builder (3.2.4)
     camertron-eprun (1.1.1)
     cancancan (3.1.0)
-    capybara (3.31.0)
+    capybara (3.32.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -192,7 +192,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.0)
+    devise-i18n (1.9.1)
       devise (>= 4.7.1)
     docile (1.3.2)
     erubi (1.9.0)
@@ -338,7 +338,7 @@ GEM
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicorn (5.5.4)
       kgio (~> 2.6)
