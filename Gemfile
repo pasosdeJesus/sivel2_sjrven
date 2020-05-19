@@ -14,33 +14,33 @@ gem 'chartkick'
 
 gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax' # Formularios anidados (algunos con ajax)
 
-gem 'coffee-rails' # CoffeeScript para recuersos .js.coffee y vistas
+gem 'coffee-rails' , '>= 5.0.0' # CoffeeScript para recuersos .js.coffee y vistas
 
-gem 'devise' # Autenticación 
+gem 'devise' , '>= 4.7.1' # Autenticación 
 
-gem 'devise-i18n'
+gem 'devise-i18n', '>= 1.9.1'
 
-gem 'jbuilder' # API JSON facil. 
+gem 'jbuilder' , '>= 2.10.0' # API JSON facil. 
 
 gem 'libxml-ruby'
 
 gem 'odf-report' # Genera ODT
 
-gem 'paperclip' # Maneja adjuntos
+gem 'paperclip' , '>= 6.1.0' # Maneja adjuntos
 
 gem 'pg' # Postgresql
 
 gem 'prawn' # Generación de PDF
 
-gem 'prawnto_2',  :require => 'prawnto'
+gem 'prawnto_2', '>= 0.3.0', :require => 'prawnto'
 
 gem 'prawn-table'
 
 gem 'puma'# Servidor web
 
-gem 'rails', '~> 6.0.0.rc1' # Rails 
+gem 'rails', '~> 6.0.3.1' # Rails 
 
-gem 'rails-i18n'
+gem 'rails-i18n', '>= 6.0.0'
 
 gem 'redcarpet'
 
@@ -48,15 +48,15 @@ gem 'rspreadsheet'
 
 gem 'rubyzip', '>=2.0.0'
 
-gem 'sassc-rails'
+gem 'sassc-rails', '>= 2.1.2'
 
-gem 'simple_form' # Formularios simples 
+gem 'simple_form' , '>= 5.0.2' # Formularios simples 
 
 gem 'twitter_cldr' # ICU con CLDR
 
 gem 'tzinfo' # Zonas horarias
 
-gem 'webpacker'
+gem 'webpacker', '>= 5.1.1'
 
 gem 'will_paginate'
  
@@ -100,7 +100,7 @@ gem 'sivel2_sjr', # Motor Atención a casos
 
 group :development do
   
-  gem 'web-console' # Consola irb en páginas 
+  gem 'web-console' , '>= 4.0.2' # Consola irb en páginas 
 
   gem 'colorize' # Colores en terminal
 
