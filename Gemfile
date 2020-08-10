@@ -10,7 +10,7 @@ gem 'bootsnap', '>=1.1.0', require: false
 
 gem 'cancancan'
 
-gem 'chartkick'
+gem 'chartkick', '>= 3.4.0'
 
 gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax' # Formularios anidados (algunos con ajax)
 
